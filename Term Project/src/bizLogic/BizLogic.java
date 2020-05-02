@@ -19,7 +19,7 @@ public class BizLogic {
 			break;
 		}
 	}
-	
+
 	
 	
 }

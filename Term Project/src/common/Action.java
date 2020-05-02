@@ -1,5 +1,7 @@
 package common;
 
+import java.util.ArrayList;
+
 public class Action {
 
 	public static final String LOGIN = "login";
@@ -25,13 +27,30 @@ public static boolean isFlightFull() {
 
 public static void bookAFlight() {
 	
-	//select a flight
+	//select a flight	
+	boolean flightfull = false;
+	boolean flightfull = isFlightFull();
 	
-	
-	
-	
-		boolean fullFlight = isFlightFull();
+	if (flightfull) {	
+		//needs to pick anew flight
 		
-		
+	}
+	
+	else
+		//needs to send over to dbqueries to get other flight info.
+
+
+
 } 
+//cannot book flight more than once
+public boolean isflightbooked(int a) {
+	
+	//needs to open connection to db
+	boolean alreadybooked = false;
+	
+	for (int i = 0; i<Customer.getflights().length();i++ )
+		if (Customer.getflights[i].equals(a));
+			alreadybooked = true
+	
+		return alreadybooked;
 }
