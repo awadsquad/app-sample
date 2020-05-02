@@ -1,5 +1,7 @@
 package common;
 
+import java.util.ArrayList;
+
 public class Customer {
 
 	
@@ -15,6 +17,9 @@ public class Customer {
 	public Customer() {
 		flights = new ArrayList<>();
 	}
+	
+	
+	//getters and setters
 	public String getFirstName() {
 		return firstName;
 	}
