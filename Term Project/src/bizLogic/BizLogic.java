@@ -1,6 +1,7 @@
 package bizLogic;
 import common.Action;
 import common.Customer;
+import database.DBQueries;
 
 public class BizLogic {
 
