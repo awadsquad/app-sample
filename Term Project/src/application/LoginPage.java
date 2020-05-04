@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import common.Customer;
+import common.Action;
 
 public class LoginPage implements ControlledScreen {
 	
@@ -23,8 +25,9 @@ public class LoginPage implements ControlledScreen {
 	}
 	
 	@FXML
-	private void loginButtonPushed(ActionEvent event) {
-
+	public void loginButtonPushed(ActionEvent event) {
+		
+		
 		boolean loginAccepted = true;
 		if (loginAccepted) {
 
@@ -36,7 +39,7 @@ public class LoginPage implements ControlledScreen {
 	}
 	//Takes user to Create Account Page
 	@FXML
-	private void createAccountPushed(ActionEvent event) throws Exception{
+	public void createAccountPushed(ActionEvent event) throws Exception{
 		
 		myController.setScreen(Main.createAccountID);
 		
@@ -58,11 +61,12 @@ public class LoginPage implements ControlledScreen {
 		Label label1 = new Label();
 		label.setText(/*Customer.securityQuestion*/"");
 		TextField input = new TextField();
-		String answer = input.getText();
-		String correct = "Hello";//Customer.answer;
+		String correct = "1234";//Customer.answer;
 		Button submitButton = new Button("Submit");
-		submitButton.setOnAction(e -> {if (answer.equals(correct)) {
-			label1.setText("Ayyy"/*Customer.password*/);
+		submitButton.setOnAction(e -> {
+			String answer = input.getText();
+			if (answer.equals(correct)) {
+			label1.setText("1234"/*Customer.password*/);
 		} else {
 			label1.setText("Incorrect");
 		}});

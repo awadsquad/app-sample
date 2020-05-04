@@ -15,15 +15,17 @@ public class User {
 	private String city;
 	private String state;
 	private String country;
+	private String securityQuestion;
 	private String securityAnswer;
 	private String action;
+	private String phone;
 	
 	public User () {
 		
 	}
 	
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, 
-			String city,String country, String securityQuestion, String action) {
+			String city, String state, String country, String securityQuestion) {
 		this.firstName = firstName;
 		flights = new ArrayList<>();
 	}
@@ -120,14 +122,13 @@ public class User {
 		this.country = country;
 	}
 	
-	
 
 	public String getSecurityQuestion() {
-		return securityAnswer;
+		return securityQuestion;
 	}
 
 	public void setSecurityQuestion(String securityQuestion) {
-		this.securityAnswer = securityQuestion;
+		this.securityQuestion = securityQuestion;
 	}
 
 	public String getAction() {
@@ -137,6 +138,26 @@ public class User {
 	public void setAction(String action) {
 		this.action = action;
 	}
+	
+
+	public String getSecurityAnswer() {
+		return securityAnswer;
+	}
+
+	public void setSecurityAnswer(String securityAnswer) {
+		this.securityAnswer = securityAnswer;
+	}
+	
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
 	
 
 	//Allows users to add flight

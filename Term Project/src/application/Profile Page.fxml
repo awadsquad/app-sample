@@ -9,50 +9,51 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="550.0" style="-fx-background-color: #ffffff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfilePage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfilePage">
    <children>
-      <VBox prefHeight="448.0" prefWidth="538.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox style="-fx-background-color: #ffffff;">
+            <VBox style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
                <children>
                   <MenuBar style="-fx-background-color: #2196F3;">
-                    <menus>
-                      <Menu mnemonicParsing="false" text="Home">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Home">
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#home" text="Home" />
                               <MenuItem mnemonicParsing="false" onAction="#Logout" text="Logout" />
                            </items>
-                      </Menu>
-                    </menus>
+                        </Menu>
+                     </menus>
                   </MenuBar>
                   <HBox alignment="CENTER" style="-fx-background-color: #2196F3;">
                      <children>
-                        <Label fx:id="profileName" style="-fx-text-fill: #ffffff;" text="Profile Name Method">
+                        <Label fx:id="profileName" prefHeight="35.0" prefWidth="606.0" style="-fx-text-fill: #ffffff;">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
-            <ScrollPane prefHeight="408.0" prefWidth="550.0" style="-fx-background-color: #ffffff;">
+            <ScrollPane prefHeight="408.0" prefWidth="550.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
                <content>
                   <VBox prefHeight="315.0" prefWidth="562.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="312.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="312.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="218.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Man%20Icon.jpg" />
                                  </image>
                               </ImageView>
-                              <VBox alignment="CENTER" style="-fx-background-color: #ffffff;">
+                              <VBox alignment="CENTER" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <HBox alignment="CENTER">
                                        <children>
@@ -62,33 +63,36 @@
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Name:" />
-                                          <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
-                                          <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="fName" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="111.0" style="-fx-text-fill: #757575;" HBox.hgrow="ALWAYS" />
+                                          <Label fx:id="lName" layoutX="62.0" layoutY="10.0" prefHeight="27.0" prefWidth="144.0" style="-fx-text-fill: #757575;" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font></Label>
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Email:" />
-                                          <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="email" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="266.0" style="-fx-text-fill: #757575;" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Address:" />
-                                          <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
-                                          <Label fx:id="state" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
+                                          <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: #757575;" text="Address:" />
+                                          <Label fx:id="city" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="135.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="state" layoutX="78.0" layoutY="10.0" prefHeight="27.0" prefWidth="114.0" style="-fx-text-fill: #757575;" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Phone:" />
-                                          <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="phone" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="255.0" style="-fx-text-fill: #757575;" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="SSN: " />
-                                          <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="225.0" style="-fx-text-fill: #757575;" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -110,4 +114,4 @@
          </children>
       </VBox>
    </children>
-</AnchorPane>
+</VBox>

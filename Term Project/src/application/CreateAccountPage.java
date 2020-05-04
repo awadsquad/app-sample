@@ -4,12 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-public class CreateAccountPage implements ControlledScreen {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import common.Customer;
+
+public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	ScreensController myController;
+	Customer newAccount;
 
 	// All needed page elements
 	@FXML
@@ -31,7 +38,10 @@ public class CreateAccountPage implements ControlledScreen {
 	private TextField phoneInput;
 
 	@FXML
-	private TextField nameInput;
+	private TextField fNameInput;
+	
+	@FXML
+	private TextField lNameInput;
 
 	@FXML
 	private TextField passwordInput;
@@ -41,6 +51,9 @@ public class CreateAccountPage implements ControlledScreen {
 
 	@FXML
 	private TextField stateInput;
+	
+	private String question;
+	
 
 	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Favorite color?",
 			"Favorite food?", "Favorite animal?");
@@ -55,13 +68,36 @@ public class CreateAccountPage implements ControlledScreen {
 		myController.setScreen(Main.loginPageID);
 	}
 
-	public void initialize() {
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		//Fills in choicebox
 		securityQuestions.setItems(securityQuestionsList);
+		
 	}
 
-	/*
-	 * public void create Account() {
-	 * 
-	 * }
-	 */
+	public void createAccount(ActionEvent event) {
+		//Stores account inputs in Customer Object
+		newAccount.setFirstName(fNameInput.getText());
+		newAccount.setLastName(lNameInput.getText());
+		newAccount.setEmail(emailInput.getText());
+		newAccount.setPhone(phoneInput.getText());
+		newAccount.setsSN(sSNInput.getText());
+		newAccount.setUserName(userNameInput.getText());
+		newAccount.setPassword(passwordInput.getText());
+		newAccount.setSecurityQuestion(question);
+		newAccount.setSecurityAnswer(answerInput.getText());
+		newAccount.setState(stateInput.getText());
+		newAccount.setCity(cityInput.getText());
+		
+		System.out.print("Account created");
+		
+	 }
+	//Gets security Question
+	public void getChoice(ActionEvent event) {
+		question = securityQuestions.getValue();
+	
+	}
+	 
 }
