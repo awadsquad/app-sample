@@ -25,3 +25,8 @@
 .label {
 	-fx-text-alignment: center;
 }
+
+.display-label {
+	-fx-font-size: 12;
+	-fx-text-fill: #757575;
+}

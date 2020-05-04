@@ -65,14 +65,14 @@ public class ProfilePage implements ControlledScreen, Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		profileName.setText(user.getUserName());
+		/*profileName.setText(user.getUserName());
 		fName.setText(user.getFirstName());
 		lName.setText(user.getLastName());
 		city.setText(user.getCity());
 		phone.setText(user.getPhone());
 		state.setText(user.getState());
 		email.setText(user.getEmail());
-		sSN.setText(user.getsSN());
+		sSN.setText(user.getsSN());*/
 		
 	}
 	

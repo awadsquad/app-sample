@@ -27,7 +27,7 @@
                   </MenuBar>
                   <HBox alignment="CENTER" style="-fx-background-color: #2196F3;">
                      <children>
-                        <Label fx:id="profileName" prefHeight="35.0" prefWidth="606.0" style="-fx-text-fill: #ffffff;">
+                        <Label fx:id="profileName" alignment="CENTER" contentDisplay="TOP" prefHeight="35.0" prefWidth="606.0" style="-fx-text-fill: #ffffff;" text="Username">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
@@ -63,8 +63,8 @@
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Name:" />
-                                          <Label fx:id="fName" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="111.0" style="-fx-text-fill: #757575;" HBox.hgrow="ALWAYS" />
-                                          <Label fx:id="lName" layoutX="62.0" layoutY="10.0" prefHeight="27.0" prefWidth="144.0" style="-fx-text-fill: #757575;" HBox.hgrow="ALWAYS">
+                                          <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" styleClass="display-label" stylesheets="@application.css" text="First" HBox.hgrow="ALWAYS" />
+                                          <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" styleClass="display-label" stylesheets="@application.css" text="Last" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font size="16.0" />
                                              </font></Label>
@@ -73,26 +73,26 @@
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Email:" />
-                                          <Label fx:id="email" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="266.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="email" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
-                                          <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: #757575;" text="Address:" />
-                                          <Label fx:id="city" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="135.0" style="-fx-text-fill: #757575;" />
-                                          <Label fx:id="state" layoutX="78.0" layoutY="10.0" prefHeight="27.0" prefWidth="114.0" style="-fx-text-fill: #757575;" />
+                                          <Label style="-fx-text-fill: #757575;" text="Address:" />
+                                          <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="city" />
+                                          <Label fx:id="state" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Phone:" />
-                                          <Label fx:id="phone" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="255.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="phone" />
                                        </children>
                                     </HBox>
                                     <HBox spacing="5.0">
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="SSN: " />
-                                          <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="225.0" style="-fx-text-fill: #757575;" />
+                                          <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="xxx-xx-xxxx" />
                                        </children>
                                     </HBox>
                                  </children>
