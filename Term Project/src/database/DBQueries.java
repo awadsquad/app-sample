@@ -74,8 +74,8 @@ public class DBQueries {
 			        ResultSet rs = stmt.executeQuery(query);
 			        while (rs.next()) {
 			            String airportName = rs.getString("airport_name");
-			            String destination = rs.getString("");
-			            int flightNumber = rs.getInt("");
+			            String destination = rs.getString("");//THESE NEED TO BE FILLEDOUT
+			            int flightNumber = rs.getInt("");     //WITH THE COLUMN NAMES
 			            int passengerCount = rs.getInt("");
 			            String date = rs.getString("");
 			            String time = rs.getString("");

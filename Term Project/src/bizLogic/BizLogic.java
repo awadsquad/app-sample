@@ -15,9 +15,7 @@ public class BizLogic {
 		case Action.GET_FLIGHTS:
 			DBQueries.getFlights(co);
 			break;
-		case Action.BOOK_FLIGHT:
-			DBQueries.bookFlight(co);
-			break;
+		
 		}
 	}
 
