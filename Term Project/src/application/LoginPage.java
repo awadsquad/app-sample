@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -59,19 +60,20 @@ public class LoginPage implements ControlledScreen {
 		
 		Label label = new Label();
 		Label label1 = new Label();
-		label.setText(/*Customer.securityQuestion*/"");
+		label.setText("Favorite color?");
 		TextField input = new TextField();
-		String correct = "1234";//Customer.answer;
+		String correct = "red";//Customer.answer;
 		Button submitButton = new Button("Submit");
 		submitButton.setOnAction(e -> {
 			String answer = input.getText();
 			if (answer.equals(correct)) {
-			label1.setText("1234"/*Customer.password*/);
+			label1.setText("Password: " + "1234"/*Customer.password*/);
 		} else {
 			label1.setText("Incorrect");
 		}});
 		
 		VBox layout = new VBox(10);
+		layout.setPadding(new Insets(10, 10, 10, 10));
 		layout.getChildren().addAll(label, input, submitButton, label1);
 		layout.setAlignment(Pos.CENTER);
 		
