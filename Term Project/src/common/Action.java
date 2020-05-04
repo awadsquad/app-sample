@@ -4,28 +4,32 @@ import java.util.ArrayList;
 
 public class Action {
 
-	public static final String LOGIN = "login";
+	/*public static final String LOGIN = "login";
 	public static final String GET_FLIGHTS = "getflight";
-	public static final String BOOK_FLIGHT = "bookflight";
-	public static final String DELETE_FLIGHT = "deleteflight";
-}
+	public static final String BOOK_FLIGHT = "bookflight";*/
 
 
-//method to book a flight
-public static void bookAFlight() {
 	
+	
+	
+//method to book a flight
+public static void bookFlight() {
+	String selectedflight = "null";
 	//select a flight	
 	
-	String selectedflight = "null";//this needs to be changed to  debquerie flight id
-	
+	selectedflight = 
+
 			
+	
 	//call methods
 	if (isFull(selectedflight) || isBooked(selectedflight)) {	
 		//if either of these methods are true, the user needs to select a different flight
 		//user warning should be the selected flight is either full or already booked by you
 		//please select anotuher flight
 		//print this notification and then start method again
-		bookAFlight();//do i need to add this
+		
+		
+		bookFlight();//do i need to add this
 		break;
 	}
 	

@@ -1,11 +1,19 @@
 package common;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Flight {
 
 	private String airlineName;
 	private int flightNumber;
+	private Map<Integer, String>
 	
 	
+	public Flight() {
+		Map<Integer, String> map = new HashMap<>();
+	}
 	
 	
 	//getter and setters

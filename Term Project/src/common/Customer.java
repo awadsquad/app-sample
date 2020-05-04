@@ -17,6 +17,7 @@ public class Customer {
 	public Customer() {
 		flights = new ArrayList<>();
 	}
+
 	
 	
 	//getters and setters
