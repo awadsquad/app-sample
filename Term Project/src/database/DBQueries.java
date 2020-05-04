@@ -33,20 +33,21 @@ public class DBQueries {
 	    try
 	    {	//connection database 
 	        con = DriverManager.getConnection(" ", " ", " "); 
-            
-	        //Statement is used to write queries. Read more about it.
+            Class.forName(" ");
+	        
+	        //Statement to create query
 	        statement = con.createStatement(); 
-	         //the table name is users and userName,password are columns. Fetching all the records and storing in a resultSet.
-	        resultSet = statement.executeQuery("select userName,password from users");
+	         //getting all the records and storing in a resultSet.
+	        resultSet = statement.executeQuery("SELECT username, password FROM world.login_info");
 	        // Until next row is present otherwise it return false
 	        while(resultSet.next()) 
-	        { //fetch the values present in database
+	        { //info from  database
 	         userNameDB = resultSet.getString("userName");
 	         passwordDB = resultSet.getString("password");
 
 	          if(userName.equals(userNameDB) && password.equals(passwordDB))
 	          {
-	             
+	             //LOGIN SUCCESS
 	          }
 	        }
 	    }
@@ -64,17 +65,17 @@ public class DBQueries {
 		
 	}
 		public static void viewFlight(Connection con, String Flight) throws SQLException {
-				//create database connection
-			    Statement stmt = null;
-			    String query = ;alskdjflskdfj //need to input queries here
+			//create database connection
+			Statement stmt = null;
+			String query = ;alskdjflskdfj //need to input queries here
 			    try {
 			    	
 			        stmt = con.createStatement();
 			        ResultSet rs = stmt.executeQuery(query);
 			        while (rs.next()) {
 			            String airportName = rs.getString("airport_name");
-			            String destination = rs.getString("");
-			            int flightNumber = rs.getInt("");
+			            String destination = rs.getString("");//THESE NEED TO BE FILLEDOUT
+			            int flightNumber = rs.getInt("");     //WITH THE COLUMN NAMES
 			            int passengerCount = rs.getInt("");
 			            String date = rs.getString("");
 			            String time = rs.getString("");
@@ -104,9 +105,9 @@ public class DBQueries {
 	            String query = "  ";
 	            
 	              
-	            // Inserting data in database with preparedstatment
+	            // Inserting data in database with preparedstatement
 	            PreparedStatement preparedStmt = con.prepareStatement(query);
-	            preparedStmt.setInt(1, Flight.getAirportName());//are these correct, like the int? or is flight is a string?
+	            preparedStmt.setString(1, Flight.getAirportName());//are these correct, like the int? or is flight is a string?
 	            preparedStmt.setDate(2, );
 	            preparedStmt.setString(3,);
 	            preparedStmt.setString(4, );
