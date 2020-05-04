@@ -77,7 +77,7 @@ public class ScreensController extends StackPane {
 			}
 			return true;
 		} else {
-			System.out.println("Screen hasn't been loaded!!! \n");
+			System.out.println("Screen hasn't been loaded!! \n");
 			return false;
 		}
 	}
