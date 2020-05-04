@@ -3,7 +3,7 @@ package common;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public abstract class User {
+public class User {
 	
 	private String firstName;
 	private String lastName;

@@ -9,11 +9,11 @@ public class BookingPage implements ControlledScreen {
 
 	// Elements on Page
 	@FXML
-    private TextField destinationInput;
-	
+	private TextField destinationInput;
+
 	@FXML
-    private TextField dateInput;
-	
+	private TextField dateInput;
+
 	@FXML
 	private Label airportOutput;
 
@@ -26,11 +26,24 @@ public class BookingPage implements ControlledScreen {
 	ScreensController myController;
 	@FXML
 	private Label flightConfirmation;
-
+	
+	//Sets Initial Screen
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
 
+	// Takes user back to Login Page
+	public void Logout(ActionEvent event) {
+
+		myController.setScreen(Main.loginPageID);
+	}
+
+	// Takes user back to home page
+	public void home(ActionEvent event) {
+
+		myController.setScreen(Main.homePageID);
+	}
+	//Books Flight
 	public void flightConfirmed(ActionEvent event) {
 
 		boolean b = false;

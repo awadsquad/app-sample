@@ -17,7 +17,7 @@
                <children>
                   <MenuBar style="-fx-background-color: #2196F3;">
                      <menus>
-                        <Menu mnemonicParsing="false" text="Home">
+                        <Menu mnemonicParsing="false" text="Menu">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Home" />
                               <MenuItem mnemonicParsing="false" onAction="#Logout" text="Logout" />
@@ -32,9 +32,9 @@
                               <Image url="@Sky%20Image.jpg" />
                            </image>
                         </ImageView>
-                        <Label alignment="TOP_LEFT" layoutX="153.0" layoutY="65.0" text="Welcome To Husky Air">
+                        <Label alignment="TOP_LEFT" layoutX="153.0" layoutY="65.0" style="-fx-text-fill: #ffffff;" text="Welcome To Husky Air">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="System Bold Italic" size="24.0" />
                            </font></Label>
                      </children>
                      <VBox.margin>

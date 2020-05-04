@@ -19,14 +19,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="Back">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Back" />
+                          <MenuItem mnemonicParsing="false" onAction="#Logout" text="Back" />
                         </items>
                       </Menu>
                     </menus>
                   </MenuBar>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label text="Sign Up">
+                        <Label style="-fx-text-fill: #ffffff;" text="Sign Up">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>

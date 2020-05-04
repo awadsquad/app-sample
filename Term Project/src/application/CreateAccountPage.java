@@ -2,6 +2,7 @@ package application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -40,18 +41,27 @@ public class CreateAccountPage implements ControlledScreen {
 
 	@FXML
 	private TextField stateInput;
-	
-	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Favorite color?", "Favorite food?", "Favorite animal?");
+
+	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Favorite color?",
+			"Favorite food?", "Favorite animal?");
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-	
+
+	// Takes user back to Login Page
+	public void Logout(ActionEvent event) {
+
+		myController.setScreen(Main.loginPageID);
+	}
+
 	public void initialize() {
 		securityQuestions.setItems(securityQuestionsList);
 	}
 
-	/*public void create Account() {
-		
-	}*/
+	/*
+	 * public void create Account() {
+	 * 
+	 * }
+	 */
 }

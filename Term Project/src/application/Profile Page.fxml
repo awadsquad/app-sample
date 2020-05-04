@@ -27,9 +27,9 @@
                   </MenuBar>
                   <HBox alignment="CENTER" style="-fx-background-color: #2196F3;">
                      <children>
-                        <Label text="Profile Name Method">
+                        <Label fx:id="profileName" style="-fx-text-fill: #ffffff;" text="Profile Name Method">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="System Bold Italic" size="24.0" />
                            </font></Label>
                      </children>
                      <VBox.margin>

@@ -23,6 +23,5 @@
 }
 
 .label {
-	-fx-text-fill: text-primary-color;
 	-fx-text-alignment: center;
 }

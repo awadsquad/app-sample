@@ -59,9 +59,9 @@ public class LoginPage implements ControlledScreen {
 		label.setText(/*Customer.securityQuestion*/"");
 		TextField input = new TextField();
 		String answer = input.getText();
-		String correct = "cow";//Customer.answer;
+		String correct = "Hello";//Customer.answer;
 		Button submitButton = new Button("Submit");
-		submitButton.setOnAction(e -> {if (answer.contentEquals(correct)) {
+		submitButton.setOnAction(e -> {if (answer.equals(correct)) {
 			label1.setText("Ayyy"/*Customer.password*/);
 		} else {
 			label1.setText("Incorrect");
