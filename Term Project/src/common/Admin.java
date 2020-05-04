@@ -2,12 +2,13 @@ package common;
 
 public class Admin extends Customer{
 
-	// do we need an admin IDnumber?
-	
+	Admin () {
+		super();
+	}
 	
 	public static void deleteFlight(String flightID) {
-	//select flight to be deleted	
-		flightID;
+		//select flight to be deleted	
+		
 	}
 	
 	public static void addFlight(String flightID) {
@@ -16,7 +17,6 @@ public class Admin extends Customer{
 	
 	public static void updateFlight(String flightID) {
 		//select flight to be deleted
-
 	}
 	
 	

@@ -13,20 +13,17 @@ public class Action {
 	
 	
 //method to book a flight
-public static void bookFlight() {
+public static void bookFlight(Customer cust, Flight flight) {
 	String selectedflight = "null";
 	//select a flight	
 	
-	selectedflight = 
-
+	ArrayList<Flights> flights = cust.getFlights();
 			
 	
 	//call methods
-	if (isFull(selectedflight) || isBooked(selectedflight)) {	
-		//if either of these methods are true, the user needs to select a different flight
-		//user warning should be the selected flight is either full or already booked by you
-		//please select anotuher flight
-		//print this notification and then start method again
+	for (int i = 0; i < flights.length; i++) {
+		
+		if (flights[i].)
 		
 		
 		bookFlight();//do i need to add this
@@ -35,7 +32,7 @@ public static void bookFlight() {
 	
 	else {
 		
-		Customer.addflight(selectedflight)
+		Customer.addflight(selectedflight);
 		
 		
 		
