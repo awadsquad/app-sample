@@ -1,0 +1,12 @@
+package application
+
+import javafx.scene.image.*
+import javafx.geometry.*
+import javafx.scene.text.*
+import javafx.scene.control.*
+import javafx.scene.shape.*
+import java.lang.*
+import javafx.scene.layout.*
+import javafx.scene.layout.AnchorPane
+
+component HomePage controlledby application.Home{AnchorPane{prefHeight:343.0,prefWidth:546.0,stylesheets:location"application.css",children:[BorderPane{prefHeight:343.0,prefWidth:546.0,call AnchorPane#bottomAnchor:0.0,call AnchorPane#leftAnchor:0.0,call AnchorPane#rightAnchor:0.0,call AnchorPane#topAnchor:0.0,top:VBox{style:"-fx-background-color: #ffffff;",call BorderPane#alignment:"CENTER",children:[MenuBar{style:"-fx-background-color: #2196F3;",menus:[Menu{mnemonicParsing:false,text:"Home",items:[MenuItem{mnemonicParsing:false,text:"Home"},MenuItem{mnemonicParsing:false,onAction:controllermethod Logout,text:"Logout"}]}]},AnchorPane{prefHeight:200.0,prefWidth:200.0,style:"-fx-background-color: #ffffff;",Insets{bottom:20.0,top:20.0},call VBox#margin:"",children:[ImageView{fitHeight:208.0,fitWidth:546.0,layoutX:85.0,pickOnBounds:true,preserveRatio:true,image:Image{url:location"Sky%20Image.jpg"}},Label{alignment:"TOP_LEFT",layoutX:153.0,layoutY:65.0,text:"Welcome To Husky Air",font:Font{size:24.0}}]}]},center:HBox{alignment:"CENTER",spacing:50.0,call BorderPane#alignment:"CENTER",children:[Button{mnemonicParsing:false,onAction:controllermethod profileButtonPushed,text:"My Profile"},Button{mnemonicParsing:false,onAction:controllermethod bookingButtonPushed,text:"Book"}]}}]}}

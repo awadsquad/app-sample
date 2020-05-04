@@ -15,7 +15,7 @@ public abstract class User {
 	private String city;
 	private String state;
 	private String country;
-	private String securityQuestion;
+	private String securityAnswer;
 	private String action;
 	
 	public User () {
@@ -123,11 +123,11 @@ public abstract class User {
 	
 
 	public String getSecurityQuestion() {
-		return securityQuestion;
+		return securityAnswer;
 	}
 
 	public void setSecurityQuestion(String securityQuestion) {
-		this.securityQuestion = securityQuestion;
+		this.securityAnswer = securityQuestion;
 	}
 
 	public String getAction() {

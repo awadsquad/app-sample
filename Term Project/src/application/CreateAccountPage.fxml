@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="538.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountPage">
+   <children>
+      <BorderPane prefHeight="448.0" prefWidth="538.0" style="-fx-background-color: #2196F3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar style="-fx-background-color: #2196F3;" stylesheets="@application.css">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Back">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Back" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Sign Up">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <ScrollPane style="-fx-background-color: #ffffff;">
+               <content>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="380.0" prefWidth="536.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <VBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Personal Information" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Name:" />
+                                    <TextField fx:id="nameInput" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Email:" />
+                                    <TextField fx:id="emailInput" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Phone:" />
+                                    <TextField fx:id="phoneInput" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="SSN:" />
+                                    <TextField fx:id="sSNInput" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Login Information" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="202.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Username:" />
+                                    <TextField fx:id="userNameInput" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="305.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Password:" />
+                                    <TextField fx:id="passwordInput" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="325.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Security Question:" />
+                                    <ChoiceBox fx:id="securityQuestions" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="513.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Answer:" />
+                                    <TextField fx:id="answerInput" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Address" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="145.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="State" />
+                                    <TextField fx:id="stateInput" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="City:" />
+                                    <TextField fx:id="cityInput" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" text="Submit">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </ScrollPane>
+         </center>
+         <bottom>
+            <Region BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </Region>
+         </bottom></BorderPane>
+   </children>
+</AnchorPane>

@@ -13,13 +13,15 @@ import common.Flight;
 import common.User;
 
 
-
 public class DBQueries {
+	
 	
 	//login
 	public static void login(String userName, String password) throws Exception{
-		String userName = User.getUserName(); //Assign user entered values to temporary variables.
-	    String password = User.getPassword();
+		
+		
+		String userN = userName; //Assign user entered values to temporary variables.
+	    String passW = password;
 
 	    Connection con = null;
 	    Statement statement = null;
@@ -48,9 +50,9 @@ public class DBQueries {
 	          }
 	        }
 	    }
-	        catch(Exception e)
+	        catch(Exception ex)
 	        {
-	          
+	          System.out.print(ex);
 	        }
 	       
 	}
