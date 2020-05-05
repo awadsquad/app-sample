@@ -17,13 +17,13 @@ public class DBQueries {
 	
 	
 	//login
-	public static void login(String userName, String password) throws Exception{
+	public static void login(String a, String b) throws Exception{
 		
 		
-		String userN = userName; //Assign user entered values to temporary variables.
-	    String passW = password;
+		String userN = a; //Assign user entered values to temporary variables.
+	    String passW = b;
 
-	    Connection con = null;
+	    Connection conn = null;
 	    Statement statement = null;
 	    ResultSet resultSet = null;
 
@@ -32,11 +32,13 @@ public class DBQueries {
 
 	    try
 	    {	//connection database 
-	        con = DriverManager.getConnection(" ", " ", " "); 
-            Class.forName(" ");
-	        
-	        //Statement to create query
-	        statement = con.createStatement(); 
+	    	String driver = "com.mysql.cj.jdbc.Driver";
+			String url = "jdbc:mysql://34.67.46.88:3306/";
+			String username = "root";
+			String password = "nA97114780!!";
+			Class.forName(driver);
+			
+			conn = DriverManager.getConnection(url, username, password);
 	         //getting all the records and storing in a resultSet.
 	        resultSet = statement.executeQuery("SELECT username, password FROM world.login_info");
 	        // Until next row is present otherwise it return false
@@ -45,7 +47,7 @@ public class DBQueries {
 	         userNameDB = resultSet.getString("userName");
 	         passwordDB = resultSet.getString("password");
 
-	          if(userName.equals(userNameDB) && password.equals(passwordDB))
+	          if(userN.equals(userNameDB) && passW.equals(passwordDB))
 	          {
 	             //LOGIN SUCCESS
 	          }
@@ -54,15 +56,15 @@ public class DBQueries {
 	        catch(Exception ex)
 	        {
 	          System.out.print(ex);
-	        }
-	       
+	          //close connection
+		    } finally {
+		        { conn.close(); }
+}
+
 	}
-	
-
-
 			
 				
-		
+		/*
 	}
 		public static void viewFlight(Connection con, String Flight) throws SQLException {
 			//create database connection
@@ -128,4 +130,4 @@ public class DBQueries {
 		 //close connection
 	            con.close(); 
 	    } 
-	
+	*/

@@ -13,7 +13,7 @@ public class MainClass {
 	public static Connection getConnection() throws Exception {
 		
 		try {
-			String driver = "com.mysql.jdbc.Driver";
+			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://34.67.46.88:3306/";
 			String username = "root";
 			String password = "nA97114780!!";
