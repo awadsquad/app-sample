@@ -27,6 +27,16 @@ public class User {
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, 
 			String city, String state, String country, String securityQuestion) {
 		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName; 
+		this.email = email; 
+		this.sSN = sSN; 
+		this.password = password; 
+		this.city = city; 
+		this.state = state; 
+		this.country = country; 
+		this.securityQuestion = securityQuestion;
+		
 		flights = new ArrayList<>();
 	}
 
