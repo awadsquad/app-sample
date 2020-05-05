@@ -26,6 +26,8 @@ public class User {
 	
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, 
 			String city, String state, String country, String securityQuestion) {
+		//TODO finish
+		
 		this.firstName = firstName;
 		flights = new ArrayList<>();
 	}
