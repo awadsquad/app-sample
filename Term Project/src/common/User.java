@@ -3,7 +3,7 @@ package common;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class User {
+public abstract class User {
 	
 	private String firstName;
 	private String lastName;
@@ -25,7 +25,7 @@ public class User {
 	}
 	
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, 
-			String city, String state, String country, String securityQuestion) {
+			String city, String state, String country, String securityQuestion, String phone) {
 		//TODO finish
 		
 		this.firstName = firstName;
@@ -38,6 +38,7 @@ public class User {
 		this.state = state; 
 		this.country = country; 
 		this.securityQuestion = securityQuestion;
+		this.phone = phone;
 		
 		flights = new ArrayList<>();
 	}
@@ -180,6 +181,9 @@ public class User {
 	public void removeFlight(Flight booked) {
 		this.flights.remove(booked);
 	}
+	
+	public abstract boolean login();
+	
 	
 	
 	//@Override

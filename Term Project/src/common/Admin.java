@@ -1,6 +1,6 @@
 package common;
 
-public class Admin extends Customer{
+public class Admin extends User{
 
 	Admin () {
 		super();
@@ -17,6 +17,12 @@ public class Admin extends Customer{
 	
 	public static void updateFlight(String flightID) {
 		//select flight to be deleted
+	}
+
+	@Override
+	public boolean login() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

@@ -28,11 +28,11 @@ public class Flight {
 	}
 	
 	//getter and setters
-	public static String getAirportName() {
+	public String getAirportName() {
 		return airportName;
 	}
 
-	public static void setAirportName(String airportName) {
+	public void setAirportName(String airportName) {
 		this.airportName = airportName;
 	}
 

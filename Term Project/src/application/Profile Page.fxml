@@ -25,9 +25,9 @@
                         </Menu>
                      </menus>
                   </MenuBar>
-                  <HBox alignment="CENTER" style="-fx-background-color: #2196F3;">
+                  <HBox alignment="CENTER" prefHeight="68.0" prefWidth="608.0" style="-fx-background-color: #2196F3;">
                      <children>
-                        <Label fx:id="profileName" alignment="CENTER" contentDisplay="TOP" prefHeight="35.0" prefWidth="606.0" style="-fx-text-fill: #ffffff;" text="Username">
+                        <Label alignment="CENTER" contentDisplay="TOP" style="-fx-text-fill: #ffffff;" text="Profile Page">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
@@ -42,75 +42,74 @@
                   </HBox>
                </children>
             </VBox>
-            <ScrollPane prefHeight="408.0" prefWidth="550.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
-               <content>
-                  <VBox prefHeight="315.0" prefWidth="562.0" style="-fx-background-color: #ffffff;">
+            <VBox prefHeight="315.0" prefWidth="562.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="312.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="312.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
+                        <ImageView fitHeight="230.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Man%20Icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="TOP_CENTER" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
                            <children>
-                              <ImageView fitHeight="218.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Man%20Icon.jpg" />
-                                 </image>
-                              </ImageView>
-                              <VBox alignment="CENTER" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
+                              <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="329.0">
                                  <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Basic Information" />
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="5.0">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Name:" />
-                                          <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" styleClass="display-label" stylesheets="@application.css" text="First" HBox.hgrow="ALWAYS" />
-                                          <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" styleClass="display-label" stylesheets="@application.css" text="Last" HBox.hgrow="ALWAYS">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font></Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="5.0">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Email:" />
-                                          <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="email" />
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="5.0">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Address:" />
-                                          <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="city" />
-                                          <Label fx:id="state" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="5.0">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="Phone:" />
-                                          <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="phone" />
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="5.0">
-                                       <children>
-                                          <Label style="-fx-text-fill: #757575;" text="SSN: " />
-                                          <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="xxx-xx-xxxx" />
-                                       </children>
-                                    </HBox>
+                                    <Label fx:id="profileName" style="-fx-text-fill: #757575;" text="Username">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
                                  </children>
-                              </VBox>
+                              </HBox>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2196f3" height="4.0" layoutX="10.0" layoutY="224.0" stroke="#2196f3" strokeType="INSIDE" width="329.0" />
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Name:" />
+                                    <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="First" HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="Last" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Email:" />
+                                    <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="email" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Address:" />
+                                    <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="city" />
+                                    <Label fx:id="state" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Phone:" />
+                                    <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="phone" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="SSN: " />
+                                    <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="xxx-xx-xxxx" />
+                                 </children>
+                              </HBox>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2196f3" height="4.0" stroke="#2196f3" strokeType="INSIDE" width="329.0" />
+                              <AnchorPane prefHeight="87.0" prefWidth="329.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Button layoutX="112.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="My Flights" textFill="WHITE" />
+                                 </children>
+                              </AnchorPane>
                            </children>
-                           <padding>
-                              <Insets left="20.0" />
-                           </padding>
-                        </HBox>
-                        <AnchorPane style="-fx-background-color: #ffffff;">
-                           <children>
-                              <Label layoutX="94.0" layoutY="14.0" style="-fx-text-fill: #757575;" text="Your Flights" />
-                           </children>
-                        </AnchorPane>
+                        </VBox>
                      </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </VBox>
    </children>

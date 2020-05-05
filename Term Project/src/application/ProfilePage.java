@@ -15,15 +15,14 @@ import java.util.ResourceBundle;
 
 import common.Customer;
 
-public class ProfilePage implements ControlledScreen, Initializable{
+public class ProfilePage implements ControlledScreen, Initializable {
 
 	ScreensController myController;
-	
 
-	//Page elements
+	// Page elements
 	@FXML
-    private Label profileName;
-	
+	private Label profileName;
+
 	@FXML
 	private Label lName;
 
@@ -44,7 +43,7 @@ public class ProfilePage implements ControlledScreen, Initializable{
 
 	@FXML
 	private Label sSN;
-	
+
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
@@ -59,33 +58,29 @@ public class ProfilePage implements ControlledScreen, Initializable{
 	public void home(ActionEvent event) {
 
 		myController.setScreen(Main.homePageID);
-		
+
 	}
-	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		Customer user = new Customer("John", "Smith", "jsmith15","jsmith@gmail.com", "678-05-5378", "1234", "Atlanta", "GA", "USA", "Favorite color?");
-		
+
+		Customer user = new Customer("John", "Smith", "jsmith15", "jsmith@gmail.com", "678-05-5378", "1234", "Atlanta",
+				"GA", "USA", "Favorite color?", "404-678-9043");
+
 		try {
-		profileName.setText(user.getUserName());
-		fName.setText(user.getFirstName());
-		lName.setText(user.getLastName());
-		city.setText(user.getCity());
-		phone.setText(user.getPhone());
-		state.setText(user.getState());
-		email.setText(user.getEmail());
-		sSN.setText(user.getsSN());
+			profileName.setText(user.getUserName());
+			fName.setText(user.getFirstName());
+			lName.setText(user.getLastName());
+			city.setText(user.getCity());
+			phone.setText(user.getPhone());
+			state.setText(user.getState());
+			email.setText(user.getEmail());
+			sSN.setText(user.getsSN());
 		} catch (Exception ex) {
 			System.out.println("Display issue");
 			System.out.println(ex);
 		}
-		
+
 	}
-	
-	
-	
-	
 
 }

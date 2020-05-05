@@ -37,7 +37,6 @@ public class Main extends Application {
 			mainContainer.loadScreen(Main.homePageID, homePageFile);
 			mainContainer.loadScreen(Main.profilePageID, profilePageFile);
 			mainContainer.loadScreen(Main.bookingPageID, bookingPageFile);
-			
 			mainContainer.setScreen(Main.loginPageID);
 			
 			Group root = new Group();
