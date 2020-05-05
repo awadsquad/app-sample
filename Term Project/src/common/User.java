@@ -29,6 +29,16 @@ public class User {
 		//TODO finish
 		
 		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName; 
+		this.email = email; 
+		this.sSN = sSN; 
+		this.password = password; 
+		this.city = city; 
+		this.state = state; 
+		this.country = country; 
+		this.securityQuestion = securityQuestion;
+		
 		flights = new ArrayList<>();
 	}
 
