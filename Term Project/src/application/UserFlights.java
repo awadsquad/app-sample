@@ -1,12 +1,17 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import common.Flight;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class UserFlights {
+public class UserFlights implements Initializable{
 
 	//Variables
 		ScreensController myController;
@@ -20,14 +25,29 @@ public class UserFlights {
 		
 		@FXML
 		private TableColumn<ListenerFlight, String> destination;
+		@FXML
 		private TableColumn<ListenerFlight, String> date;
+		@FXML
 		private TableColumn<ListenerFlight, String> time;
+		@FXML
 		private TableColumn<ListenerFlight, String> passengerCount;
+
+		@Override
+		public void initialize(URL location, ResourceBundle resources) {
+			destination.setCellValueFactory(new PropertyValueFactory<ListenerFlight, String>(" "));
+			
+			tableView.setItems();
+			
+		}
 		
+		public ObservableList<ListenerFlight> getFlights() {
+			ObservableList<ListenerFlight>
+		}
 		
 		
 	}
-
+	
+	//Makes flight object into a listener type
 	class ListenerFlight {
 		
 
@@ -42,6 +62,7 @@ public class UserFlights {
 			
 		}
 
+		//Getters and Setters
 		public SimpleStringProperty getDestination() {
 			return destination;
 		}

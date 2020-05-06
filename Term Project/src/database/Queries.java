@@ -49,10 +49,9 @@ public class Queries {
 		try {
 			
 			Connection con = ConnectionMethod.getConnection();
-			PreparedStatement insert = con.prepareStatement("INSERT INTO customer_info (first_name, last_name, username, password, address, zipcode, city, state, phone, email, "
-					+ "status, ssn, securtity_question, security_answer)" + "VALUES ('" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
-					"', '" + cust.getAddress() + "', '" + cust.getZipcode() + "', '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
-					+ "', '" + cust.getState() + "', '" + cust.getsSN() + "', '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"';");
+			PreparedStatement insert = con.prepareStatement("INSERT INTO `world`.`customer_info` VALUES (6,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
+					"', '" + cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
+					+ "', '" + cust.getState() + "', " + cust.getsSN() + ", '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"';");
 			insert.executeUpdate();
 			
 		} catch (Exception ex) {
@@ -61,4 +60,7 @@ public class Queries {
 
 
 	}
+	
+//	//"INSERT INTO `world`.`customer_info` (`first_name`, `last_name`, `username`, `password`, `address`, `zipcode`, `city`, `state`, `phone`, `email`, "
+//	+ "`status`, `ssn`, `security_question`, `security_answer`)"
 }
