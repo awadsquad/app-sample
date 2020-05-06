@@ -33,6 +33,8 @@
                         </TextField>
                         <Label style="-fx-text-fill: #757575;" text="Depature Date" />
                         <TextField fx:id="dateInput" prefHeight="39.0" prefWidth="150.0" promptText="MM/DD/YYYY" />
+                        <Label style="-fx-text-fill: #757575;" text="Time" />
+                        <TextField promptText="00:00 AM/PM" />
                         <Button mnemonicParsing="false" onAction="#flightConfirmed" text="Book">
                            <VBox.margin>
                               <Insets top="20.0" />

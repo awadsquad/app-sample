@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="350.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserFlights">
+   <children>
+      <Label layoutX="37.0" layoutY="14.0" text="Your Flights" />
+      <Button layoutX="504.0" layoutY="347.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Back" />
+      <TableView layoutX="10.0" layoutY="48.0" prefHeight="297.0" prefWidth="580.0">
+        <columns>
+          <TableColumn prefWidth="149.0" text="Destination" />
+          <TableColumn minWidth="1.0" prefWidth="106.0" text="Date" />
+            <TableColumn prefWidth="96.0" text="Time" />
+            <TableColumn prefWidth="228.0" text="Number of Passengers" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
