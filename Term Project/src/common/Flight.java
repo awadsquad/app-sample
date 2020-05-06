@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class Flight {
 
-	private String airportName;
 	private String destination;
 	private int flightNumber;
 	private int passengerCount;
@@ -17,25 +16,17 @@ public class Flight {
 		
 	}
 	
-	Flight(String airportName, String destination, int flightNumber, int passengerCount, String date) {
+	Flight(String destination, int flightNumber, int passengerCount, String date, String time) {
 		
-		this.airportName = airportName;
 		this.destination = destination;
 		this.flightNumber = flightNumber;
 		this.passengerCount = passengerCount;
 		this.date = date;
+		this.time = time;
 		
 	}
 	
 	//getter and setters
-	public String getAirportName() {
-		return airportName;
-	}
-
-	public void setAirportName(String airportName) {
-		this.airportName = airportName;
-	}
-
 	public String getDestination() {
 		return destination;
 	}
@@ -56,6 +47,10 @@ public class Flight {
 		return passengerCount;
 	}
 	
+	public int setPassengerCount(int passengerCount) {
+		this.passengerCount = passengerCount;
+	}
+	
 	public String getDate() {
 		return date;
 	}
@@ -64,6 +59,15 @@ public class Flight {
 		this.date = date;
 	}
 	
+	
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	//adds passenger to flight
 	public boolean addPassenger(int passengerCount) {
 		if (this.passengerCount < 10) {
