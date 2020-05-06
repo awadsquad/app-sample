@@ -11,5 +11,5 @@ import common.Flight;
 import exceptions.LoginException;
 
 public class Queries {
-
+	
 }

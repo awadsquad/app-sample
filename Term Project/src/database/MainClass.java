@@ -14,7 +14,7 @@ public class MainClass {
 		
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://34.67.46.88:3306/";
+			String url = "jdbc:mysql://34.67.46.88:3306/world";
 			String username = "root";
 			String password = "nA97114780!!";
 			Class.forName(driver);

@@ -14,10 +14,8 @@ public abstract class User {
 	private ArrayList<Flight> flights;
 	private String city;
 	private String state;
-	private String country;
 	private String securityQuestion;
 	private String securityAnswer;
-	private String action;
 	private String phone;
 	
 	public User () {
