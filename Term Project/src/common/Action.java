@@ -124,7 +124,8 @@ public class Action {
 			
 	//create database connection
 	String query = DBQueries.viewAllFlights();
-			    try {
+//this i sdumb
+	{
 			    	Connection con = ConnectionMethod.getConnection();
 			        Statement stmt = con.createStatement();
 			        ResultSet rs = stmt.executeQuery(query);
