@@ -16,118 +16,88 @@ import common.User;
 public class DBQueries {
 	
 	
-	//login
-	public static void login(String a, String b) throws Exception{
-		
-		
-		String userN = a; //Assign user entered values to temporary variables.
-	    String passW = b;
+	//sql query for login
+	public static String login(String a, String b){	
+	return ("SELECT username, password FROM world.customer_info where username " + "= '" + a + "' and password '" + "'=" + b);
+	}
+	
+	//sql query for viewing customers booked flights
+	public static String viewbookedFlight(String a, String b) {
+	return ("SELECT * FROM world.bookedflight WHERE first_name " + "= '" + a + "' AND last_name '" + "'=" + b);
+	}
+	
+	//sql query for inserting a new user
+	//TODO write .get
+	public static String insertUser(Customer Cust) {
+		return ("INSERT INTO `world`.`customer_info` VALUES" 
+				+ " 'user_id',"
+				+ " 'first_name',"
+				+ " 'last_name',"
+				+ " 'username',"
+				+ " 'password',"
+				+ " 'address',"
+				+ " 'zipcode',"
+				+ " 'city',"
+				+ " 'state',"
+				+ " 'phone',"
+				+ " 'email',"
+				+ " 'status',"
+				+ " 'ssn',"
+				+ " 'security_question',"
+				+ " 'security_question',");
+	}
+	
+	//sql query for viewing flights to book
+	public static String viewAllFlights() {
+	return ("SELECT * FROM world.flight_info");
+	}
+	
+	//sql query for inserting a new booked flight by customer
+	//TODO
+	public static String insertBooking(String flightnumber) {
+	return ("INSERT INTO world.current_flights");
+	}
+	
+	//sql query for deleting a booked flight by customer
+	public static String deleteBooking(String a, String b) {
+	return ("DELETE * FROM `world`.`booked_flight` where username " + "= '" + a + "' and password '" + "'=" + b);
+	}
+	
+	//sql query for inserting a new flight in database
+	//TODOput the gets in here
+	public static String insertFlight(Flight a){
+		return  ("INSERT INTO `world`.`flight_info` VALUES" 
+			+ " flight_number," 
+			+ " 'user_id',"  
+			+ " 'airport_name',"  
+			+ " 'destination',"  
+			+ " passenger_count,"  
+			+ " 'date'," 
+			+ " 'time',"  
+			+ " 'start_date',"  
+			+ " 'end_date'," 
+			+ " 'location_from'," 
+			+ " 'location_to'");
+	
+	}
+	
+	//sql query for updating an existing flight in database
+	//TODO i think this one got deleted
+	public static String updateFlight() {
+	return ("you need to redo me");
+	}
+	
+	//sql query for deleting an existing flight in database
+	//TODO finish query statement
+	public static String deleteFlight() {
+		return  ("DELETE * FROM `world`.`atl_routes_50` where _________________");
+	}
 
-	    Connection conn = null;
-	    Statement statement = null;
-	    ResultSet resultSet = null;
 
-	    String userNameDB = "";
-	    String passwordDB = "";
 
-	    try
-	    {	//connection database 
-	    	String driver = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://34.67.46.88:3306/";
-			String username = "root";
-			String password = "nA97114780!!";
-			Class.forName(driver);
-			
-			conn = DriverManager.getConnection(url, username, password);
-	         //getting all the records and storing in a resultSet.
-	        resultSet = statement.executeQuery("SELECT username, password FROM world.login_info");
-	        // Until next row is present otherwise it return false
-	        while(resultSet.next()) 
-	        { //info from  database
-	         userNameDB = resultSet.getString("userName");
-	         passwordDB = resultSet.getString("password");
 
-	          if(userN.equals(userNameDB) && passW.equals(passwordDB))
-	          {
-	             //LOGIN SUCCESS
-	          }
-	        }
-	    }
-	        catch(Exception ex)
-	        {
-	          System.out.print(ex);
-	          //close connection
-		    } finally {
-		        { conn.close(); }
+
+
+
 }
-
-	}
-			
-				
-		/*
-	}
-		public static void viewFlight(Connection con, String Flight) throws SQLException {
-			//create database connection
-			Statement stmt = null;
-			String query = ;alskdjflskdfj //need to input queries here
-			    try {
-			    	
-			        stmt = con.createStatement();
-			        ResultSet rs = stmt.executeQuery(query);
-			        while (rs.next()) {
-			            String airportName = rs.getString("airport_name");
-			            String destination = rs.getString("");//THESE NEED TO BE FILLEDOUT
-			            int flightNumber = rs.getInt("");     //WITH THE COLUMN NAMES
-			            int passengerCount = rs.getInt("");
-			            String date = rs.getString("");
-			            String time = rs.getString("");
-			        
-			        //need to display the information to the user.
-			            
-			        }
-			    //catch exception
-			    } catch (Exception e ) {
-			        
-			    //close connection
-			    } finally {
-			        { stmt.close(); }
-			    }
-			}
-		
-											//??			
-		public static void insertFlight(Connection con, Flight ) throws Exception {
-					
-		
-		 try
-	        { //create database connection
-	            Class.forName(" "); //what is this?
-	            Connection con = DriverManager.getConnection(" ", " ", " "); 
-	            
-	          //mysql query insert statement
-	            String query = "  ";
-	            
-	              
-	            // Inserting data in database with preparedstatement
-	            PreparedStatement preparedStmt = con.prepareStatement(query);
-	            preparedStmt.setString(1, Flight.getAirportName());//are these correct, like the int? or is flight is a string?
-	            preparedStmt.setDate(2, );
-	            preparedStmt.setString(3,);
-	            preparedStmt.setString(4, );
-	            preparedStmt.setDate(5, );
-	            
-	            int x = stmt.executeUpdate(q1); 
-	            if (x > 0)             
-	                System.out.println("Successfully Inserted");             
-	            else            
-	                System.out.println("Insert Failed"); 
-	            
-	        } 
-	        catch(Exception e) 
-	        { 
-	         
-	        } 
-		 finally
-		 //close connection
-	            con.close(); 
-	    } 
-	*/
+	
