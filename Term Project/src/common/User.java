@@ -12,6 +12,9 @@ public abstract class User {
 	private String sSN;
 	private String password;
 	private ArrayList<Flight> flights;
+	private String status;
+	private String zipcode;
+	private String address;
 	private String city;
 	private String state;
 	private String securityQuestion;
@@ -22,8 +25,8 @@ public abstract class User {
 		
 	}
 	
-	public User(String firstName, String lastName, String userName, String email, String sSN, String password, 
-			String city, String state, String country, String securityQuestion, String phone) {
+	public User(String firstName, String lastName, String userName, String email, String sSN, String password, String address,
+			String city, String state, String zipcode, String securityQuestion, String phone, String status) {
 		//TODO finish
 		
 		this.firstName = firstName;
@@ -32,11 +35,13 @@ public abstract class User {
 		this.email = email; 
 		this.sSN = sSN; 
 		this.password = password; 
+		this.address = address;
 		this.city = city; 
 		this.state = state; 
-		this.country = country; 
+		this.zipcode = zipcode;
 		this.securityQuestion = securityQuestion;
 		this.phone = phone;
+		this.status = status;
 		
 		flights = new ArrayList<>();
 	}
@@ -123,16 +128,7 @@ public abstract class User {
 
 	public void setState(String state) {
 		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
+	}	
 
 	public String getSecurityQuestion() {
 		return securityQuestion;
@@ -141,15 +137,6 @@ public abstract class User {
 	public void setSecurityQuestion(String securityQuestion) {
 		this.securityQuestion = securityQuestion;
 	}
-
-	public String getAction() {
-		return action;
-	}
-
-	public void setAction(String action) {
-		this.action = action;
-	}
-	
 
 	public String getSecurityAnswer() {
 		return securityAnswer;

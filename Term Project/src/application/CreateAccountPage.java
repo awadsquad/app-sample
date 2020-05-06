@@ -1,6 +1,7 @@
 package application;
 
 import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,11 +13,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import common.Customer;
+import common.Action;
 
 public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	ScreensController myController;
-	Customer newAccount;
 
 	// All needed page elements
 	@FXML
@@ -78,7 +79,10 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 	}
 
 	public void createAccount(ActionEvent event) {
+		
 		//Stores account inputs in Customer Object
+		Customer newAccount = new Customer();
+		
 		newAccount.setFirstName(fNameInput.getText());
 		newAccount.setLastName(lNameInput.getText());
 		newAccount.setEmail(emailInput.getText());
@@ -91,7 +95,9 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		newAccount.setState(stateInput.getText());
 		newAccount.setCity(cityInput.getText());
 		
+		//Action.createAccount(newAccount);
 		System.out.print("Account created");
+		
 		
 	 }
 	//Gets security Question

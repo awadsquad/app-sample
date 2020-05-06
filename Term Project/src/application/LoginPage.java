@@ -30,7 +30,7 @@ public class LoginPage implements ControlledScreen {
 		
 		
 		boolean loginAccepted = true;
-		if (loginAccepted) {
+		if (loginAccepted /*Action.loginAuthentication(userName, password)*/) {
 
 			myController.setScreen(Main.homePageID);
 			

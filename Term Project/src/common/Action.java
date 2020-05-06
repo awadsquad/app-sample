@@ -3,6 +3,16 @@ package common;
 import java.util.ArrayList;
 
 public class Action {
+	
+	//Gets account info from window and stores in database
+	public static void createAccount (Customer cust) {
+		
+	}
+	
+	//Authenticates Username and password
+	public static boolean loginAuthenticate () {
+		return true;
+	}
 
 	/*public static final String LOGIN = "login";
 	public static final String GET_FLIGHTS = "getflight";

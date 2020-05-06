@@ -1,12 +1,9 @@
 package application;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -64,8 +61,7 @@ public class ProfilePage implements ControlledScreen, Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		Customer user = new Customer("John", "Smith", "jsmith15", "jsmith@gmail.com", "678-05-5378", "1234", "Atlanta",
-				"GA", "USA", "Favorite color?", "404-678-9043");
+		Customer user = new Customer();
 
 		try {
 			profileName.setText(user.getUserName());
@@ -76,10 +72,14 @@ public class ProfilePage implements ControlledScreen, Initializable {
 			state.setText(user.getState());
 			email.setText(user.getEmail());
 			sSN.setText(user.getsSN());
+			
 		} catch (Exception ex) {
 			System.out.println("Display issue");
 			System.out.println(ex);
 		}
+		
+		
+		
 
 	}
 
