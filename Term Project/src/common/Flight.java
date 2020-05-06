@@ -13,6 +13,7 @@ public class Flight {
 	private String date;
 	private String time;
 	
+	
 	Flight () {
 		
 	}

@@ -1,10 +1,12 @@
 package common;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import database.ConnectionMethod;
 import database.DBQueries;
 import database.Queries;
 public class Action {
@@ -20,10 +22,7 @@ public class Action {
 		
 	}
 	
-	//Authenticates Username and password
-	public static boolean loginAuthenticate () {
-		return true;
-	}
+	
 
 	public static final String LOGIN = "login";
 	public static final String GET_FLIGHTS = "getflight";
@@ -97,42 +96,23 @@ public class Action {
 	public void updateFlight(Flight id) {
 		INSERT(id);
 }
-
-
-
-	//login
-	public static void login(String a, String b) throws SQLException{
+	private void INSERT(Flight id) {
+		// TODO Auto-generated method stub
 		
-		//Assign user entered values to temporary variables.
-		String userN = a; 
-	    String passW = b;
+	}
 
-	   
-	    String userNameDB = "";
-	    String passwordDB = "";
-
-	    try
-	    {	//connection database
-	    	//TODO i am loosing my mind how to use this connection as a method
-	    	.getConnection();
+	//Authenticates Username and password
+	public static boolean loginAuthenticate throws SQLException (String a, String b) {
+		try {
 			
-	        //getting all the records and storing in a resultSet.
-	    	Statement stmt = con.createStatement();
-		    ResultSet rs = stmt.executeQuery(DBQueries.login(userN, passW);
-		    
-	        // Until next row is present otherwise it return false
-	        while(rs.next()) 
-	        	{ //info from  database
-	        	userNameDB = rs.getString("userName");
-	        	passwordDB = rs.getString("password");
-
-	          if(userN.equals(userNameDB) && passW.equals(passwordDB))
-	          {
-	             //LOGIN SUCCESS
-	          }
-	      }
-	 }
-	        catch(Exception ex)
+		if(DBQueries.Login(a,b)) {
+			return true;
+		}		
+		else
+			return false;
+		}
+	        
+		catch(Exception ex)
 	        {
 	          System.out.print(ex);		  
 	        }
@@ -140,21 +120,20 @@ public class Action {
 	}
 			
 	//view a list of available flights		
-	public static Flight viewFlights(Connection con, String Flight) throws SQLException {
+	public static Flight viewFlights(Customer a) throws Exception {
 			
 	//create database connection
-	Statement stmt = null;
 	String query = DBQueries.viewAllFlights();
 			    try {
-			    	
-			        stmt = con.createStatement();
+			    	Connection con = ConnectionMethod.getConnection();
+			        Statement stmt = con.createStatement();
 			        ResultSet rs = stmt.executeQuery(query);
 			        while (rs.next()) {
 			            String airportName = rs.getString("airport_name");
-			            String destination = rs.getString("");//THESE NEED TO BE FILLEDOUT
-			            int flightNumber = rs.getInt("");     //WITH THE COLUMN NAMES
-			            int passengerCount = rs.getInt("");
-			            String date = rs.getString("");
+			            String destination = rs.getString("destination");//THESE NEED TO BE FILLEDOUT
+			            int flightNumber = rs.getInt("flightNumber");     //WITH THE COLUMN NAMES
+			            int passengerCount = rs.getInt("passenger");
+			            String date = rs.getString("date");
 			            String time = rs.getString("");
 			        
 			        //need to display the information to the user.
@@ -165,6 +144,8 @@ public class Action {
 			        
 			    //close connection
 			    } finally {
+			    	//TODO
+			    }
 			        { stmt.close(); }
 			    }
 			}

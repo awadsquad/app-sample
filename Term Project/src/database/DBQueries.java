@@ -17,39 +17,98 @@ public class DBQueries {
 	
 	
 	//sql query for login
-	public static String login(String a, String b){	
-	return ("SELECT username, password FROM world.customer_info where username " + "= '" + a + "' and password '" + "'=" + b);
-	}
+	public static boolean Login(String a, String b) throws Exception{
+		boolean access = false;
+		try {
+			String userN = a; 
+		    String passW = b;	 
+		    String userNameDB = "";
+		    String passwordDB = "";
+		    
+			
+			Connection con = ConnectionMethod.getConnection();
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT username, password FROM world.customer_info where username " + "= '" + a + "' and password '" + "'=" + b);
+			
+			 while(rs.next()) 
+	        	{ //info from  database
+	        	userNameDB = rs.getString("userName");
+	        	passwordDB = rs.getString("password");
+
+	        	if(userN.equals(userNameDB) && passW.equals(passwordDB))
+	          
+	             access = true;
+	          }
+	        
+		}
+		catch(Exception ex)
+        {
+          System.out.print(ex);		  
+        } 
+		return access;
+}
 	
+		
 	//sql query for viewing customers booked flights
 	public static String viewbookedFlight(String a, String b) {
-	return ("SELECT * FROM world.bookedflight WHERE first_name " + "= '" + a + "' AND last_name '" + "'=" + b);
-	}
+		Statement stmt;
 	
-	//sql query for inserting a new user
-	//TODO write .get
-	public static String insertUser(Customer Cust) {
-		return ("INSERT INTO `world`.`customer_info` VALUES" 
-				+ " 'user_id',"
-				+ " 'first_name',"
-				+ " 'last_name',"
-				+ " 'username',"
-				+ " 'password',"
-				+ " 'address',"
-				+ " 'zipcode',"
-				+ " 'city',"
-				+ " 'state',"
-				+ " 'phone',"
-				+ " 'email',"
-				+ " 'status',"
-				+ " 'ssn',"
-				+ " 'security_question',"
-				+ " 'security_question',");
-	}
+try {
+	String query = ("SELECT * FROM world.bookedflight WHERE first_name " + "= '" + a + "' AND last_name '" + "'=" + b);
+	Connection con = ConnectionMethod.getConnection();
+    stmt = con.createStatement();
+    ResultSet rs = stmt.executeQuery(query);
+    while (rs.next()) {
+        String airportName = rs.getString("airport_name");
+        String destination = rs.getString("destination");
+        int flightNumber = rs.getInt("flightNumber");    
+        int passengerCount = rs.getInt("passenger");
+        String date = rs.getString("date");
+        String time = rs.getString("time");
+    
+    //need to display the information to the user.
+        
+        
+    }
+//catch exception
+} catch (Exception e ) {
+    
+//close connection
+} finally {
+    { stmt.close(); }
+}
+}
+
+	
 	
 	//sql query for viewing flights to book
-	public static String viewAllFlights() {
-	return ("SELECT * FROM world.flight_info");
+	public static String viewFlights() {
+		Statement stmt;
+		String query = ("SELECT * FROM world.flight_info");
+    try {
+    	Connection con = ConnectionMethod.getConnection();
+        stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            String airportName = rs.getString("airport_name");
+            String destination = rs.getString("destination");
+            int flightNumber = rs.getInt("flightNumber");    
+            int passengerCount = rs.getInt("passenger");
+            String date = rs.getString("date");
+            String time = rs.getString("time");
+        
+        //need to display the information to the user.
+            
+            
+        }
+    //catch exception
+    } catch (Exception e ) {
+        
+    //close connection
+    } finally {
+        { stmt.close(); }
+    }
+}
 	}
 	
 	//sql query for inserting a new booked flight by customer
