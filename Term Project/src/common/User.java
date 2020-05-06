@@ -12,7 +12,7 @@ public abstract class User {
 	private String sSN;
 	private String password;
 	private ArrayList<Flight> flights;
-	private String status;
+	private String status = "false";
 	private String zipcode;
 	private String address;
 	private String city;
@@ -75,7 +75,7 @@ public abstract class User {
 	}
 
 	public boolean setEmail(String email) {
-		if (email.matches("*@*")) {
+		if (email.contains("@")) {
 			this.email = email;
 			return true;
 		}
@@ -154,9 +154,30 @@ public abstract class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
-	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	//Allows users to add flight
 	public void addFlight(Flight booked) {

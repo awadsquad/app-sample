@@ -79,8 +79,19 @@
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="Address:" />
+                                    <Label fx:id="address" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="address" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="104.0" spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="City:" />
                                     <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="city" />
-                                    <Label fx:id="state" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="150.0" spacing="5.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="State" />
+                                    <Label fx:id="state" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
                                  </children>
                               </HBox>
                               <HBox spacing="5.0">

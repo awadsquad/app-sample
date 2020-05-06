@@ -19,7 +19,8 @@ public class Queries {
 			Connection con = MainClass.getConnection();
 			PreparedStatement insert = con.prepareStatement("INSERT INTO login_info (first_name, last_name, username, password, address, zipcode, city, state, phone, email, "
 					+ "status, ssn, securtity_question, security_answer)" + "VALUES('" + cust.getUserame() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword +
-					"', '" + cust.getAddress + "', '" + ");
+					"', '" + cust.getAddress + "', '" + cust.getZipcode() + "', '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
+					+ "', '" + ");
 			
 			
 		} catch (Exception ex) {

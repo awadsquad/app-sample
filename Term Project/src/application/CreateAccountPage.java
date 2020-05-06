@@ -7,7 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,6 +55,15 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 	@FXML
 	private TextField stateInput;
 	
+	@FXML
+	private TextField addressInput;
+	
+	@FXML
+	private TextField adminInput;
+	
+	@FXML
+	private Label submission;
+	
 	private String question;
 	
 
@@ -80,6 +91,7 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	public void createAccount(ActionEvent event) {
 		
+		try {
 		//Stores account inputs in Customer Object
 		Customer newAccount = new Customer();
 		
@@ -94,9 +106,29 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		newAccount.setSecurityAnswer(answerInput.getText());
 		newAccount.setState(stateInput.getText());
 		newAccount.setCity(cityInput.getText());
+		newAccount.setAddress(addressInput.getText());
 		
+		
+		
+		//Verifies that user inputs correct admin code
+		if (adminInput.getText().equals("admin1234")) {
+			newAccount.setStatus("true");
+			submission.setText("Admin Approved");
+			submission.setTextFill(Paint.valueOf("00CC00"));
+		}
+		
+		else {
+			submission.setText("Admin Denied");
+			submission.setTextFill(Paint.valueOf("#FF0000"));
+		}
 		//Action.createAccount(newAccount);
 		System.out.print("Account created");
+		
+		} catch (Exception ex) {
+			submission.setText("One or more invalid entry");
+			submission.setTextFill(Paint.valueOf("#FF0000"));
+			System.out.println(ex);
+		}
 		
 		
 	 }

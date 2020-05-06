@@ -40,6 +40,12 @@ public class ProfilePage implements ControlledScreen, Initializable {
 
 	@FXML
 	private Label sSN;
+	
+	@FXML
+	private Label zipcode;
+	
+	@FXML 
+	private Label address;
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -72,6 +78,8 @@ public class ProfilePage implements ControlledScreen, Initializable {
 			state.setText(user.getState());
 			email.setText(user.getEmail());
 			sSN.setText(user.getsSN());
+			address.setText(user.getAddress());
+			phone.setText(user.getPhone());
 			
 		} catch (Exception ex) {
 			System.out.println("Display issue");
