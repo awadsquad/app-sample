@@ -26,7 +26,7 @@ public abstract class User {
 	}
 	
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, String address,
-			String city, String state, String zipcode, String securityQuestion, String phone, String status) {
+			String city, String state, String zipcode, String securityQuestion, String phone, String status, String securityAnswer) {
 		//TODO finish
 		
 		this.firstName = firstName;
@@ -40,6 +40,7 @@ public abstract class User {
 		this.state = state; 
 		this.zipcode = zipcode;
 		this.securityQuestion = securityQuestion;
+		this.securityAnswer = securityAnswer;
 		this.phone = phone;
 		this.status = status;
 		

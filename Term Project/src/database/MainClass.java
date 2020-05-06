@@ -1,13 +1,19 @@
 package database;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+import common.Customer;
 
 public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
+		Customer a = new Customer("John", "Wayne", "jwayne", "programmingHard@gmail.com", "4143567268", "12345", "123 Beat St", "Atlanta", "GA",  
+				"30312",  "Favorite color?", "678-05-6789", "true",  "yellow");
 		getConnection();
+		Queries.INSERT(a);
+		
 	}
 	
 	public static Connection getConnection() throws Exception {
