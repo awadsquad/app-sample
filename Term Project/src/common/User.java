@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public abstract class User {
 	
+	private int userId;
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -23,6 +24,28 @@ public abstract class User {
 	
 	public User () {
 		
+	}
+	
+	public User(int userId, String firstName, String lastName, String userName, String email, String sSN, String password, String address,
+			String city, String state, String zipcode, String securityQuestion, String phone, String status, String securityAnswer) {
+		
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName; 
+		this.email = email; 
+		this.sSN = sSN; 
+		this.password = password; 
+		this.address = address;
+		this.city = city; 
+		this.state = state; 
+		this.zipcode = zipcode;
+		this.securityQuestion = securityQuestion;
+		this.securityAnswer = securityAnswer;
+		this.phone = phone;
+		this.status = status;
+		
+		flights = new ArrayList<>();
 	}
 	
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, String address,
@@ -178,6 +201,14 @@ public abstract class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	//Allows users to add flight
