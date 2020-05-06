@@ -6,14 +6,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import database.DBQueries;
-
+import database.Queries;
 public class Action {
 	
 	//Gets account info from window and stores in database
-	public static void createAccount () {
-	Customer Cust= new Customer();
+	public static void createAccount(Customer cust) {
+		
+		Queries.INSERT(cust);
 	
+	}
 	
+	public static void createFlight(Flight flight) {
+		
 	}
 	
 	//Authenticates Username and password
@@ -91,7 +95,7 @@ public class Action {
 		getConnection()
 }
 	public void updateFlight(Flight id) {
-
+		INSERT(id);
 }
 
 

@@ -121,7 +121,7 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 			submission.setText("Admin Denied");
 			submission.setTextFill(Paint.valueOf("#FF0000"));
 		}
-		//Action.createAccount(newAccount);
+		Action.createAccount(newAccount);
 		System.out.print("Account created");
 		
 		} catch (Exception ex) {
