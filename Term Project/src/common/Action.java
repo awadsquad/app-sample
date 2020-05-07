@@ -46,6 +46,7 @@ public class Action {
 			boolean validPassword = false;
 			try {
 				ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+				ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
 				for (int i = 0; i < usernames.size(); i++) {
 					if (a.equals(usernames.get(i))) {
 						validUsername = true;
@@ -53,21 +54,17 @@ public class Action {
 					}
 				}
 				if (validUsername) {
-					ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
+					
 					for (int i = 0; i < passwords.size(); i++) {
-						if (a.equals(passwords.get(i))) {
+						if (b.equals(passwords.get(i))) {
 							validPassword = true;
-							break;
+							return true;
 						}
 					}
 				}
-				
-				if (validPassword && validUsername) {
-					return true;
-				}
-				else {
+
 					return false;
-				}
+				
 			}		
 		        
 			catch(Exception ex)
@@ -101,7 +98,7 @@ public class Action {
 		
 		try {
 			
-			ArrayList<String> usernames = Queries.GETROW("user_id", cTName, setUserId);
+			ArrayList<String> usernames = Queries.GETCUSTOMERROW("user_id", setUserId);
 			account = userToArray(usernames);
 			return account;
 			

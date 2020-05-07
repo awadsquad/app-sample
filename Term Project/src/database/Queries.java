@@ -22,14 +22,15 @@ public class Queries {
 
 	public static void main(String[] args) {
 
-		try {
-			/* ?? */ String[] a = GETCUSTOMERROW("user_id", "1");
-			System.out.print(Arrays.toString(a));
+		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
+		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { INSERT(a);
+		 * 
+		 * } catch (Exception e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 
 	}
 
@@ -59,7 +60,9 @@ public class Queries {
 
 	public static final void INSERT(Customer cust) throws Exception {
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES ('" + cust.getUserName() + "', '"
+			String tempQuer = "INSERT INTO `world`.`customer_info` (first_name" + ",last_name" + ",username"
+					+ ",password" + ",address" + ",zipcode" + ",city" + ",state" + ",phone" + ",email" + ",status"
+					+ ",ssn" + ",securtity_question" + ",security_answer) VALUES ('" + cust.getUserName() + "', '"
 					+ cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() + "', '"
 					+ cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState()
 					+ "', '" + cust.getPhone() + "', '" + cust.getEmail() + "', '" + cust.getState() + "', "
@@ -129,7 +132,7 @@ public class Queries {
 	}
 
 	// TODO Fix
-	public static final String[] GETCUSTOMERROW(String cName, String identifier) throws Exception {
+	public static final ArrayList<String> GETCUSTOMERROW(String cName, String identifier) throws Exception {
 
 		try {
 			Connection con = getConnection();
@@ -137,26 +140,26 @@ public class Queries {
 					.prepareStatement("SELECT * FROM `world`.`customer_info` WHERE " + cName + " = " + identifier);
 
 			ResultSet result = statement.executeQuery();
-			String[] array = new String[15];
+			ArrayList<String> array = new ArrayList<String>();
 			while (result.next()) {
 				String[] arr = { "user_id", "first_name", "last_name", "username", "password", "address", "zipcode",
 						"city", "state", "phone", "email", "status", "ssn", "securtity_question", "security_answer" };
 
-				array[0] = result.getString(arr[0]);
-				array[1] = result.getString(arr[1]);
-				array[2] = result.getString(arr[2]);
-				array[3] = result.getString(arr[3]);
-				array[4] = result.getString(arr[4]);
-				array[5] = result.getString(arr[5]);
-				array[6] = result.getString(arr[6]);
-				array[7] = result.getString(arr[7]);
-				array[8] = result.getString(arr[8]);
-				array[9] = result.getString(arr[9]);
-				array[10] = result.getString(arr[10]);
-				array[11] = result.getString(arr[11]);
-				array[12] = result.getString(arr[12]);
-				array[13] = result.getString(arr[13]);
-				array[14] = result.getString(arr[14]);
+				array.add(result.getString(arr[0]));
+				array.add(result.getString(arr[1]));
+				array.add(result.getString(arr[2]));
+				array.add(result.getString(arr[3]));
+				array.add(result.getString(arr[4]));
+				array.add(result.getString(arr[5]));
+				array.add(result.getString(arr[6]));
+				array.add(result.getString(arr[7]));
+				array.add(result.getString(arr[8]));
+				array.add(result.getString(arr[9]));
+				array.add(result.getString(arr[10]));
+				array.add(result.getString(arr[11]));
+				array.add(result.getString(arr[12]));
+				array.add(result.getString(arr[13]));
+				array.add(result.getString(arr[14]));
 
 			}
 

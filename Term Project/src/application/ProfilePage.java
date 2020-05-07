@@ -66,8 +66,11 @@ public class ProfilePage implements ControlledScreen, Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		String status = Main.currentUser.getStatus();
 
-		Customer user = new Customer();
+			Customer user = (Customer)Main.currentUser;
+
 
 		try {
 			profileName.setText(user.getUserName());
