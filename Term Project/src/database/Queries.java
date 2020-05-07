@@ -24,6 +24,15 @@ public class Queries {
 
 		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
 		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
+		try {
+			Flight fl = new Flight();
+			fl.setFlightNumber(1095);
+			fl.setPassengerCount(23);
+			fl.setDestination("ATL");
+		    fl.setDate("4/20");		    
+		    fl.setTime("2:00pm");
+		 	  UPDATE(fl);
+			//System.out.print(Arrays.toString(a));
 
 		/*
 		 * try { INSERT(a);
@@ -175,17 +184,51 @@ public class Queries {
 
 	public static final void INSERT(Flight fl) throws Exception {
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES ( '" + fl.getPassengerCount() + "', '"
+			String tempQuer = "INSERT INTO `world`.`flights`(`passenger_count`,`date`,`time`, `destination`) VALUES ( " + fl.getPassengerCount() + ", '"
 					+ fl.getDate() + "', '" + fl.getTime() + "', '" + fl.getDestination() + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement insert = con.prepareStatement(tempQuer);
 			insert.executeUpdate();
 			con.close();
+			System.out.println("Information has been added!");
+		
 
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
+		}
+		public static final void DELETE(Flight fl) throws Exception {
+			try {
+				String tempQuer = "DELETE FROM `world`.`flights` WHERE flight_number = " + fl.getFlightNumber() +";";
+				System.out.println(tempQuer);
+				Connection con = getConnection();
+				PreparedStatement delete= con.prepareStatement(tempQuer);
+				delete.executeUpdate();
+				con.close();
+				System.out.println("Column has been deleted!");
+
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
+			}
+
+			public static final void UPDATE(Flight fl) throws Exception {
+				try {
+					String tempQuer = "UPDATE `world`.`flights`SET`flight_number` = " 
+				+ fl.getFlightNumber() +", `passenger_count` = "
+				+ fl.getPassengerCount() + ", `date` = '"+ fl.getDate() + " ', `time` = '" 
+				+ fl.getTime() + "' , `destination` = '" + fl.getDestination() +
+				"' WHERE `flight_number` = " +fl.getFlightNumber() +" ;";
+					System.out.println(tempQuer);
+					Connection con = getConnection();
+					PreparedStatement delete= con.prepareStatement(tempQuer);
+					delete.executeUpdate();
+					con.close();
+					System.out.println("Update has been completed!");
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
 
 	}
 
