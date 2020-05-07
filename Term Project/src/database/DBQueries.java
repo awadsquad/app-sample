@@ -90,7 +90,7 @@ try {
 				+ b + "' and time = '" 
 				+ c + "'");
 		//i hope all this is still here
-	
+	    
 		
 		try {
     	Connection con = ConnectionMethod.getConnection();

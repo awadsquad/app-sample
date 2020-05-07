@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXMLLoader;	
 import javafx.geometry.Pos;
 
 
@@ -27,8 +27,6 @@ public class Main extends Application {
 	public static String profilePageID = "Profile Page";
 	public static String bookingPageFile = "BookingPage.fxml";
 	public static String bookingPageID = "Booking Page";
-	public static String userFlightsFile = "UserFlights.fxml";
-	public static String userFlightsID = "User Flights";
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -39,7 +37,6 @@ public class Main extends Application {
 			mainContainer.loadScreen(Main.homePageID, homePageFile);
 			mainContainer.loadScreen(Main.profilePageID, profilePageFile);
 			mainContainer.loadScreen(Main.bookingPageID, bookingPageFile);
-			mainContainer.loadScreen(Main.userFlightsID, userFlightsFile);
 			mainContainer.setScreen(Main.loginPageID);
 			
 			Group root = new Group();
