@@ -18,8 +18,8 @@ public class Queries {
 
 		try {
 			getConnection();
-			Customer a = new Customer("John", "Wayne", "jwayne", "programmingHard@gmail.com", "4143567268", "12345",
-					"123 Beat St", "Atlanta", "GA", "30312", "Favorite color?", "678-05-6789", "true", "yellow");
+			Customer a = new Customer("John", "Wayne", "jwayne", "programmingHard@gmail.com", "41435672", "12345",
+					"123 Beat St", "Atlanta", "GA", "30312", "Favorite color?", "4143567", "true", "yellow");
 			INSERT(a);
 			System.out.println("Inserted");
 		} catch(Exception e) {
@@ -49,9 +49,9 @@ public class Queries {
 
 	public static final void INSERT(Customer cust) throws Exception{
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (6,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
+			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (9,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
 					"', '" + cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
-					+ "', '" + cust.getState() + "', " + cust.getsSN() + ", '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"');";
+					+ "', '" + cust.getState() + "', '" + cust.getsSN() + "', '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"')";
 			System.out.println(tempQuer);
 			Connection con = ConnectionMethod.getConnection();
 			PreparedStatement insert = con.prepareStatement(tempQuer);
