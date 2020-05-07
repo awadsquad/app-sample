@@ -49,7 +49,7 @@ public class Queries {
 
 	public static final void INSERT(Customer cust) throws Exception{
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (9,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
+			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (10,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
 					"', '" + cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
 					+ "', '" + cust.getState() + "', '" + cust.getsSN() + "', '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"')";
 			System.out.println(tempQuer);
