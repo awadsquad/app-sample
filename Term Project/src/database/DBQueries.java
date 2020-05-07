@@ -82,9 +82,13 @@ try {
 	
 	
 	//sql query for viewing flights to book
-	public static String viewFlights() {
+	public static String viewFlights(String a, String b, String c) {
 		Statement stmt;
-		String query = ("SELECT * FROM `world`.`flight_info`");
+		String query = ("SELECT `flight_id` FROM `world`.`flights` where destination = '" 
+					+ a + "date"
+					+ b + "'"
+					+ c + "'"
+				);
     try {
     	Connection con = ConnectionMethod.getConnection();
         stmt = con.createStatement();

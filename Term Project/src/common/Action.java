@@ -30,8 +30,8 @@ public class Action {
 	String destination = a;
 	String date = b;
 	String time = c;
-	Flight
-	viewflights
+	DBQueries.viewFlights(a, b, c)
+	
 		
 	
 	for (int i = 0; i < flights.length; i++) {
