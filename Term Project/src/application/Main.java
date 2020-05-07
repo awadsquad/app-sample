@@ -1,5 +1,5 @@
 package application;
-	
+
 
 
 import common.User;
@@ -64,3 +64,4 @@ public class Main extends Application {
 	
 	
 }
+>>>>>>> branch 'master' of https://github.com/cis3270appprogramming/app-sample.git

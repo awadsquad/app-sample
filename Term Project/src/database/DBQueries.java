@@ -1,4 +1,3 @@
-
 package database;
 
 import java.sql.Connection;
@@ -160,4 +159,5 @@ String query =  ("INSERT INTO `world`.`flights` VALUES ("
 
 }
 
+>>>>>>> branch 'master' of https://github.com/cis3270appprogramming/app-sample.git
 	

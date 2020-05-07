@@ -21,13 +21,14 @@ public class Queries {
 	public static void main(String[] args) {
 		
 		try {
-			ArrayList<String> a = GETROW("user_id", "`world`.`customer_info`", "1");
+/*??*/			ArrayList<String> a = GETROW("user_id", "`world`.`customer_info`", "1");
 			System.out.println(Arrays.toString(a.toArray()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+			
 		
 	}
 
@@ -132,13 +133,35 @@ public class Queries {
 	//TODO Fix
 	public static final ArrayList<String> GETROW(String cName, String tName, String identifier) throws Exception {
 		try {
+/*-Check here-*/	String tempQuer = "SELECT user_id, first_name FROM " + tName + ";" ;
+			System.out.println(tempQuer);
 			Connection con = getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM " + tName + " WHERE " + cName + 
-					" = " + identifier );
+			PreparedStatement statement = con.prepareStatement(tempQuer );
 			ResultSet result = statement.executeQuery();
 			ArrayList<String> array = new ArrayList<String>();
-			while(result.next()) {
-				array.add(result.getString(cName));
+			String[] ar = {"user_id",
+					"first_name",
+					"last_name",
+					"username",
+					"password",
+					"address",
+					"zipcode",
+					"city",
+					"state",
+					"phone",
+					"email",
+					"status",
+					"ssn",
+					"securtity_question",
+					"security_answer"};
+			
+			for(int i = 0; i<ar.length; i++) {
+				array.add(result.getString(ar[i]));
+				
+				//System.out.println(result.getString("first_name"));
+				
+				
+				
 			}
 			System.out.println("All records have been selected!");
 			con.close();
