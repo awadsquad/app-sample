@@ -9,8 +9,13 @@ import java.util.ArrayList;
 import database.ConnectionMethod;
 import database.DBQueries;
 import database.Queries;
+
+
 public class Action {
 	
+	public static final String LOGIN = "login";
+	public static final String GET_FLIGHTS = "getflight";
+	public static final String BOOK_FLIGHT = "bookflight";
 	//Gets account info from window and stores in database
 	public static void createAccount(Customer cust) {
 		
@@ -18,16 +23,6 @@ public class Action {
 	
 	}
 	
-	public static void createFlight(Flight flight) {
-		
-	}
-	
-	
-
-	public static final String LOGIN = "login";
-	public static final String GET_FLIGHTS = "getflight";
-	public static final String BOOK_FLIGHT = "bookflight";
-
 	//method to book a flight
 	public static void bookFlight(Customer cust) {
 	String selectedflight = "null";
@@ -54,10 +49,11 @@ public class Action {
 
 
 	//method to check if flight if full
-	public static boolean isFull(flight a) {
+	public static boolean isFull(Flight a) {
 	
 	//check to see if seating is full
-	if ( flight.passengerCount == 10){
+	
+	if ( a.getPassengerCount() == 10){
 	return true;
 	}
 	else
@@ -82,8 +78,7 @@ public class Action {
 	for (int i = 0; i <  flights.length;i++ )
 		if (flights[i].equals(a)) {
 			flights[i] = null;
-		//TODO need to subtract 1 from passenger count for that flight
-		flight.subtract(1)			
+		removePassenger.subtract(1);		
 
 }			
 

@@ -10,11 +10,12 @@ import java.sql.SQLException;
 
 import common.Customer;
 import common.Flight;
-import exceptions.LoginException;
+//import exceptions.LoginException;
 
 public class Queries {
 	
 	public static void main(String[] args) {
+
 		try {
 			getConnection();
 			Customer a = new Customer("John", "Wayne", "jwayne", "programmingHard@gmail.com", "4143567268", "12345",
