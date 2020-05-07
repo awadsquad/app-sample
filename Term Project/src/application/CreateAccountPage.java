@@ -107,22 +107,26 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		newAccount.setState(stateInput.getText());
 		newAccount.setCity(cityInput.getText());
 		newAccount.setAddress(addressInput.getText());
+		newAccount.
 		
 		
 		
 		//Verifies that user inputs correct admin code
-		if (adminInput.getText().equals("admin1234")) {
+		if (adminInput.getText().equals("admin1234") && Action.createAccount(newAccount)) {
 			newAccount.setStatus("true");
-			submission.setText("Admin Approved");
+			submission.setText("Admin Approved, Account Created");
+			submission.setTextFill(Paint.valueOf("00CC00"));
+		}
+		
+		else if (adminInput.getText().equals("admin1234") == false && Action.createAccount(newAccount)){
+			submission.setText("Admin Denied, Account Created");
 			submission.setTextFill(Paint.valueOf("00CC00"));
 		}
 		
 		else {
-			submission.setText("Admin Denied");
+			submission.setText("Failed try again");
 			submission.setTextFill(Paint.valueOf("#FF0000"));
 		}
-		Action.createAccount(newAccount);
-		System.out.print("Account created");
 		
 		} catch (Exception ex) {
 			submission.setText("One or more invalid entry");
