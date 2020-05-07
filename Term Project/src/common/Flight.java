@@ -13,7 +13,7 @@ public class Flight {
 	private String time;
 	
 	
-	Flight () {
+	public Flight () {
 		
 	}
 	
@@ -50,6 +50,7 @@ public class Flight {
 	
 	public int setPassengerCount(int passengerCount) {
 		this.passengerCount = passengerCount;
+		return passengerCount;
 	}
 	
 	public String getDate() {

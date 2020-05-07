@@ -9,13 +9,9 @@ import java.util.ArrayList;
 import database.ConnectionMethod;
 import database.DBQueries;
 import database.Queries;
-
+import common.User;
 
 public class Action {
-	
-	public static final String LOGIN = "login";
-	public static final String GET_FLIGHTS = "getflight";
-	public static final String BOOK_FLIGHT = "bookflight";
 	
 	/*public static void main(String[] args) {
 		Customer a = new Customer("sgyuhs", "vasgju", "vgvhjas", "bsach@bsjk", "72899", "vsaghj", "hbsdkj", "ncjskl", "GA", "1234", "shujis", "ncjskl", "false", "Atl" );
@@ -26,6 +22,9 @@ public class Action {
 			e.printStackTrace();
 		}
 	}*/
+	
+	//Name of customer info table
+	final static String cTName = "`world`.`customer_info`";
 	
 	//Gets account info from window and stores in database
 	public static void createAccount(Customer cust) throws Exception{
@@ -40,21 +39,115 @@ public class Action {
 	
 	}
 	
+	//Authenticates Username and password
+	public static boolean validLogin (String a, String b) throws Exception {
+			
+			boolean validUsername = false;
+			boolean validPassword = false;
+			try {
+				ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+				for (int i = 0; i < usernames.size(); i++) {
+					if (a.equals(usernames.get(i))) {
+						validUsername = true;
+						break;
+					}
+				}
+				if (validUsername) {
+					ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
+					for (int i = 0; i < passwords.size(); i++) {
+						if (a.equals(passwords.get(i))) {
+							validPassword = true;
+							break;
+						}
+					}
+				}
+				
+				if (validPassword && validUsername) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}		
+		        
+			catch(Exception ex)
+		        {
+		          System.out.println("Not found");
+		          System.out.println(ex);
+		          return false;
+		        }
+
+		}
+	
+	public static User setUser(String username, String password) {
+		User account = new User();
+		String setUserId = null;
+		
+		try {
+			ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+			ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
+			ArrayList<String> userIds = Queries.GETCOLUMN("user_id", "`world`.`customer_info`");
+			for (int i = 0; i < usernames.size(); i++) {
+				if(usernames.get(i).equals(username) && passwords.get(i).equals(passwords)) {
+					setUserId = userIds.get(i);
+				}
+				
+			}
+		} catch (Exception ex) {
+			System.out.println("Find userId failed");
+			System.out.println(ex);
+			return null;
+		}
+		
+		try {
+			
+			ArrayList<String> usernames = Queries.GETROW("user_id", cTName, setUserId);
+			account = userToArray(usernames);
+			return account;
+			
+		} catch(Exception ex) {
+			System.out.println("Set user failed");
+			System.out.println(ex);
+			return null;
+		}
+	}
+	
+	//Converts array to user
+	public static User userToArray(ArrayList<String> arr) {
+		
+		Customer output = new Customer();
+		
+		output.setUserId(Integer.parseInt(arr.get(0)));
+		output.setFirstName(arr.get(1));
+		output.setLastName(arr.get(2));
+		output.setUserName(arr.get(3));
+		output.setPassword(arr.get(4));
+		output.setAddress(arr.get(5));
+		output.setZipcode(arr.get(6));
+		output.setCity(arr.get(7));
+		output.setState(arr.get(8));
+		output.setPhone(arr.get(9));
+		output.setEmail(arr.get(10));
+		output.setStatus(arr.get(11));
+		output.setsSN(arr.get(12));
+		output.setSecurityQuestion(arr.get(13));
+		output.setSecurityAnswer(arr.get(14));
+		
+		return output;
+	}
+	
 	//method to book a flight
-	public static void bookFlight(String a, String b, String c) {
+	/*public static void bookFlight(String a, String b, String c) {
 	String selectedflight = "null";
 	
 	String destination = a;
 	String date = b;
 	String time = c;
-	DBQueries.viewFlights(a, b, c)
-	
-		
+	DBQueries.viewFlights(a, b, c);	
 	
 	for (int i = 0; i < flights.length; i++) {
 		
 		if (flights[i].)
-		
 		
 		bookFlight();//do i need to add this
 		break;
@@ -119,19 +212,41 @@ public class Action {
 	}
 
 	//Authenticates Username and password
-	public static boolean loginAuthenticate throws SQLException (String a, String b) {
+	public static boolean validLogin throws Exception(String a, String b) {
+		
+		boolean validUsername;
+		boolean validPassword;
 		try {
+			ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+			for (int i = 0; i < usernames.size(); i++) {
+				if (a.equals(usernames.get(i))) {
+					validUsername = true;
+					break;
+				}
+			}
+			if (validUsername) {
+				ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
+				for (int i = 0; i < passwords.size(); i++) {
+					if (a.equals(passwords.get(i))) {
+						validPassword = true;
+						break;
+					}
+				}
+			}
 			
-		if(DBQueries.Login(a,b)) {
-			return true;
+			if (validPassword && validUsername) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}		
-		else
-			return false;
-		}
 	        
 		catch(Exception ex)
 	        {
-	          System.out.print(ex);		  
+	          System.out.println("Not found");
+	          System.out.println(ex);
+	          return null;
 	        }
 
 	}
@@ -203,4 +318,5 @@ public class Action {
 		 //close connection
 	            {con.close(); }
 	    } 
-	}
+	}*/
+}

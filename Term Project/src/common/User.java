@@ -3,7 +3,7 @@ package common;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public abstract class User {
+public class User {
 	
 	private int userId;
 	private String firstName;
@@ -215,7 +215,6 @@ public abstract class User {
 		this.flights.remove(booked);
 	}
 	
-	public abstract boolean login();
 	
 	
 	

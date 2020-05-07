@@ -1,4 +1,3 @@
-
 package database;
 
 import java.sql.Connection;
@@ -66,21 +65,11 @@ try {
         int passengerCount = rs.getInt("passenger");
         String date = rs.getString("date");
         String time = rs.getString("time");
-    
+        
+        { stmt.close(); }
+
     //need to display the information to the user.
-        
-        
-    }
-//catch exception
-} catch (Exception e ) {
-    
-//close connection
-} finally {
-    { stmt.close(); }
-}
-}
-//l;jhgiygkuyglyg
-	
+       
 	
 	//sql query for viewing flights to book
 	public static Flight viewFlights(String a, String b, String c) {
@@ -89,13 +78,12 @@ try {
 				+ a + "' and date = '" 
 				+ b + "' and time = '" 
 				+ c + "'");
-		//i hope all this is still here
-	    
-		
+		Flight f1 = new Flight();
 		try {
     	Connection con = ConnectionMethod.getConnection();
         stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(query);
+        
         while (rs.next()) {
          
             String destination = rs.getString("destination");
@@ -106,20 +94,21 @@ try {
         
         //need to passthe information to the user.
             
+           f1 = new Flight(destination, flightNumber, passengerCount, date, time);
             
             
-            Flight f1 = new Flight(destination, flightNumber, passengerCount, date, time);
-            
-            return f1;
         }
-    //catch exception
-    } catch (Exception e ) {
-        
-    //close connection
-    } finally {
-        { stmt.close(); }
+         {stmt.close();
+          }
+         
+		}
+         catch (Exception e ) {
+        System.out.println("you have an exception");
     }
-}
+	
+		return f1;
+		}
+
 	
 	
 	//sql query for inserting a new booked flight by customer
@@ -134,21 +123,19 @@ try {
 	}
 	
 	//sql query for inserting a new flight in database
-	//TODOput the gets in here
-	public static String insertFlight(Flight a){
-		return  ("INSERT INTO `world`.`flight_info` VALUES" 
-			+ " flight_number," 
-			+ " 'user_id',"  
-			+ " 'airport_name',"  
-			+ " 'destination',"  
-			+ " passenger_count,"  
-			+ " 'date'," 
-			+ " 'time',"  
-			+ " 'start_date',"  
-			+ " 'end_date'," 
-			+ " 'location_from'," 
-			+ " 'location_to'");
-	
+	public static void insertFlight(Flight a) throws Exception{
+		try { 
+String query =  ("INSERT INTO `world`.`flights` VALUES (" 
+			+ " '" + a.getDestination() + "',"  
+			+ a.getFlightNumber() + ","
+			+ a.getPassengerCount() + ","  
+			+ " '" + a.getDate() + "'," 
+			+ " '" + a.getTime() + "',"); 
+
+		}
+		catch (Exception e){
+			System.out.println("you have an exception");
+		}
 	}
 	
 	//sql query for updating an existing flight in database
@@ -171,5 +158,6 @@ try {
 
 
 }
+
 >>>>>>> branch 'master' of https://github.com/cis3270appprogramming/app-sample.git
 	

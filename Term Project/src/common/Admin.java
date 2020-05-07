@@ -18,12 +18,6 @@ public class Admin extends User{
 	public static void updateFlight(String flightID) {
 		//select flight to be deleted
 	}
-
-	@Override
-	public boolean login() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 	
 	
