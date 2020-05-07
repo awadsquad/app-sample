@@ -76,19 +76,18 @@ public class Flight {
 			return true;
 		}
 		else {
-			return false;
+		System.out.println("you have no seats available");
+		return false;
 		}
-		
 	}
-	
 	//removes passenger from flight
-	public boolean removePassenger(int passengerCount) {
+	public void removePassenger(int passengerCount) {
 		if (this.passengerCount > 0) {
 			this.passengerCount--;
-			return true;
+			
 		}
 		else {
-			return false;
+			System.out.println("you have no passengers to remove");
 		}
 		
 	}
