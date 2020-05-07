@@ -21,6 +21,12 @@ public class LoginPage implements ControlledScreen {
 	
 	ScreensController myController;
 	
+	@FXML
+	private TextField usernameInput;
+	
+	@FXML
+	private TextField passInput;
+	
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
@@ -28,11 +34,12 @@ public class LoginPage implements ControlledScreen {
 	@FXML
 	public void loginButtonPushed(ActionEvent event) {
 		
-		
+		String username = usernameInput.getText();
+		String password = passInput.getText();
 		boolean loginAccepted = true;
-		if (loginAccepted /*Action.loginAuthentication(userName, password)*/) {
-
+		if (Action.loginAuthentication(username, password)) {
 			myController.setScreen(Main.homePageID);
+			//Main.customer = 
 			
 		} else {
 			// TODO make password not accepted popup window
