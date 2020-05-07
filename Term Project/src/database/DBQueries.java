@@ -28,7 +28,7 @@ public class DBQueries {
 			
 			Connection con = ConnectionMethod.getConnection();
 			Statement statement = con.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT username, password FROM world.customer_info where username " + "= '" + a + "' and password '" + "'=" + b);
+			ResultSet rs = statement.executeQuery("SELECT username, password FROM `world`.`customer_info` where username= '" + a + "' and password = '" + b + "'");
 			
 			 while(rs.next()) 
 	        	{ //info from  database
@@ -54,7 +54,7 @@ public class DBQueries {
 		Statement stmt;
 	
 try {
-	String query = ("SELECT * FROM world.bookedflight WHERE first_name " + "= '" + a + "' AND last_name '" + "'=" + b);
+	String query = ("SELECT * FROM `world`.`bookedflight` WHERE first_name = '" + a + "' AND last_name '=" + b + "'");
 	Connection con = ConnectionMethod.getConnection();
     stmt = con.createStatement();
     ResultSet rs = stmt.executeQuery(query);
@@ -84,7 +84,7 @@ try {
 	//sql query for viewing flights to book
 	public static String viewFlights() {
 		Statement stmt;
-		String query = ("SELECT * FROM world.flight_info");
+		String query = ("SELECT * FROM `world`.`flight_info`");
     try {
     	Connection con = ConnectionMethod.getConnection();
         stmt = con.createStatement();
@@ -109,7 +109,7 @@ try {
         { stmt.close(); }
     }
 }
-	}
+	
 	
 	//sql query for inserting a new booked flight by customer
 	//TODO
@@ -149,7 +149,8 @@ try {
 	//sql query for deleting an existing flight in database
 	//TODO finish query statement
 	public static String deleteFlight() {
-		return  ("DELETE * FROM `world`.`atl_routes_50` where _________________");
+		String o = null;
+		return  ("DELETE * FROM `world`.`atl_routes_50` where = '"+o+"'");
 	}
 
 
