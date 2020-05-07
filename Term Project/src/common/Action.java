@@ -16,15 +16,26 @@ public class Action {
 	public static final String LOGIN = "login";
 	public static final String GET_FLIGHTS = "getflight";
 	public static final String BOOK_FLIGHT = "bookflight";
+	
+	/*public static void main(String[] args) {
+		Customer a = new Customer("sgyuhs", "vasgju", "vgvhjas", "bsach@bsjk", "72899", "vsaghj", "hbsdkj", "ncjskl", "GA", "1234", "shujis", "ncjskl", "false", "Atl" );
+		try {
+			Queries.INSERT(a);
+			System.out.print("added");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
+	
 	//Gets account info from window and stores in database
-	public static boolean createAccount(Customer cust) throws Exception{
+	public static void createAccount(Customer cust) throws Exception{
 		try {
 			Queries.INSERT(cust);
-			return true;
+			System.out.println("Added");
 		} catch (Exception ex) {
 			System.out.println("Failed");
 			System.out.println(ex);
-			return false;
+
 		}
 	
 	}

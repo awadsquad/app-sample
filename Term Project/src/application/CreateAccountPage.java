@@ -24,6 +24,9 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 	// All needed page elements
 	@FXML
 	private TextField sSNInput;
+	
+	@FXML
+	private TextField zipcodeInput;
 
 	@FXML
 	private TextField userNameInput;
@@ -107,26 +110,24 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		newAccount.setState(stateInput.getText());
 		newAccount.setCity(cityInput.getText());
 		newAccount.setAddress(addressInput.getText());
-		newAccount.
+		newAccount.setZipcode(zipcodeInput.getText());
 		
 		
 		
-		//Verifies that user inputs correct admin code
-		if (adminInput.getText().equals("admin1234") && Action.createAccount(newAccount)) {
+		//Verifies that user inputs correct admin code and inserts account
+		if (adminInput.getText().equals("admin1234")) {
 			newAccount.setStatus("true");
+			Action.createAccount(newAccount);
 			submission.setText("Admin Approved, Account Created");
 			submission.setTextFill(Paint.valueOf("00CC00"));
 		}
 		
-		else if (adminInput.getText().equals("admin1234") == false && Action.createAccount(newAccount)){
+		else {
 			submission.setText("Admin Denied, Account Created");
+			Action.createAccount(newAccount);
 			submission.setTextFill(Paint.valueOf("00CC00"));
 		}
 		
-		else {
-			submission.setText("Failed try again");
-			submission.setTextFill(Paint.valueOf("#FF0000"));
-		}
 		
 		} catch (Exception ex) {
 			submission.setText("One or more invalid entry");

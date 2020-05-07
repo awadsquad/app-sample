@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="1020.0" prefWidth="538.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountPage">
+<AnchorPane prefHeight="350.0" prefWidth="550.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountPage">
    <children>
       <BorderPane prefHeight="448.0" prefWidth="538.0" style="-fx-background-color: #2196F3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -129,6 +129,12 @@
                                     <TextField fx:id="addressInput" />
                                  </children>
                               </HBox>
+                              <HBox layoutX="10.0" layoutY="194.0" spacing="7.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Zipcode" />
+                                    <TextField fx:id="zipcodeInput" />
+                                 </children>
+                              </HBox>
                               <HBox layoutX="10.0" layoutY="145.0" spacing="7.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="State:" />
@@ -147,12 +153,6 @@
                                  </VBox.margin>
                               </Button>
                               <Label fx:id="submission" text="Submission" textFill="WHITE" />
-                              <HBox layoutX="10.0" layoutY="194.0" spacing="7.0">
-                                 <children>
-                                    <Label style="-fx-text-fill: #757575;" text="Phone:" />
-                                    <TextField fx:id="phoneInput1" />
-                                 </children>
-                              </HBox>
                            </children>
                            <HBox.margin>
                               <Insets />
