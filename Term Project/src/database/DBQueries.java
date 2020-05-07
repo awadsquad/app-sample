@@ -1,3 +1,4 @@
+
 package database;
 
 import java.sql.Connection;
@@ -82,13 +83,9 @@ try {
 	
 	
 	//sql query for viewing flights to book
-	public static String viewFlights(String a, String b, String c) {
+	public static String viewFlights() {
 		Statement stmt;
-		String query = ("SELECT `flight_id` FROM `world`.`flights` where destination = '" 
-					+ a + "date"
-					+ b + "'"
-					+ c + "'"
-				);
+		String query = ("SELECT * FROM `world`.`flight_info`");
     try {
     	Connection con = ConnectionMethod.getConnection();
         stmt = con.createStatement();
@@ -164,4 +161,5 @@ try {
 
 
 }
+>>>>>>> branch 'master' of https://github.com/cis3270appprogramming/app-sample.git
 	
