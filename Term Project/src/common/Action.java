@@ -24,10 +24,15 @@ public class Action {
 	}
 	
 	//method to book a flight
-	public static void bookFlight(Customer cust) {
+	public static void bookFlight(String a, String b, String c) {
 	String selectedflight = "null";
-	//select a flight	
-		viewFlights();
+	
+	String destination = a;
+	String date = b;
+	String time = c;
+	Flight
+	viewflights
+		
 	
 	for (int i = 0; i < flights.length; i++) {
 		
