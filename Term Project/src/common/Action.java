@@ -47,14 +47,11 @@ public class Action {
 	String destination = a;
 	String date = b;
 	String time = c;
-	DBQueries.viewFlights(a, b, c)
-	
-		
+	DBQueries.viewFlights(a, b, c);	
 	
 	for (int i = 0; i < flights.length; i++) {
 		
 		if (flights[i].)
-		
 		
 		bookFlight();//do i need to add this
 		break;
