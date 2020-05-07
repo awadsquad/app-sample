@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.SplashScreen">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<StackPane prefHeight="350.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SplashScreen">
+   <children>
+      <ImageView fx:id="img" fitHeight="376.0" fitWidth="564.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@download.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane onKeyPressed="#changeScreen" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Hyperlink fx:id="enter" layoutX="46.0" layoutY="252.0" onAction="#changeScreen" style="-fx-text-fill: #ffffff; -fx-border-color: transparent;" text="Husky Air">
+               <font>
+                  <Font name="System Bold Italic" size="39.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,33 +1,29 @@
 package application;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class SplashScreen extends StackPane{
+public class SplashScreen implements ControlledScreen{
 	
-	Stage window = new Stage();
+	ScreensController myController;
 	
-	public SplashScreen() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("SplashScreen.fxml"));
-		loader.setController(this);
-		loader.setRoot(this);
+	@FXML
+    private Hyperlink enter;
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
 		
-		try {
-			loader.load();
-		} catch (Exception ex) {
-			System.out.println(ex);
-		}
-		window.setScene(new Scene(this));
 	}
+	public void changeScreen(ActionEvent ex) {
+		myController.setScreen(Main.loginPageID);
+	}
+		
 	
-	public void showWindow() {
-		window.show();
-	}
-	
-	public void hideWindow() {
-		window.hide();
-	}
 	
 }

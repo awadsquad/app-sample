@@ -37,7 +37,7 @@
                                     <VBox>
                                        <children>
                                           <Label style="-fx-text-fill: #757575;" text="Username" />
-                                          <TextField fx:id="userNameInput" />
+                                          <TextField fx:id="usernameInput" />
                                        </children>
                                     </VBox>
                                     <Region layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
@@ -55,7 +55,7 @@
                                                 <Hyperlink onAction="#forgotPasswordPushed" prefHeight="22.0" prefWidth="65.0" text="Forgot" />
                                              </children>
                                           </HBox>
-                                          <TextField fx:id="passwordInput" promptText="Password" />
+                                          <TextField fx:id="passInput" promptText="Password" />
                                        </children>
                                     </VBox>
                                     <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
