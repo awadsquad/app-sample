@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 //import java.sql.ResultSet.Set;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import common.Customer;
 import common.Flight;
@@ -17,8 +19,15 @@ import common.Flight;
 public class Queries {
 	
 	public static void main(String[] args) {
-		Flight c = viewFlights("date", "time", "destination");
-		System.out.println(c.getDate() + " " + c.getDestination() + " " + c.getTime());
+		
+		try {
+			ArrayList<String> a = GETROW("user_id", "`world`.`customer_info`", "1");
+			System.out.println(Arrays.toString(a.toArray()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
@@ -48,7 +57,7 @@ public class Queries {
 
 	public static final void INSERT(Customer cust) throws Exception{
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (13,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
+			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES ('" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
 					"', '" + cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
 					+ "', '" + cust.getState() + "', '" + cust.getsSN() + "', '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"')";
 			System.out.println(tempQuer);
@@ -102,5 +111,63 @@ public class Queries {
 		return f2; 
 }
 	
-}
+	//Returns array of each value in column
+	public static final ArrayList<String> GETCOLUMN(String cName, String tName) throws Exception {
+		try {
+			Connection con = getConnection();
+			PreparedStatement statement = con.prepareStatement("SELECT " + cName + " FROM " + tName);
+			ResultSet result = statement.executeQuery();
+			ArrayList<String> array = new ArrayList<String>();
+			while(result.next()) {
+				array.add(result.getString(cName));
+			}
+			System.out.println("All records have been selected!");
+			con.close();
+			return array;
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+	
+	//TODO Fix
+	public static final ArrayList<String> GETROW(String cName, String tName, String identifier) throws Exception {
+		try {
+			Connection con = getConnection();
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM " + tName + " WHERE " + cName + 
+					" = " + identifier );
+			ResultSet result = statement.executeQuery();
+			ArrayList<String> array = new ArrayList<String>();
+			while(result.next()) {
+				array.add(result.getString(cName));
+			}
+			System.out.println("All records have been selected!");
+			con.close();
+			return array;
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+	
+	public static final void INSERT(Flight fl) throws Exception{
+		try {
+			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES ( '" + fl.getPassengerCount() + "', '" 
+					+ fl.getDate() + "', '" + fl.getTime() + "', '" + fl.getDestination() +"')";
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement insert = con.prepareStatement(tempQuer);
+			insert.executeUpdate();
+			con.close();
+			
+			
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 
+
+
+	}
+	
+	
+	
+	
+}

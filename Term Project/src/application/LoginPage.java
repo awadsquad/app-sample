@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -15,79 +16,116 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import common.Customer;
+
+import java.net.URL;
+import java.time.Duration;
+import java.util.ResourceBundle;
+
 import common.Action;
 
-public class LoginPage implements ControlledScreen {
-	
+public class LoginPage implements ControlledScreen{
+
 	ScreensController myController;
-	
+
 	@FXML
 	private TextField usernameInput;
-	
+
 	@FXML
 	private TextField passInput;
-	
+
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-	
+
 	@FXML
 	public void loginButtonPushed(ActionEvent event) {
-		
+
 		String username = usernameInput.getText();
 		String password = passInput.getText();
-		boolean loginAccepted = true;
-		if (Action.loginAuthentication(username, password)) {
-			myController.setScreen(Main.homePageID);
-			//Main.customer = 
-			
-		} else {
-			// TODO make password not accepted popup window
+
+		try {
+			if (Action.validLogin(username, password)) {
+				Main.currentUser = Action.setUser(username, password);
+				myController.setScreen(Main.homePageID);
+
+			} else {
+				incorrectLogin();
+			}
+		} catch (Exception ex) {
+			incorrectLogin();
+			System.out.println("Authentication failed");
+			System.out.println(ex);
 		}
 	}
-	//Takes user to Create Account Page
+
+	// Takes user to Create Account Page
 	@FXML
-	public void createAccountPushed(ActionEvent event) throws Exception{
-		
+	public void createAccountPushed(ActionEvent event) throws Exception {
+
 		myController.setScreen(Main.createAccountID);
-		
+
 	}
-	
-	//Allows user to get password
+
+	// Allows user to get password
 	public void forgotPasswordPushed(ActionEvent event) {
 		LoginPage.passwordForgotten();
 	}
-	
+
 	public static void passwordForgotten() {
 		Stage window = new Stage();
-		
+
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Forgot Password");
 		window.setMinWidth(250);
-		
+
 		Label label = new Label();
 		Label label1 = new Label();
 		label.setText("Favorite color?");
 		TextField input = new TextField();
-		String correct = "red";//Customer.answer;
+		String correct = "red";// Customer.answer;
 		Button submitButton = new Button("Submit");
 		submitButton.setOnAction(e -> {
 			String answer = input.getText();
 			if (answer.equals(correct)) {
-			label1.setText("Password: " + "1234"/*Customer.password*/);
-		} else {
-			label1.setText("Incorrect");
-		}});
-		
+				label1.setText("Password: " + "1234"/* Customer.password */);
+			} else {
+				label1.setText("Incorrect");
+			}
+		});
+
 		VBox layout = new VBox(10);
 		layout.setPadding(new Insets(10, 10, 10, 10));
 		layout.getChildren().addAll(label, input, submitButton, label1);
 		layout.setAlignment(Pos.CENTER);
-		
+
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
-		
+
 	}
+
+	public static void incorrectLogin() {
+		Stage window = new Stage();
+
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Error");
+		window.setMinWidth(250);
+
+		Label label = new Label();
+		label.setText("Incorrect Login, try again");
+		Button submitButton = new Button("Close");
+		submitButton.setOnAction(e -> window.close());
+
+		VBox layout = new VBox(10);
+		layout.setPadding(new Insets(10, 10, 10, 10));
+		layout.getChildren().addAll(label, submitButton);
+		layout.setAlignment(Pos.CENTER);
+
+		Scene scene = new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
+	}
+
 	
+
 }

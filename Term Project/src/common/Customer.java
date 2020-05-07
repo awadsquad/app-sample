@@ -13,13 +13,6 @@ public class Customer extends User {
 		
 		super(firstName,lastName,userName,email,sSN,password,address,city,state,zipcode,securityQuestion,phone,status, securityAnswer);
 	}
-
-
-	@Override
-	public boolean login() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 	
 }

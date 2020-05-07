@@ -1,6 +1,9 @@
 package application;
 
+import java.net.URL;
 import java.util.HashMap;
+import java.util.ResourceBundle;
+
 import javafx.scene.Node;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -9,11 +12,12 @@ import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-public class ScreensController extends StackPane {
+public class ScreensController extends StackPane{
 	
 	private HashMap<String, Node> screens = new HashMap<>();
 	
@@ -93,5 +97,6 @@ public class ScreensController extends StackPane {
 			return true;
 		}
 	}
+
 	
 }
