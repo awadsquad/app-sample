@@ -83,24 +83,33 @@ try {
 	
 	
 	//sql query for viewing flights to book
-	public static String viewFlights() {
+	public static Flight viewFlights(String a, String b, String c) {
 		Statement stmt;
-		String query = ("SELECT * FROM `world`.`flight_info`");
-    try {
+		String query = ("SELECT * FROM `world`.`flights` where destination = '" 
+				+ a + "' and date = '" 
+				+ b + "' and time = '" 
+				+ c + "'");
+		
+		
+		try {
     	Connection con = ConnectionMethod.getConnection();
         stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
-            String airportName = rs.getString("airport_name");
+         
             String destination = rs.getString("destination");
             int flightNumber = rs.getInt("flightNumber");    
             int passengerCount = rs.getInt("passenger");
             String date = rs.getString("date");
             String time = rs.getString("time");
         
-        //need to display the information to the user.
+        //need to passthe information to the user.
             
             
+            
+            Flight f1 = new Flight(destination, flightNumber, passengerCount, date, time);
+            
+            return f1;
         }
     //catch exception
     } catch (Exception e ) {
