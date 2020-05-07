@@ -13,19 +13,6 @@ import common.Flight;
 //import exceptions.LoginException;
 
 public class Queries {
-	
-	public static void main(String[] args) {
-
-		try {
-			getConnection();
-			Customer a = new Customer("John", "Wayne", "jwayne", "programmingHard@gmail.com", "41435672", "12345",
-					"123 Beat St", "Atlanta", "GA", "30312", "Favorite color?", "4143567", "true", "yellow");
-			INSERT(a);
-			System.out.println("Inserted");
-		} catch(Exception e) {
-			System.out.println("you have a problem with your dbquery insertUser");
-		}
-	}
 
 	public static Connection getConnection() throws Exception {
 
@@ -49,13 +36,15 @@ public class Queries {
 
 	public static final void INSERT(Customer cust) throws Exception{
 		try {
-			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (10,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
+			String tempQuer = "INSERT INTO `world`.`customer_info` VALUES (11,'" + cust.getUserName() + "', '" + cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() +
 					"', '" + cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState() + "', '" + cust.getPhone() + "', '" + cust.getEmail()
 					+ "', '" + cust.getState() + "', '" + cust.getsSN() + "', '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() +"')";
 			System.out.println(tempQuer);
 			Connection con = ConnectionMethod.getConnection();
 			PreparedStatement insert = con.prepareStatement(tempQuer);
 			insert.executeUpdate();
+			
+			insert.close();
 			
 		} catch (Exception ex) {
 			System.out.println(ex);

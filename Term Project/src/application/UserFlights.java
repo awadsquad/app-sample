@@ -36,13 +36,13 @@ public class UserFlights implements Initializable{
 		public void initialize(URL location, ResourceBundle resources) {
 			destination.setCellValueFactory(new PropertyValueFactory<ListenerFlight, String>(" "));
 			
-			tableView.setItems();
+			//tableView.setItems();
 			
 		}
 		
-		public ObservableList<ListenerFlight> getFlights() {
+		/*public ObservableList<ListenerFlight> getFlights() {
 			ObservableList<ListenerFlight>
-		}
+		}*/
 		
 		
 	}

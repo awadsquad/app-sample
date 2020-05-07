@@ -17,9 +17,15 @@ public class Action {
 	public static final String GET_FLIGHTS = "getflight";
 	public static final String BOOK_FLIGHT = "bookflight";
 	//Gets account info from window and stores in database
-	public static void createAccount(Customer cust) {
-		
-		Queries.INSERT(cust);
+	public static boolean createAccount(Customer cust) throws Exception{
+		try {
+			Queries.INSERT(cust);
+			return true;
+		} catch (Exception ex) {
+			System.out.println("Failed");
+			System.out.println(ex);
+			return false;
+		}
 	
 	}
 	

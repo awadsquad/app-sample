@@ -112,14 +112,9 @@ public abstract class User {
 		return sSN;
 	}
 
-	public boolean setsSN(String sSN) {
-		if (sSN.matches("^(\\d{3}-?\\d{2}-?\\d{4})$")) {
-			this.sSN = sSN;
-			return true;
-		}
-		else {
-			return false;
-		}
+	public void setsSN(String sSN) {
+		this.sSN = sSN;
+
 	}
 
 	public String getPassword() {
