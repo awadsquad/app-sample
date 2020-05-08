@@ -85,7 +85,7 @@ public class Action {
 			ArrayList<String> passwords = Queries.GETCOLUMN("password", "`world`.`customer_info`");
 			ArrayList<String> userIds = Queries.GETCOLUMN("user_id", "`world`.`customer_info`");
 			for (int i = 0; i < usernames.size(); i++) {
-				if(usernames.get(i).equals(username) && passwords.get(i).equals(passwords)) {
+				if(usernames.get(i).equals(username) && passwords.get(i).equals(password)) {
 					setUserId = userIds.get(i);
 				}
 				

@@ -1,12 +1,16 @@
 package application;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.mysql.cj.conf.StringProperty;
 
 import common.Flight;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,7 +35,12 @@ public class UserFlights implements Initializable{
 		private TableColumn<ListenerFlight, String> time;
 		@FXML
 		private TableColumn<ListenerFlight, String> passengerCount;
-
+		@FXML
+		private Button btnLoad;
+		
+		private ObservableList<ListenerFlight> flights;
+		private DbConnection();
+;
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			destination.setCellValueFactory(new PropertyValueFactory<ListenerFlight, String>(" "));
@@ -40,9 +49,9 @@ public class UserFlights implements Initializable{
 			
 		}
 		
-		/*public ObservableList<ListenerFlight> getFlights() {
+	public ObservableList<ListenerFlight> getFlights() {
 			ObservableList<ListenerFlight>
-		}*/
+		}
 		
 		
 	}

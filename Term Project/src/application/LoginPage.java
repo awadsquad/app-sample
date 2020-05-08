@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import common.Customer;
+import common.User;
 
 import java.net.URL;
 import java.time.Duration;
@@ -32,9 +33,19 @@ public class LoginPage implements ControlledScreen{
 
 	@FXML
 	private TextField passInput;
+	
+	public static User currentUser;
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+	}
+	
+	public void setUser(User a) {
+		LoginPage.currentUser = a;
+	}
+	
+	public static User getUser() {
+		return currentUser;
 	}
 
 	@FXML
@@ -45,8 +56,13 @@ public class LoginPage implements ControlledScreen{
 
 		try {
 			if (Action.validLogin(username, password)) {
-				Main.currentUser = Action.setUser(username, password);
+				currentUser = Action.setUser(username, password);
+		
 				myController.setScreen(Main.homePageID);
+				
+				
+				
+				
 
 			} else {
 				incorrectLogin();

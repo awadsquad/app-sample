@@ -11,41 +11,46 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import common.Customer;
+import common.User;
 
-public class ProfilePage implements ControlledScreen, Initializable {
+public class ProfilePage implements ControlledScreen {
 
 	ScreensController myController;
 
 	// Page elements
 	@FXML
-	private Label profileName;
+	private static Label profileName;
 
 	@FXML
-	private Label lName;
+	private static Label lName;
 
 	@FXML
-	private Label fName;
+	private static Label fName;
 
 	@FXML
-	private Label city;
+	private static Label city;
 
 	@FXML
-	private Label phone;
+	private static Label phone;
 
 	@FXML
-	private Label state;
+	private static Label state;
 
 	@FXML
-	private Label email;
+	private static Label email;
 
 	@FXML
-	private Label sSN;
+	private static Label sSN;
 	
 	@FXML
 	private Label zipcode;
 	
 	@FXML 
-	private Label address;
+	private static Label address;
+	
+	private static User currentUser;
+	
+	
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -63,26 +68,23 @@ public class ProfilePage implements ControlledScreen, Initializable {
 		myController.setScreen(Main.homePageID);
 
 	}
+	
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public static void setLables(User currentUser) {
 		
-		String status = Main.currentUser.getStatus();
 
-			Customer user = (Customer)Main.currentUser;
-
-
+		
 		try {
-			profileName.setText(user.getUserName());
-			fName.setText(user.getFirstName());
-			lName.setText(user.getLastName());
-			city.setText(user.getCity());
-			phone.setText(user.getPhone());
-			state.setText(user.getState());
-			email.setText(user.getEmail());
-			sSN.setText(user.getsSN());
-			address.setText(user.getAddress());
-			phone.setText(user.getPhone());
+			profileName.setText(currentUser.getUserName());
+			fName.setText(currentUser.getFirstName());
+			lName.setText(currentUser.getLastName());
+			city.setText(currentUser.getCity());
+			phone.setText(currentUser.getPhone());
+			state.setText(currentUser.getState());
+			email.setText(currentUser.getEmail());
+			sSN.setText(currentUser.getsSN());
+			address.setText(currentUser.getAddress());
+			phone.setText(currentUser.getPhone());
 			
 		} catch (Exception ex) {
 			System.out.println("Display issue");

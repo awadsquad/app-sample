@@ -55,7 +55,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="329.0">
                                  <children>
-                                    <Label fx:id="profileName" style="-fx-text-fill: #757575;" text="Username">
+                                    <Label fx:id="profileName" style="-fx-text-fill: #757575;">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

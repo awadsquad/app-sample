@@ -1,5 +1,6 @@
 package application;
 
+import common.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +12,16 @@ public class Home implements ControlledScreen{
 	
 	ScreensController myController;
 	
+	static User currentUser;
+	
+	public static void setCurrentUser(User a) {
+		currentUser = a;
+	}
+	
+	public  static User getCurrentUser() {
+		return currentUser;
+	}
+	
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 		
@@ -18,9 +29,10 @@ public class Home implements ControlledScreen{
 
 	//Opens profile page when Profile button is clicked
 	public void profileButtonPushed(ActionEvent event) {
-
-			myController.setScreen(Main.profilePageID);
-
+			setCurrentUser(LoginPage.getUser());
+;			myController.setScreen(Main.profilePageID);
+			
+			
 	}
 	
 	//Displays scene for booking flights
