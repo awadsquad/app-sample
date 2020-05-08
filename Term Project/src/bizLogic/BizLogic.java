@@ -34,7 +34,7 @@ public class BizLogic {
 			DBQueries.insertFlight(co);
 			break;	
 		default
-			System.out.println("choose an action")
+			System.out.println("choose an action");
 		}
 	}
 
