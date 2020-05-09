@@ -3,6 +3,7 @@ package database;
 
 import common.Customer;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,29 +21,25 @@ import common.Flight;
 
 public class Queries {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception {
 		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
 		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
-		try {
-			Flight fl = new Flight();
-			fl.setFlightNumber(1095);
-			fl.setPassengerCount(23);
-			fl.setDestination("ATL");
-		    fl.setDate("4/20");		    
-		    fl.setTime("2:00pm");
-		 	  UPDATE(fl);
-			//System.out.print(Arrays.toString(a));
-
-		/*
-		 * try { INSERT(a);
-		 * 
-		 * } catch (Exception e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
+//		try {
+//			Flight fl = new Flight();
+//			fl.setFlightNumber(1095);
+//			fl.setPassengerCount(23);
+//			fl.setDestination("ATL");
+//			fl.setDate("4/20");		    
+//			fl.setTime("2:00pm");
+//			UPDATE(fl);
+//		} catch(IOException e) {
+//			e.printStackTrace(); 	
+//		} finally {
+//		    // ... cleanup that will execute whether or not an error occurred ...
+//		}
+//
+//	}
 	}
-
 	public static Connection getConnection() throws Exception {
 
 		try {
@@ -55,14 +52,11 @@ public class Queries {
 			Connection conn = DriverManager.getConnection(url, username, password);
 			System.out.println("Connected");
 			return conn;
-
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
-		}
-
-		finally {
-
+		} finally {
+			System.out.println("Finished");
 		}
 
 	}
@@ -127,6 +121,8 @@ public class Queries {
 		try {
 			Connection con = getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT " + cName + " FROM " + tName);
+			System.out.println(statement);
+			System.out.println("SELECT " + cName + " FROM " + tName);
 			ResultSet result = statement.executeQuery();
 			ArrayList<String> array = new ArrayList<String>();
 			while (result.next()) {
@@ -145,8 +141,7 @@ public class Queries {
 
 		try {
 			Connection con = getConnection();
-			PreparedStatement statement = con
-					.prepareStatement("SELECT * FROM `world`.`customer_info` WHERE " + cName + " = " + identifier);
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM `world`.`customer_info` WHERE " + cName + " = " + identifier);
 
 			ResultSet result = statement.executeQuery();
 			ArrayList<String> array = new ArrayList<String>();

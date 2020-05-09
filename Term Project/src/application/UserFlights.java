@@ -2,12 +2,13 @@ package application;
 
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-
-import com.mysql.cj.conf.StringProperty;
-
 import common.Flight;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,7 +40,7 @@ public class UserFlights implements Initializable{
 		private Button btnLoad;
 		
 		private ObservableList<ListenerFlight> flights;
-		private DbConnection();
+//		private DbConnection();
 ;
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
@@ -48,10 +49,18 @@ public class UserFlights implements Initializable{
 			//tableView.setItems();
 			
 		}
-		
-	public ObservableList<ListenerFlight> getFlights() {
-			ObservableList<ListenerFlight>
-		}
+
+	public ObservableList<ListenerFlight> getFlights(List list) {
+			ObservableList<ListenerFlight> listOfFlights = FXCollections.observableList(list);
+			listOfFlights.addListener(new ListChangeListener() {
+
+			@Override
+			public void onChanged(ListChangeListener.Change change) {
+				System.out.println("Detected a change! ");
+			}
+		});
+		return listOfFlights;
+	}
 		
 		
 	}

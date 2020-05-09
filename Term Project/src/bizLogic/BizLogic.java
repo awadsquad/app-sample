@@ -2,6 +2,7 @@ package bizLogic;
 import common.Action;
 import common.Customer;
 import database.DBQueries;
+import database.Queries;
 
 public class BizLogic {
 	
@@ -12,28 +13,33 @@ public class BizLogic {
 		switch (co.getAction()) {
 			
 		case Action.LOGIN:
-			DBQueries.login(co);
+			//DBQueries.login(co);
+			Queries.INSERT(cust);
 			break;
 		case Action.GET_FLIGHTS:
-			DBQueries.getFlights(co);
+//			DBQueries.getFlights(co);
+			Queries.viewFlights(a,b,c);
 			break;
-		case Action.bookFlight(co);
-			DBQueries.bookFlight(co);
+			case Action.bookFlight(co):
+//			DBQueries.bookFlight(co);
+			Queries.INSERT(fl);
 			break;
-		case Action.deleteBooked(co);
-			DBQueries.deleteBooked(co);
+			case Action.deleteBooked(co):
+//			DBQueries.deleteBooked(co);
+			Queries.DELETE(fl);
 			break;
 		//admin actions
-		case Action.updateFlight(co);
-			DBQueries.updateFlight(co)
+			case Action.updateFlight(co):
+//			DBQueries.updateFlight(co);
+			Queries.UPDATE(fl);
 			break;	
-		case Action.insertFlight(co);
+			case Action.insertFlight(co):
 			DBQueries.insertFlight(co);
 			break;	
-		case Action.deleteFlight
+			case Action.deleteFlight:
 			DBQueries.insertFlight(co);
 			break;	
-		default
+			default:
 			System.out.println("choose an action");
 		}
 	}
