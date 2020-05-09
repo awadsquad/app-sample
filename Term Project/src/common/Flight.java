@@ -28,6 +28,9 @@ public class Flight {
 	}
 	
 	//getter and setters
+	public String getAction(){
+		return "wtf";
+	}
 	public String getDestination() {
 		return destination;
 	}

@@ -1,49 +1,59 @@
 package bizLogic;
 import common.Action;
 import common.Customer;
+import common.Flight;
 import database.DBQueries;
 import database.Queries;
 
 public class BizLogic {
 	
-	//todo do we need action for isFull?	
-	
-	public static void process (Customer co){
+	//todo do we need action for isFull?
+
+	public static void processFl (Flight fl) throws Exception {
 		
-		switch (co.getAction()) {
-			
-		case Action.LOGIN:
-			//DBQueries.login(co);
-			Queries.INSERT(cust);
-			break;
-		case Action.GET_FLIGHTS:
-//			DBQueries.getFlights(co);
-			Queries.viewFlights(a,b,c);
-			break;
-			case Action.bookFlight(co):
-//			DBQueries.bookFlight(co);
-			Queries.INSERT(fl);
-			break;
-			case Action.deleteBooked(co):
-//			DBQueries.deleteBooked(co);
-			Queries.DELETE(fl);
-			break;
+		switch (fl.getAction()) {
 		//admin actions
-			case Action.updateFlight(co):
-//			DBQueries.updateFlight(co);
-			Queries.UPDATE(fl);
-			break;	
-			case Action.insertFlight(co):
-			DBQueries.insertFlight(co);
-			break;	
-			case Action.deleteFlight:
-			DBQueries.insertFlight(co);
-			break;	
+//			case Action.updateFlight(fl):
+////			DBQueries.updateFlight(co);
+//			Queries.UPDATE(fl);
+//			break;
+			case "wtf":
+			Queries.INSERT(fl); // This needs to be a flight not a co
+			break;
+//			case Action.deleteFlight:
+//			Queries.DELETE(fl); // This needs to be a flight not a co
+//			break;
 			default:
 			System.out.println("choose an action");
 		}
 	}
 
-	
-	
+
+	public static void processCo (Customer co) throws Exception {
+
+		switch (co.getAction()) {
+			case "login":
+				//DBQueries.login(co);
+				Queries.INSERT(co);
+				break;
+			case "getFlight":
+//			DBQueries.getFlights(co); 4/01	1:15am	DME
+				Queries.viewFlights("DME", "04/01", "1:15am");
+				break;
+			case "bookFlight":
+//			DBQueries.bookFlight(co);
+//				Queries.viewFlights(co);
+				break;
+			//admin actions
+			case "updateCustomer":
+//			DBQueries.updateFlight(co);
+				Queries.UPDATECO(co);
+				break;
+			default:
+				System.out.println("choose an action");
+		}
+	}
+
+
+
 }

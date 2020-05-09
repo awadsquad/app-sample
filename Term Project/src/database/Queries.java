@@ -193,38 +193,71 @@ public class Queries {
 			System.out.println(ex);
 		}
 		}
-		public static final void DELETE(Flight fl) throws Exception {
-			try {
-				String tempQuer = "DELETE FROM `world`.`flights` WHERE flight_number = " + fl.getFlightNumber() +";";
-				System.out.println(tempQuer);
-				Connection con = getConnection();
-				PreparedStatement delete= con.prepareStatement(tempQuer);
-				delete.executeUpdate();
-				con.close();
-				System.out.println("Column has been deleted!");
 
+		public ArrayList<String> viewAllFlights() throws Exception {
+			 Connection con = getConnection();
+			 ArrayList<String> allFlights = new ArrayList<String>();
+			try {
+				String tempQuer = "SELECT * FROM `world`.`flights`;";
+				System.out.println(tempQuer);
+				con = getConnection();
+				PreparedStatement prepState = con.prepareStatement(tempQuer);
+				ResultSet result = prepState.executeQuery();
+				System.out.println("Show me all the flights!");
+				System.out.println(result);
+				while(result.next()) {
+					allFlights = allFlights.add(result.getString());
+				}
 			} catch (Exception ex) {
 				System.out.println(ex);
+			} finally {
+				con.close();
 			}
+				return allFlights;
 			}
 
-			public static final void UPDATE(Flight fl) throws Exception {
-				try {
-					String tempQuer = "UPDATE `world`.`flights`SET`flight_number` = " 
-				+ fl.getFlightNumber() +", `passenger_count` = "
-				+ fl.getPassengerCount() + ", `date` = '"+ fl.getDate() + " ', `time` = '" 
-				+ fl.getTime() + "' , `destination` = '" + fl.getDestination() +
-				"' WHERE `flight_number` = " +fl.getFlightNumber() +" ;";
-					System.out.println(tempQuer);
-					Connection con = getConnection();
-					PreparedStatement delete= con.prepareStatement(tempQuer);
-					delete.executeUpdate();
-					con.close();
-					System.out.println("Update has been completed!");
-				} catch (Exception ex) {
-					System.out.println(ex);
-				}
+	public void UPDATEFL(Flight fl) throws Exception {
+		try {
+			String tempQuer = "UPDATE `world`.`flights`SET`flight_number` = "
+					+ fl.getFlightNumber() +", `passenger_count` = "
+					+ fl.getPassengerCount() + ", `date` = '"+ fl.getDate() + " ', `time` = '"
+					+ fl.getTime() + "' , `destination` = '" + fl.getDestination() +
+					"' WHERE `flight_number` = " +fl.getFlightNumber() +" ;";
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement delete= con.prepareStatement(tempQuer);
+			delete.executeUpdate();
+			con.close();
+			System.out.println("Update has been completed!");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
 
+	public void UPDATECO(Customer co) throws Exception {
+		try {
+
+			//5	ducky	rubber	odd	pass	dress drive	309303	heaven	GE	0	n@.com	loser	0	why?	why not.
+			String tempQuer = "UPDATE `world`.`customer_info` SET `user_id` = "
+					+ co.getUserId() +", `first_name` = "
+						+ co.getFirstName() + ", `last_name` = '"+ co.getLastName() + " ', `username` = '"
+					+ co.getUserName() + "' , `password` = '" + co.getPassword() + "' , `password` = '" + co.getPassword()
+					+ "' , `address` = '" + co.getAddress() + "' , `zipcode` = '" + co.getZipcode()
+					+ "' , `city` = '" + co.getCity() + "' , `state` = '" + co.getState()
+					+ "' , `phone` = '" + co.getPhone() + "' , `email` = '" + co.getEmail()
+					+ "' , `status` = '" + co.getStatus() + "' , `ssn` = '" + co.getsSN()
+					+ "' , `security_questions` = '" + co. getSecurityQuestion()
+					+ "' , `security_answer` = '" + co.getSecurityAnswer() +
+					"' WHERE `user_id` = " + co.getUserId() +" ;";
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement delete= con.prepareStatement(tempQuer);
+			delete.executeUpdate();
+			con.close();
+			System.out.println("Update has been completed!");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 
 }

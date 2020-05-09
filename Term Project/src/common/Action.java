@@ -1,9 +1,6 @@
 package common;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 import database.ConnectionMethod;
@@ -132,7 +129,7 @@ public class Action {
 		
 		return output;
 	}
-	
+
 	//method to book a flight
 	/*public static void bookFlight(String a, String b, String c) {
 	String selectedflight = "null";
@@ -158,6 +155,7 @@ public class Action {
 	//need to add 
 		
 }
+
 
 
 	//method to check if flight if full
@@ -246,15 +244,16 @@ public class Action {
 	          return null;
 	        }
 
-	}
+	}*/
 			
-	//view a list of available flights		
+	//view a list of available flights
+
 	public static Flight viewFlights(Customer a) throws Exception {
 			
 	//create database connection
-	String query = DBQueries.viewAllFlights();
+	String query = Queries.viewAllFlights();
 //this i sdumb
-	{
+				try {
 			    	Connection con = ConnectionMethod.getConnection();
 			        Statement stmt = con.createStatement();
 			        ResultSet rs = stmt.executeQuery(query);
@@ -270,18 +269,17 @@ public class Action {
 			            
 			        }
 			    //catch exception
-			    } catch (Exception e ) {
-			        
-			    //close connection
-			    } finally {
+			    } catch(Exception e)
+				{
+
+				} finally {
 			    	//TODO
-			    }
-			        { stmt.close(); }
+//					stmt.close();
 			    }
 			}
 		
 	//insert a new flight into the database for booking		
-	public static void insertFlight(Connection con, Flight ) throws SQLException {
+	public static void insertFlight(Flight fl) throws SQLException {
 		
 		 try
 	        { //create database connection
@@ -294,26 +292,26 @@ public class Action {
 	              
 	            // Inserting data in database with preparedstatement
 	            PreparedStatement preparedStmt = con.prepareStatement(query);
-	            preparedStmt.setString(1, Flight.getAirportName());//are these correct, like the int? or is flight is a string?
-	            preparedStmt.setDate(2, );
-	            preparedStmt.setString(3,);
-	            preparedStmt.setString(4, );
-	            preparedStmt.setDate(5, );
-	            
-	            int x = stmt.executeUpdate(q1); 
-	            if (x > 0)             
-	                System.out.println("Successfully Inserted");             
-	            else            
-	                System.out.println("Insert Failed"); 
-	            
+//	            preparedStmt.setString(1, Flight.getAirportName());//are these correct, like the int? or is flight is a string?
+//	            preparedStmt.setDate(2, );
+//	            preparedStmt.setString(3,);
+//	            preparedStmt.setString(4, );
+//	            preparedStmt.setDate(5, );
+//
+//	            int x = stmt.executeUpdate(q1);
+//	            if (x > 0)
+//	                System.out.println("Successfully Inserted");
+//	            else
+//	                System.out.println("Insert Failed");
+//
 	        } 
 	        catch(Exception e) 
 	        { 
 	         
 	        } 
-		 finally
+		 finally{
 		 //close connection
-	            {con.close(); }
+		 // con.close();
 	    } 
-	}*/
+	}
 }

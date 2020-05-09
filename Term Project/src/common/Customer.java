@@ -13,6 +13,8 @@ public class Customer extends User {
 		
 		super(firstName,lastName,userName,email,sSN,password,address,city,state,zipcode,securityQuestion,phone,status, securityAnswer);
 	}
-	
-	
+
+	public void getAction(){
+
+	}
 }
