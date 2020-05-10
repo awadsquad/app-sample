@@ -1,12 +1,10 @@
 package common;
 
+import database.ConnectionMethod;
+import database.Queries;
+
 import java.sql.*;
 import java.util.ArrayList;
-
-import database.ConnectionMethod;
-import database.DBQueries;
-import database.Queries;
-import common.User;
 
 public class Action {
 	
@@ -24,9 +22,9 @@ public class Action {
 	final static String cTName = "`world`.`customer_info`";
 	
 	//Gets account info from window and stores in database
-	public static void createAccount(Customer cust) throws Exception{
+	public static void createAccount(Customer customer) throws Exception{
 		try {
-			Queries.INSERT(cust);
+			Queries.INSERT(customer);
 			System.out.println("Added");
 		} catch (Exception ex) {
 			System.out.println("Failed");
@@ -249,33 +247,34 @@ public class Action {
 	//view a list of available flights
 
 	public static Flight viewFlights(Customer a) throws Exception {
-			
+		Flight fl = new Flight();
 	//create database connection
-	String query = Queries.viewAllFlights();
-//this i sdumb
+//		ArrayList<String> query = Queries.viewAllFlights(); What was this for?
+		Connection con = null;
+		Statement stmt = null;
+		String query = ("SELECT * FROM `world`.`flights` where customer_id = '" + a.getUserId() );
+//this is dumb
 				try {
-			    	Connection con = ConnectionMethod.getConnection();
-			        Statement stmt = con.createStatement();
-			        ResultSet rs = stmt.executeQuery(query);
+					con = ConnectionMethod.getConnection();
+					stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery(query);
 			        while (rs.next()) {
-			            String airportName = rs.getString("airport_name");
-			            String destination = rs.getString("destination");//THESE NEED TO BE FILLEDOUT
-			            int flightNumber = rs.getInt("flightNumber");     //WITH THE COLUMN NAMES
-			            int passengerCount = rs.getInt("passenger");
-			            String date = rs.getString("date");
-			            String time = rs.getString("");
-			        
-			        //need to display the information to the user.
-			            
+//			            airportName = rs.getString("airport_name");
+			            fl.setDestination(rs.getString("destination")); //THESE NEED TO BE FILLEDOUT
+			            fl.setFlightNumber(rs.getInt("flightNumber"));     //WITH THE COLUMN NAMES
+			            fl.setPassengerCount(rs.getInt("passenger"));
+//			            fl.getDate(rs.getString("date")); TODO
+//			            fl.getTime(rs.getString("")); TODO
+			            //need to display the information to the user.
+
 			        }
 			    //catch exception
-			    } catch(Exception e)
-				{
-
+			    } catch(Exception e){
+					System.out.println(e);
 				} finally {
-			    	//TODO
-//					stmt.close();
-			    }
+					con.close();
+				}
+				return fl; //All Flights that this customer has
 			}
 		
 	//insert a new flight into the database for booking		

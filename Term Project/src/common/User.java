@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class User {
-	
+
 	private int userId;
 	private String firstName;
 	private String lastName;
@@ -51,7 +51,8 @@ public class User {
 	public User(String firstName, String lastName, String userName, String email, String sSN, String password, String address,
 			String city, String state, String zipcode, String securityQuestion, String phone, String status, String securityAnswer) {
 		//TODO finish
-		
+
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName; 
@@ -86,9 +87,7 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
+	public String getUserName() { return userName; }
 
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -207,9 +206,7 @@ public class User {
 	}
 
 	//Allows users to add flight
-	public void addFlight(Flight booked) {
-		this.flights.add(booked);
-	}
+	public void addFlight(Flight booked) { this.flights.add(booked); }
 	//Allows users to delete flight
 	public void removeFlight(Flight booked) {
 		this.flights.remove(booked);

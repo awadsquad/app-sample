@@ -2,7 +2,6 @@ package bizLogic;
 import common.Action;
 import common.Customer;
 import common.Flight;
-import database.DBQueries;
 import database.Queries;
 
 public class BizLogic {

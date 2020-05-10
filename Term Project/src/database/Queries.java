@@ -15,8 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import common.Customer;
-import common.Flight;
+import common.*;
 //import exceptions.LoginException;
 
 public class Queries {
@@ -194,7 +193,7 @@ public class Queries {
 		}
 		}
 
-		public ArrayList<String> viewAllFlights() throws Exception {
+		public static ArrayList<String> viewAllFlights() throws Exception {
 			 Connection con = getConnection();
 			 ArrayList<String> allFlights = new ArrayList<String>();
 			try {
@@ -206,7 +205,7 @@ public class Queries {
 				System.out.println("Show me all the flights!");
 				System.out.println(result);
 				while(result.next()) {
-					allFlights = allFlights.add(result.getString());
+					allFlights.add(result.getString(0));
 				}
 			} catch (Exception ex) {
 				System.out.println(ex);
@@ -234,7 +233,7 @@ public class Queries {
 		}
 	}
 
-	public void UPDATECO(Customer co) throws Exception {
+	public static void UPDATECO(Customer co) throws Exception {
 		try {
 
 			//5	ducky	rubber	odd	pass	dress drive	309303	heaven	GE	0	n@.com	loser	0	why?	why not.

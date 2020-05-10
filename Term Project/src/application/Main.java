@@ -35,7 +35,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 	
-			ScreensController mainContainer = new ScreensController();
+			application.ScreensController mainContainer = new application.ScreensController();
 			mainContainer.loadScreen(Main.splashPageID, Main.splashScreenFile);
 			mainContainer.loadScreen(Main.loginPageID, loginPageFile);
 			mainContainer.loadScreen(Main.createAccountID, createAccountFile);
