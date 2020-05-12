@@ -1,12 +1,9 @@
 package common;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Flight {
 
 	private String destination;
+	private String departure;
 	private int flightNumber;
 	private int passengerCount;
 	private String date;
@@ -16,9 +13,10 @@ public class Flight {
 
 	}
 
-	public Flight(String destination, int flightNumber, int passengerCount, String date, String time) {
+	public Flight(String departure, String destination, int flightNumber, int passengerCount, String date, String time) {
 
 		this.destination = destination;
+		this.departure = departure;
 		this.flightNumber = flightNumber;
 		this.passengerCount = passengerCount;
 		this.date = date;
@@ -26,18 +24,19 @@ public class Flight {
 
 	}
 
-	public Flight(String destination, int passengerCount, String date, String time) {
+	public Flight(String departure, String destination, int passengerCount, String date, String time) {
 
 		this.destination = destination;
-
+		this.departure = departure;
 		this.passengerCount = passengerCount;
 		this.date = date;
 		this.time = time;
 
 	}
 	
-	public Flight(String destination, String date, String time) {
-
+	public Flight(String departure, String destination, String date, String time) {
+		
+		this.departure = departure;
 		this.destination = destination;
 		this.date = date;
 		this.time = time;
@@ -84,6 +83,14 @@ public class Flight {
 
 	public void setTime(String time) {
 		this.time = time;
+	}
+
+	public String getDeparture() {
+		return departure;
+	}
+
+	public void setDeparture(String departure) {
+		this.departure = departure;
 	}
 
 	// adds passenger to flight
