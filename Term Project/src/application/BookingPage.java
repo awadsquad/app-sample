@@ -1,5 +1,7 @@
 package application;
 
+import common.Action;
+import common.Flight;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,15 +15,17 @@ public class BookingPage implements ControlledScreen {
 
 	@FXML
 	private TextField dateInput;
-
-	@FXML
-	private Label airportOutput;
+	
+	@FXML 
+	private TextField timeInput;
 
 	@FXML
 	private Label timeOutput;
 
 	@FXML
 	private Label dateOutput;
+	@FXML
+	private Label destinationOutput;
 
 	ScreensController myController;
 	@FXML
@@ -45,14 +49,20 @@ public class BookingPage implements ControlledScreen {
 	}
 	//Books Flight
 	public void flightConfirmed(ActionEvent event) {
-
+		
+		Flight f = new Flight();
+		try {
+			f = Action.bookFlight(destinationInput.getText(), dateInput.getText(), timeInput.getText());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		boolean b = false;
 
-		if (b) {
 			flightConfirmation.setText("Flight Confirmed");
-		} else {
-			flightConfirmation.setText("Error: Try Again");
-		}
+			destinationOutput.setText(f.getDestination());
+			timeOutput.setText(f.getTime());
+			dateOutput.setText(f.getDate());
 	}
 
 }

@@ -24,14 +24,7 @@ public class Queries {
 
 		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
 		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
-		try {
-			Flight fl = new Flight();
-			fl.setFlightNumber(1095);
-			fl.setPassengerCount(23);
-			fl.setDestination("ATL");
-		    fl.setDate("4/20");		    
-		    fl.setTime("2:00pm");
-		 	  UPDATE(fl);
+	
 			//System.out.print(Arrays.toString(a));
 
 		/*
@@ -67,12 +60,12 @@ public class Queries {
 
 	}
 
-	public static final void INSERT(Customer cust) throws Exception {
+	public static final void INSERT(Customer cust) throws Exception { 
 		try {
 			String tempQuer = "INSERT INTO `world`.`customer_info` (first_name" + ",last_name" + ",username"
 					+ ",password" + ",address" + ",zipcode" + ",city" + ",state" + ",phone" + ",email" + ",status"
-					+ ",ssn" + ",securtity_question" + ",security_answer) VALUES ('" + cust.getUserName() + "', '"
-					+ cust.getFirstName() + "', '" + cust.getLastName() + "', '" + cust.getPassword() + "', '"
+					+ ",ssn" + ",securtity_question" + ",security_answer) VALUES ('" + cust.getFirstName() + "', '"
+					+ cust.getLastName() + "', '" + cust.getUserName() + "', '" + cust.getPassword() + "', '"
 					+ cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState()
 					+ "', '" + cust.getPhone() + "', '" + cust.getEmail() + "', '" + cust.getState() + "', "
 					+ cust.getsSN() + ", '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() + "')";

@@ -39,6 +39,19 @@ public class Action {
 	
 	}
 	
+	public static Flight bookFlight(String dest, String date, String time) throws Exception {
+
+		try { // create database connection
+			Connection connect = Queries.getConnection();
+			Flight f1 = new Flight(dest, date, time);
+			Queries.INSERT(f1);
+			return f1;
+		} catch (Exception o) {
+			System.out.print("eat a potato");
+			return null;
+		}
+	}
+	
 	//Authenticates Username and password
 	public static boolean validLogin (String a, String b) throws Exception {
 			

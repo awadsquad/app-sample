@@ -38,7 +38,9 @@ public class Home implements ControlledScreen{
 	//Displays scene for booking flights
 	public void bookingButtonPushed(ActionEvent event) throws Exception{
 		
+		
 		myController.setScreen(Main.bookingPageID);
+		ProfilePage.setLabels(currentUser);
 		
 	}
 	

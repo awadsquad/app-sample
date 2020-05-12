@@ -70,7 +70,7 @@ public class ProfilePage implements ControlledScreen {
 	}
 	
 
-	public static void setLables(User currentUser) {
+	public static void setLabels(User currentUser) {
 		
 
 		
