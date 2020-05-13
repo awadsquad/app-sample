@@ -38,8 +38,7 @@ public class UserFlights implements Initializable{
 		@FXML
 		private Button btnLoad;
 		
-		private ObservableList<ListenerFlight> flights;
-		private DbConnection();
+
 ;
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
@@ -49,9 +48,7 @@ public class UserFlights implements Initializable{
 			
 		}
 		
-	public ObservableList<ListenerFlight> getFlights() {
-			ObservableList<ListenerFlight>
-		}
+
 		
 		
 	}

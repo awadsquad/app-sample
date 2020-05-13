@@ -12,6 +12,16 @@ public class Flight {
 	public Flight() {
 
 	}
+	
+	public Flight( String destination, int flightNumber, int passengerCount, String date, String time) {
+
+		this.destination = destination;
+		this.flightNumber = flightNumber;
+		this.passengerCount = passengerCount;
+		this.date = date;
+		this.time = time;
+
+	}
 
 	public Flight(String departure, String destination, int flightNumber, int passengerCount, String date, String time) {
 

@@ -28,6 +28,8 @@ public class Main extends Application {
 	public static String userFlightsID = "User Flights";
 	public static String splashScreenFile = "SplashScreen.fxml";
 	public static String splashPageID = "Splash Page";
+	public static String flightListingsFile = "FlightListings.fxml";
+	public static String flightListingsID = "Flight Listings";
 	
 	public static User currentUser;
 	
@@ -41,9 +43,8 @@ public class Main extends Application {
 			mainContainer.loadScreen(Main.createAccountID, createAccountFile);
 			mainContainer.loadScreen(Main.homePageID, homePageFile);
 			mainContainer.loadScreen(Main.profilePageID, profilePageFile);
-			mainContainer.loadScreen(Main.bookingPageID, bookingPageFile);
-			//mainContainer.loadScreen(Main.userFlightsID, userFlightsFile);
-			mainContainer.setScreen(Main.splashPageID);
+			mainContainer.loadScreen(Main.flightListingsID, flightListingsFile);
+			mainContainer.setScreen(Main.splashPageID);;
 			
 			Group root = new Group();
 			root.getChildren().addAll(mainContainer);
