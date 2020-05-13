@@ -224,5 +224,25 @@ public class Queries {
 		}
 
 	}
-
+	
+	public static final String SELECT(String item, String db, String columnName) {
+		
+		try {
+		String returnValue = null;
+		String tempQuer = "SELECT " + item + " FROM " + db + " WHERE " + columnName + " = " + item;
+		System.out.println(tempQuer);
+		Connection con = getConnection();
+		PreparedStatement statement = con.prepareStatement(tempQuer);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			returnValue = result.getString(columnName);
+		}
+		con.close();
+		return returnValue;
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return null;
+		
+	}
 }

@@ -103,7 +103,7 @@ public class LoginPage implements ControlledScreen{
 		submitButton.setOnAction(e -> {
 			String answer = input.getText();
 			if (answer.equals(correct)) {
-				label1.setText("Password: " + "1234"/* Customer.password */);
+				label1.setText(Action.getPassword(answer));
 			} else {
 				label1.setText("Incorrect");
 			}

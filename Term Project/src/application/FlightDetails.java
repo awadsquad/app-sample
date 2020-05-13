@@ -13,8 +13,8 @@ public class FlightDetails {
 		private final StringProperty time;
 
 		// default constructor
-		public FlightDetails(String flightNumber, String destination, String departure, String passengerCount, String date,
-				String time) {
+		public FlightDetails(String flightNumber, String passengerCount, String date, String time, String departure,
+				String destination) {
 
 			this.destination = new SimpleStringProperty(destination);
 			this.departure = new SimpleStringProperty(departure);

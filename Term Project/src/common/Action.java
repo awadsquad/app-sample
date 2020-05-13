@@ -39,7 +39,7 @@ public class Action {
 	
 	}
 	
-	public static Flight bookFlight(String dest, String date, String time) throws Exception {
+	/*public static Flight bookFlight(String dest, String date, String time) throws Exception {
 
 		try { // create database connection
 			Connection connect = Queries.getConnection();
@@ -50,7 +50,7 @@ public class Action {
 			System.out.print("eat a potato");
 			return null;
 		}
-	}
+	}*/
 	
 	//Authenticates Username and password
 	public static boolean validLogin (String a, String b) throws Exception {
@@ -144,6 +144,12 @@ public class Action {
 		output.setSecurityAnswer(arr.get(14));
 		
 		return output;
+	}
+	
+	public static String getPassword(String username) {
+		String password = Queries.SELECT("password", "`world`.`customer_info`", username);
+		return password;
+		
 	}
 	
 	//method to book a flight

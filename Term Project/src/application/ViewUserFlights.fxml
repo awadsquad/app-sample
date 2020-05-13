@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="790.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserFlights">
+<AnchorPane prefHeight="798.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserFlights">
    <children>
       <MenuBar prefHeight="39.0" prefWidth="972.0" style="-fx-background-color: #2196F3;">
         <menus>
@@ -18,7 +18,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="37.0" prefHeight="51.0" prefWidth="972.0" style="-fx-background-color: #2196F3;">
+      <VBox alignment="TOP_CENTER" layoutY="39.0" prefHeight="51.0" prefWidth="972.0" style="-fx-background-color: #2196F3;">
          <children>
             <Label text="My Flights" textFill="WHITE">
                <font>
@@ -27,7 +27,7 @@
             </Label>
          </children>
       </VBox>
-      <TableView fx:id="tableFlight" layoutX="-1.0" layoutY="89.0" prefHeight="638.0" prefWidth="972.0">
+      <TableView fx:id="tableFlight" layoutY="90.0" prefHeight="638.0" prefWidth="972.0">
         <columns>
           <TableColumn fx:id="columnFlightNumber" prefWidth="134.0" text="Flight#" />
           <TableColumn fx:id="columnDeparture" prefWidth="204.0" text="Departure" />
