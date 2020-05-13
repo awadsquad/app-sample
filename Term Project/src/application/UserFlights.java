@@ -1,21 +1,19 @@
 package application;
 
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import com.mysql.cj.conf.StringProperty;
-
-import common.Flight;
-import javafx.beans.property.SimpleStringProperty;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import database.Queries;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class UserFlights implements Initializable{
+public class UserFlights implements ControlledScreen{
 
 	//Variables
 		ScreensController myController;
@@ -24,94 +22,61 @@ public class UserFlights implements Initializable{
 			myController = screenParent;
 		}
 		
-		@FXML 
-		private TableView<ListenerFlight> tableview;
-		
 		@FXML
-		private TableColumn<ListenerFlight, String> destination;
+		private TableView<FlightDetails> tableFlight;
 		@FXML
-		private TableColumn<ListenerFlight, String> date;
+		private TableColumn<FlightDetails, String> columnFlightNumber;
 		@FXML
-		private TableColumn<ListenerFlight, String> time;
+		private TableColumn<FlightDetails, String> columnDeparture;
 		@FXML
-		private TableColumn<ListenerFlight, String> passengerCount;
+		private TableColumn<FlightDetails, String> columnDestination;
+		@FXML
+		private TableColumn<FlightDetails, String> columnDate;
+		@FXML
+		private TableColumn<FlightDetails, String> columnTime;
+		@FXML
+		private TableColumn<FlightDetails, String> columnPassengerCount;
+		@FXML
+		private TableColumn<FlightDetails, String> columnBook;
 		@FXML
 		private Button btnLoad;
 		
-
-;
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
-			destination.setCellValueFactory(new PropertyValueFactory<ListenerFlight, String>(" "));
+		private ObservableList<FlightDetails> data;
+		
+		@FXML
+		private void loadDataFromDatabase(ActionEvent event) throws Exception {
+			try {
+				Connection con = Queries.getConnection();
+				data = FXCollections.observableArrayList();
+				ResultSet rs = con.createStatement().executeQuery("SELECT * FROM `world`.`flights`");
+				while (rs.next()) {
+					data.add(new FlightDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getString(7)));
+				}
+			} catch (Exception ex) {
+				System.out.println("Error" + ex);
+			}
 			
-			//tableView.setItems();
+			columnFlightNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
+			columnDeparture.setCellValueFactory(new PropertyValueFactory<>("departure"));
+			columnDestination.setCellValueFactory(new PropertyValueFactory<>("destination"));
+			columnDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+			columnTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+			columnPassengerCount.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
+			
+			tableFlight.setItems(null);
+			tableFlight.setItems(data);
+			
 			
 		}
 		
 
+
+		
+
 		
 		
-	}
+}
 	
-	//Makes flight object into a listener type
-	class ListenerFlight {
-		
-
-		private SimpleStringProperty destination, flightNumber, passengerCount, date, time;
-		
-		public ListenerFlight(Flight f) {
-			this.destination = new SimpleStringProperty(f.getDestination());
-			this.flightNumber = new SimpleStringProperty(Integer.toString(f.getFlightNumber()));
-			this.passengerCount = new SimpleStringProperty(Integer.toString(f.getPassengerCount()));
-			this.date = new SimpleStringProperty(f.getDate());
-			this.time = new SimpleStringProperty(f.getTime());
-			
-		}
-
-		//Getters and Setters
-		public SimpleStringProperty getDestination() {
-			return destination;
-		}
-
-		public void setDestination(SimpleStringProperty destination) {
-			this.destination = destination;
-		}
-
-		public SimpleStringProperty getFlightNumber() {
-			return flightNumber;
-		}
-
-		public void setFlightNumber(SimpleStringProperty flightNumber) {
-			this.flightNumber = flightNumber;
-		}
-
-		public SimpleStringProperty getPassengerCount() {
-			return passengerCount;
-		}
-
-		public void setPassengerCount(SimpleStringProperty passengerCount) {
-			this.passengerCount = passengerCount;
-		}
-
-		public SimpleStringProperty getDate() {
-			return date;
-		}
-
-		public void setDate(SimpleStringProperty date) {
-			this.date = date;
-		}
-
-		public SimpleStringProperty getTime() {
-			return time;
-		}
-
-		public void setTime(SimpleStringProperty time) {
-			this.time = time;
-		}
-		
-		
-		
-	}
-
-
+	
 
