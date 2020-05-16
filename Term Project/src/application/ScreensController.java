@@ -1,6 +1,8 @@
 package application;
 
 import java.util.HashMap;
+
+import common.Customer;
 import javafx.scene.Node;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

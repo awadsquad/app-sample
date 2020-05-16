@@ -42,6 +42,7 @@ public class AvailableFlights implements ControlledScreen{
 	private TableColumn<FlightDetails, String> columnBook;
 	@FXML
 	private Button btnLoad;
+	@FXML
 	
 	ScreensController myController;
 
@@ -49,6 +50,10 @@ public class AvailableFlights implements ControlledScreen{
 	
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+		
+	}
+	
+	public void bookFlight(ActionEvent event) {
 		
 	}
 

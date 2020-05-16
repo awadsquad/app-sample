@@ -22,16 +22,16 @@ public class Queries {
 
 	public static void main(String[] args) {
 
-		 Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
-		 "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
+		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
+		//  "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
 
 		//System.out.print(Arrays.toString(a));
 
 		
-		 try { INSERT(a);
+		//try { INSERT();
 		 
-		 } catch (Exception e) { // TODO Auto-generated catch block
-		 e.printStackTrace(); }
+		 //} catch (Exception e) { // TODO Auto-generated catch block
+		 //e.printStackTrace(); }
 		 
 
 	}

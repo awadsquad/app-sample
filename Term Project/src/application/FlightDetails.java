@@ -26,28 +26,28 @@ public class FlightDetails {
 		}
 
 		// Getters
-		public StringProperty getDestination() {
-			return destination;
+		public String getDestination() {
+			return destination.get();
 		}
 
-		public StringProperty getDeparture() {
-			return departure;
+		public String getDeparture() {
+			return departure.get();
 		}
 
-		public StringProperty getFlightNumber() {
-			return flightNumber;
+		public String getFlightNumber() {
+			return flightNumber.get();
 		}
 
-		public StringProperty getPassengerCount() {
-			return passengerCount;
+		public String getPassengerCount() {
+			return passengerCount.get();
 		}
 
-		public StringProperty getDate() {
-			return date;
+		public String getDate() {
+			return date.get();
 		}
 
-		public StringProperty getTime() {
-			return time;
+		public String getTime() {
+			return time.get();
 		}
 
 		// setters

@@ -50,19 +50,13 @@ public class BookingPage implements ControlledScreen {
 	//Books Flight
 	public void flightConfirmed(ActionEvent event) {
 		
-		Flight f = new Flight();
-		try {
-			f = Action.bookFlight(destinationInput.getText(), dateInput.getText(), timeInput.getText());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		boolean b = false;
 
-			flightConfirmation.setText("Flight Confirmed");
-			destinationOutput.setText(f.getDestination());
-			timeOutput.setText(f.getTime());
-			dateOutput.setText(f.getDate());
+			flightConfirmation.setText("");
+			destinationOutput.setText("");
+			timeOutput.setText("");
+			dateOutput.setText("");
 	}
 
 }

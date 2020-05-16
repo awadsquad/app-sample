@@ -19,41 +19,46 @@ public class ProfilePage implements ControlledScreen {
 
 	// Page elements
 	@FXML
-	private static Label profileName;
+	private Label profileName;
 
 	@FXML
-	private static Label lName;
+	private Label lName;
 
 	@FXML
-	private static Label fName;
+	private Label fName;
 
 	@FXML
-	private static Label city;
+	private Label city;
 
 	@FXML
-	private static Label phone;
+	private Label phone;
 
 	@FXML
-	private static Label state;
+	private Label state;
 
 	@FXML
-	private static Label email;
+	private Label email;
 
 	@FXML
-	private static Label sSN;
+	private Label sSN;
 	
 	@FXML
 	private Label zipcode;
 	
 	@FXML 
-	private static Label address;
+	private Label address;
 	
-	private static User currentUser;
+	public User currentUser;
+	
+	ProfilePage(User cu) {
+		this.currentUser = cu;
+	}
 	
 	
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+		
 	}
 
 	// Takes user back to Login Page
@@ -70,7 +75,7 @@ public class ProfilePage implements ControlledScreen {
 	}
 	
 
-	public static void setLabels(User currentUser) {
+	public void setLabels(User currentUser) {
 		
 
 		
