@@ -3,18 +3,12 @@ package database;
 
 import common.Customer;
 
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-//import java.sql.ResultSet.Set;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import common.Customer;
 import common.Flight;
 //import exceptions.LoginException;
 
@@ -286,6 +280,16 @@ public static final String SELECT(String item, String tName, String columnName, 
 	}
 	
 	public static final void UPDATE(String tName, String cName, String value) {
-		
+		try {
+			String tempQuer = "UPDATE `world`.`flights`SET`passenger_count` = " + value;
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement delete = con.prepareStatement(tempQuer);
+			delete.executeUpdate();
+			con.close();
+			System.out.println("Update has been completed!");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 }
