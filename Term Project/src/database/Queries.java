@@ -225,11 +225,11 @@ public class Queries {
 
 	}
 	
-	public static final String SELECT(String item, String db, String columnName) {
+	public static final String SELECT(String item, String tName, String columnName) {
 		
 		try {
 		String returnValue = null;
-		String tempQuer = "SELECT " + item + " FROM " + db + " WHERE " + columnName + " = " + item;
+		String tempQuer = "SELECT " + item + " FROM " + tName + " WHERE " + columnName + " = " + item;
 		System.out.println(tempQuer);
 		Connection con = getConnection();
 		PreparedStatement statement = con.prepareStatement(tempQuer);
@@ -243,6 +243,49 @@ public class Queries {
 			System.out.println(ex);
 		}
 		return null;
+		
+	}
+	
+public static final String SELECT(String item, String tName, String columnName, String columnAnswerName) {
+		
+		try {
+		String returnValue = null;
+		String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
+		System.out.println(tempQuer);
+		Connection con = getConnection();
+		PreparedStatement statement = con.prepareStatement(tempQuer);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			returnValue = result.getString(columnName);
+		}
+		con.close();
+		return returnValue;
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return null;
+		
+	}
+	
+	public static final void INSERT(String fl_id, String cu_id) {
+		
+		try {
+			String tempQuer = "INSERT INTO `world`.`reservations`(`flight_id`,`cust_id`) "
+					+ "VALUES (' "+ fl_id + "', '" + cu_id + "')";
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement insert = con.prepareStatement(tempQuer);
+			insert.executeUpdate();
+			con.close();
+			System.out.println("Information has been added!");
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		
+	}
+	
+	public static final void UPDATE(String tName, String cName, String value) {
 		
 	}
 }

@@ -9,6 +9,10 @@ import java.util.logging.Level;
 
 import com.sun.istack.internal.logging.Logger;
 
+import common.Action;
+import common.Admin;
+import common.Customer;
+import common.User;
 import database.Queries;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -20,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class AvailableFlights implements ControlledScreen{
@@ -43,8 +48,11 @@ public class AvailableFlights implements ControlledScreen{
 	@FXML
 	private Button btnLoad;
 	@FXML
+	private TextField input;
 	
 	ScreensController myController;
+	Customer currentUser;
+	Admin currentAdmin;
 
 	private ObservableList<FlightDetails> data;
 	
@@ -54,6 +62,17 @@ public class AvailableFlights implements ControlledScreen{
 	}
 	
 	public void bookFlight(ActionEvent event) {
+		
+		currentUser = (Customer) (myController.getScreen("Customer"));
+		String flightId = input.getText();
+		String custId = currentUser.getId();
+		try {
+		Action.bookFlight(flightId, custId);
+		} catch (Exception ex) {
+			System.out.println("Flight not booked");
+			System.out.println(ex);
+		}
+		
 		
 	}
 

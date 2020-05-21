@@ -30,16 +30,15 @@ public class Home implements ControlledScreen {
 
 	// Opens profile page when Profile button is clicked
 	public void profileButtonPushed(ActionEvent event) {
+		
 		currentUser = (Customer) (myController.getScreen("Customer"));
-		
 		myController.setScreen(Main.profilePageID);
-		
 		
 	}
 
 	// Displays scene for booking flights
 	public void bookingButtonPushed(ActionEvent event) throws Exception {
-
+		currentUser = (Customer) (myController.getScreen("Customer"));
 		myController.setScreen(Main.flightListingsID);
 
 	}

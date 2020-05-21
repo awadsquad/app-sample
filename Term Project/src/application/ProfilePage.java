@@ -50,13 +50,9 @@ public class ProfilePage implements ControlledScreen {
 	
 	public User currentUser;
 	
-	ProfilePage(User cu) {
-		this.currentUser = cu;
-	}
-	
-	
 
 	public void setScreenParent(ScreensController screenParent) {
+		
 		myController = screenParent;
 		
 	}
@@ -75,9 +71,9 @@ public class ProfilePage implements ControlledScreen {
 	}
 	
 
-	public void setLabels(User currentUser) {
+	public void setText (ActionEvent event) {
 		
-
+		currentUser = (Customer) (myController.getScreen("Customer"));
 		
 		try {
 			profileName.setText(currentUser.getUserName());

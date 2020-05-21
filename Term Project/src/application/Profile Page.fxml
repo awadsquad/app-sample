@@ -53,7 +53,7 @@
                         </ImageView>
                         <VBox alignment="TOP_CENTER" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="329.0">
+                              <HBox alignment="CENTER" prefHeight="63.0" prefWidth="329.0">
                                  <children>
                                     <Label fx:id="profileName" style="-fx-text-fill: #757575;">
                                        <font>
@@ -61,55 +61,59 @@
                                        </font>
                                     </Label>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="7.0" top="5.0" />
+                                 </padding>
                               </HBox>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2196f3" height="4.0" layoutX="10.0" layoutY="224.0" stroke="#2196f3" strokeType="INSIDE" width="329.0" />
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="Name:" />
-                                    <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="First" HBox.hgrow="ALWAYS" />
-                                    <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="Last" HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="fName" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="lName" layoutX="62.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="Email:" />
-                                    <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="email" />
+                                    <Label fx:id="email" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="Address:" />
-                                    <Label fx:id="address" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="address" />
+                                    <Label fx:id="address" layoutX="78.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="104.0" spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="City:" />
-                                    <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="city" />
+                                    <Label fx:id="city" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="150.0" spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="State" />
-                                    <Label fx:id="state" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="state" />
+                                    <Label fx:id="state" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="Phone:" />
-                                    <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="phone" />
+                                    <Label fx:id="phone" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <HBox spacing="5.0">
                                  <children>
                                     <Label style="-fx-text-fill: #757575;" text="SSN: " />
-                                    <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text="xxx-xx-xxxx" />
+                                    <Label fx:id="sSN" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #757575;" text=" " />
                                  </children>
                               </HBox>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2196f3" height="4.0" stroke="#2196f3" strokeType="INSIDE" width="329.0" />
                               <AnchorPane prefHeight="87.0" prefWidth="329.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button layoutX="112.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="My Flights" textFill="WHITE" />
+                                    <Button layoutX="209.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="My Flights" textFill="WHITE" />
+                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setText" style="-fx-background-color: #607D8B;" text="Load Information" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                            </children>

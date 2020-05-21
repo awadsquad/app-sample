@@ -58,5 +58,6 @@ public class BookingPage implements ControlledScreen {
 			timeOutput.setText("");
 			dateOutput.setText("");
 	}
+	
 
 }
