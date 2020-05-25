@@ -24,13 +24,12 @@ public class Main extends Application {
 	public static String profilePageID = "Profile Page";
 	public static String bookingPageFile = "BookingPage.fxml";
 	public static String bookingPageID = "Booking Page";
-	public static String userFlightsFile = "UserFlights.fxml";
+	public static String userFlightsFile = "UserFlightsPage.fxml";
 	public static String userFlightsID = "User Flights";
 	public static String splashScreenFile = "SplashScreen.fxml";
 	public static String splashPageID = "Splash Page";
 	public static String flightListingsFile = "FlightListings.fxml";
 	public static String flightListingsID = "Flight Listings";
-	
 	public static User currentUser;
 	
 	@Override
@@ -44,6 +43,7 @@ public class Main extends Application {
 			mainContainer.loadScreen(Main.homePageID, homePageFile);
 			mainContainer.loadScreen(Main.profilePageID, profilePageFile);
 			mainContainer.loadScreen(Main.flightListingsID, flightListingsFile);
+			mainContainer.loadScreen(userFlightsID, userFlightsFile);
 			mainContainer.setScreen(Main.splashPageID);;
 			
 			Group root = new Group();

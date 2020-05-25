@@ -48,7 +48,7 @@
                   <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" style="-fx-background-color: #607D8B;" text="Load" textFill="WHITE" />
                   <Label layoutX="172.0" layoutY="18.0" text="Flight #:" textFill="WHITE" />
                   <TextField fx:id="input" layoutX="243.0" layoutY="12.0" />
-                  <Label fx:id="result" layoutX="99.0" layoutY="18.0" text=" " textFill="WHITE" />
+                  <Label fx:id="result" layoutX="83.0" layoutY="18.0" text=" " textFill="WHITE" />
                   <Button layoutX="476.0" layoutY="12.0" mnemonicParsing="false" onAction="#bookFlight" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
                </children>
             </AnchorPane>

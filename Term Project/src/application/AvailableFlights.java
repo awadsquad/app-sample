@@ -63,6 +63,20 @@ public class AvailableFlights implements ControlledScreen {
 		myController = screenParent;
 
 	}
+	
+	// Takes user back to Login Page
+		public void Logout(ActionEvent event) {
+
+			myController.setScreen(Main.loginPageID);
+		}
+
+		// Takes user back to home page
+		public void home(ActionEvent event) {
+
+			myController.setScreen(Main.homePageID);
+
+		}
+		
 
 	public void bookFlight(ActionEvent event) {
 

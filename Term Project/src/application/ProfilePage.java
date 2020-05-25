@@ -67,7 +67,13 @@ public class ProfilePage implements ControlledScreen {
 	public void home(ActionEvent event) {
 
 		myController.setScreen(Main.homePageID);
+ 
+	}
+	
+	public void userFlights(ActionEvent event) {
 
+		myController.setScreen(Main.userFlightsID);
+ 
 	}
 	
 

@@ -13,15 +13,20 @@ import common.User;
 
 public class Action {
 
-	/*
-	 * public static void main(String[] args) { Customer a = new Customer("sgyuhs",
-	 * "vasgju", "vgvhjas", "bsach@bsjk", "72899", "vsaghj", "hbsdkj", "ncjskl",
-	 * "GA", "1234", "shujis", "ncjskl", "false", "Atl" ); try { Queries.INSERT(a);
-	 * System.out.print("added"); } catch (Exception e) { e.printStackTrace(); } }
-	 */
 
 	// Name of customer info table
 	final static String cTName = "`world`.`customer_info`";
+	
+	//Gets What flights user has reserved
+	public static ArrayList<String> getUserFlights(String userId) {
+		try {
+			Queries.GETCOLUMN("flight_id", "`world`.`reservations`", userId, "user_id");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	//Booking flight method
 	@SuppressWarnings("unused")

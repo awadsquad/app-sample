@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -43,6 +44,8 @@ public class UserFlights implements ControlledScreen{
 		private TableColumn<FlightDetails, String> columnBook;
 		@FXML
 		private Button btnLoad;
+		@FXML
+		private Label result;
 		
 		public User currentUser;
 		
@@ -50,16 +53,19 @@ public class UserFlights implements ControlledScreen{
 		
 		@FXML
 		private void loadDataFromDatabase(ActionEvent event) throws Exception {
-			//TODO fix
+			
 			currentUser = (Customer) (myController.getScreen("Customer"));
+			
 			try {
 				Connection con = Queries.getConnection();
 				data = FXCollections.observableArrayList();
-				ResultSet rs = con.createStatement().executeQuery("SELECT flight_number FROM `world`.`reservations`"
-						+ "WHERE cust_id = " + currentUser.getUserId());
+				String tempQuer = "SELECT * FROM `world`.`flights`"
+						+ "WHERE flight_number IN(SELECT flight_id FROM `world`.`reservations` WHERE cust_id = " + currentUser.getUserId() + ")";
+				System.out.println(tempQuer);
+				ResultSet rs = con.createStatement().executeQuery(tempQuer);
 				while (rs.next()) {
-					data.add(new FlightDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-							rs.getString(6), rs.getString(7)));
+					data.add(new FlightDetails(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6)));
 				}
 			} catch (Exception ex) {
 				System.out.println("Error" + ex);

@@ -126,8 +126,24 @@ public class Queries {
 			return null;
 		}
 	}
+	
+	public static final ArrayList<String> GETCOLUMN(String cName, String tName, String constraint, String contraintCName) throws Exception {
+		try {
+			Connection con = getConnection();
+			PreparedStatement statement = con.prepareStatement("SELECT " + cName + " FROM " + tName + " WHERE " + contraintCName + " = " + constraint);
+			ResultSet result = statement.executeQuery();
+			ArrayList<String> array = new ArrayList<String>();
+			while (result.next()) {
+				array.add(result.getString(cName));
+			}
+			System.out.println("All records have been selected!");
+			con.close();
+			return array;
+		} catch (Exception ex) {
+			return null;
+		}
+	}
 
-	// TODO Fix
 	public static final ArrayList<String> GETCUSTOMERROW(String cName, String identifier) throws Exception {
 
 		try {
