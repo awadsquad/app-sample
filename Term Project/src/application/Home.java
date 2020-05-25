@@ -38,6 +38,7 @@ public class Home implements ControlledScreen {
 
 	// Displays scene for booking flights
 	public void bookingButtonPushed(ActionEvent event) throws Exception {
+		
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		myController.setScreen(Main.flightListingsID);
 

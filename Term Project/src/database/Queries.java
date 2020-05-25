@@ -223,7 +223,7 @@ public class Queries {
 		
 		try {
 		String returnValue = null;
-		String tempQuer = "SELECT " + item + " FROM " + tName + " WHERE " + columnName + " = " + item;
+		String tempQuer = "SELECT " + columnName + " FROM " + tName + " WHERE " + columnName + " = " + item;
 		System.out.println(tempQuer);
 		Connection con = getConnection();
 		PreparedStatement statement = con.prepareStatement(tempQuer);
@@ -234,6 +234,7 @@ public class Queries {
 		con.close();
 		return returnValue;
 		} catch (Exception ex) {
+			System.out.println("Select 1 issue");
 			System.out.println(ex);
 		}
 		return null;
@@ -255,7 +256,10 @@ public static final String SELECT(String item, String tName, String columnName, 
 		con.close();
 		return returnValue;
 		} catch (Exception ex) {
+			System.out.println("Select 2 issue");
+			String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
 			System.out.println(ex);
+			
 		}
 		return null;
 		
@@ -264,7 +268,7 @@ public static final String SELECT(String item, String tName, String columnName, 
 	public static final void INSERT(String fl_id, String cu_id) {
 		
 		try {
-			String tempQuer = "INSERT INTO `world`.`reservations`(`flight_id`,`cust_id`) "
+			String tempQuer = "INSERT INTO `world`.`resevations`(`flight_id`,`cust_id`) "
 					+ "VALUES (' "+ fl_id + "', '" + cu_id + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
@@ -274,6 +278,7 @@ public static final String SELECT(String item, String tName, String columnName, 
 			System.out.println("Information has been added!");
 
 		} catch (Exception ex) {
+			System.out.println("Insert issue");
 			System.out.println(ex);
 		}
 		
@@ -289,6 +294,7 @@ public static final String SELECT(String item, String tName, String columnName, 
 			con.close();
 			System.out.println("Update has been completed!");
 		} catch (Exception ex) {
+			System.out.println("Update issue");
 			System.out.println(ex);
 		}
 	}

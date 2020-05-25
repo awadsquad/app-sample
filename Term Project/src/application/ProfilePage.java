@@ -74,6 +74,7 @@ public class ProfilePage implements ControlledScreen {
 	public void setText (ActionEvent event) {
 		
 		currentUser = (Customer) (myController.getScreen("Customer"));
+		System.out.println(currentUser.getUserId());
 		
 		try {
 			profileName.setText(currentUser.getUserName());

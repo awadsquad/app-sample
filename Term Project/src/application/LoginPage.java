@@ -60,7 +60,6 @@ public class LoginPage implements ControlledScreen{
 		
 				myController.setScreen(Main.homePageID);
 				myController.addScreen("Customer", currentUser);
-				System.out.println(currentUser.getFirstName());
 
 			} else {
 				incorrectLogin();

@@ -35,8 +35,9 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="575.0" layoutY="559.0" />
+      <TextField fx:id="input" layoutX="575.0" layoutY="559.0" />
       <Label layoutX="507.0" layoutY="565.0" text="Flight #:" textFill="WHITE" />
-      <Button layoutX="815.0" layoutY="559.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
+      <Button layoutX="815.0" layoutY="559.0" mnemonicParsing="false" onAction="#bookFlight" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
+      <Label fx:id="result" layoutX="278.0" layoutY="565.0" text=" " textFill="WHITE" />
    </children>
 </AnchorPane>

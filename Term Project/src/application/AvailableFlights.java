@@ -22,12 +22,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AvailableFlights implements ControlledScreen{
+public class AvailableFlights implements ControlledScreen {
 
 	@FXML
 	private TableView<FlightDetails> tableFlight;
@@ -49,33 +50,36 @@ public class AvailableFlights implements ControlledScreen{
 	private Button btnLoad;
 	@FXML
 	private TextField input;
-	
+	@FXML
+	private Label result;
+
 	ScreensController myController;
 	Customer currentUser;
 	Admin currentAdmin;
 
 	private ObservableList<FlightDetails> data;
-	
+
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
-		
+
 	}
-	
+
 	public void bookFlight(ActionEvent event) {
-		
+
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		String flightId = input.getText();
-		String custId = currentUser.getId();
+		String custId = currentUser.getUserId();
+		System.out.println(custId);
+		String output;
 		try {
-		Action.bookFlight(flightId, custId);
+			output = Action.bookFlight(flightId, custId);
+			result.setText(output);
 		} catch (Exception ex) {
 			System.out.println("Flight not booked");
 			System.out.println(ex);
 		}
-		
-		
-	}
 
+	}
 
 	@FXML
 	private void loadDataFromDatabase(ActionEvent event) throws Exception {
@@ -90,19 +94,17 @@ public class AvailableFlights implements ControlledScreen{
 		} catch (Exception ex) {
 			System.out.println("Error" + ex);
 		}
-		
+
 		columnFlightNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		columnDeparture.setCellValueFactory(new PropertyValueFactory<>("departure"));
 		columnDestination.setCellValueFactory(new PropertyValueFactory<>("destination"));
 		columnDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 		columnTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 		columnPassengerCount.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
-		
+
 		tableFlight.setItems(null);
 		tableFlight.setItems(data);
-		
-		
+
 	}
 
 }
-

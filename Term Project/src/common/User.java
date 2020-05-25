@@ -13,7 +13,7 @@ import javafx.scene.Node;
 
 public class User extends Node{
 	
-	private int userId;
+	private String userId;
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -34,7 +34,7 @@ public class User extends Node{
 		
 	}
 	
-	public User(int userId, String firstName, String lastName, String userName, String email, String sSN, String password, String address,
+	public User(String userId, String firstName, String lastName, String userName, String email, String sSN, String password, String address,
 			String city, String state, String zipcode, String securityQuestion, String phone, String status, String securityAnswer) {
 		
 		this.userId = userId;
@@ -206,11 +206,11 @@ public class User extends Node{
 		this.address = address;
 	}
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

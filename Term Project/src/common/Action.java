@@ -24,16 +24,17 @@ public class Action {
 	final static String cTName = "`world`.`customer_info`";
 
 	//Booking flight method
+	@SuppressWarnings("unused")
 	public static String bookFlight(String flightId, String customerId) {
-		int passCount = 0;
+		String passCount;
 		
 		
 		//Checks to see if input is correct
 		if (correctFlightId(flightId)) {
 			//Gets flights number of passengers
 			try {
-				passCount = Integer
-						.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
+				passCount = Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count");
+				System.out.println(passCount);
 			} catch (Exception ex) {
 				return "error";
 			}
@@ -41,13 +42,13 @@ public class Action {
 			//Checks to see if user already booked flight
 			if (alreadyBooked(flightId, customerId) == false) {
 				//Checks to see if passenger limit has been reached
-				if (passCount < 10) {
+				if (true) {
 					try {
 						//Inserts data into reservations table
 						Queries.INSERT(flightId, customerId);
-						++passCount;
+						//++passCount;
 						//adds passenger to flight
-						Queries.UPDATE("`world`.`flights`", "passenger_count", Integer.toString(passCount));
+						Queries.UPDATE("`world`.`flights`", "passenger_count", /*Integer.toString(*/passCount);
 						return "flight booked";
 					} catch (Exception ex) {
 						System.out.println(ex);
@@ -187,7 +188,7 @@ public class Action {
 
 		Customer output = new Customer();
 
-		output.setUserId(Integer.parseInt(arr.get(0)));
+		output.setUserId(arr.get(0));
 		output.setFirstName(arr.get(1));
 		output.setLastName(arr.get(2));
 		output.setUserName(arr.get(3));
