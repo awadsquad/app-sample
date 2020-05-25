@@ -6,38 +6,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="606.0" prefWidth="926.0" style="-fx-background-color: #2196F3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AvailableFlights">
+<AnchorPane prefHeight="380.0" prefWidth="550.0" style="-fx-background-color: #2196F3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AvailableFlights">
    <children>
-      <MenuBar prefHeight="39.0" prefWidth="926.0" style="-fx-background-color: #2196F3;">
-        <menus>
-          <Menu mnemonicParsing="false" text="Menu">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Home" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TableView fx:id="tableFlight" layoutY="80.0" prefHeight="470.0" prefWidth="926.0">
-        <columns>
-            <TableColumn fx:id="columnFlightNumber" prefWidth="75.0" text="Flight#" />
-          <TableColumn fx:id="columnDeparture" prefWidth="180.0" text="Departure" />
-          <TableColumn fx:id="columnDestination" prefWidth="190.0" text="Destination" />
-            <TableColumn fx:id="columnDate" prefWidth="87.0" text="Date" />
-            <TableColumn fx:id="columnTime" prefWidth="90.0" text="Time" />
-            <TableColumn fx:id="columnPassengerCount" prefWidth="131.0" text="Passengers" />
-            <TableColumn fx:id="columnBook" prefWidth="172.0" />
-        </columns>
-      </TableView>
-      <Button layoutX="24.0" layoutY="559.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #607D8B;" text="Load Flights" textFill="WHITE" />
-      <Label layoutX="368.0" layoutY="39.0" text="Available Flights" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="24.0" />
-         </font>
-      </Label>
-      <TextField fx:id="input" layoutX="575.0" layoutY="559.0" />
-      <Label layoutX="507.0" layoutY="565.0" text="Flight #:" textFill="WHITE" />
-      <Button layoutX="815.0" layoutY="559.0" mnemonicParsing="false" onAction="#bookFlight" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
-      <Label fx:id="result" layoutX="278.0" layoutY="565.0" text=" " textFill="WHITE" />
+      <VBox alignment="CENTER" prefHeight="380.0" prefWidth="550.0">
+         <children>
+            <MenuBar prefHeight="39.0" prefWidth="926.0" style="-fx-background-color: #2196F3;">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Home" />
+                        <MenuItem mnemonicParsing="false" text="Logout" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label prefHeight="19.0" prefWidth="191.0" text="Available Flights" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <ScrollPane prefHeight="247.0" prefWidth="550.0">
+               <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="554.0">
+                     <children>
+                        <TableView fx:id="tableFlight" prefHeight="575.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="columnFlightNumber" prefWidth="97.0" text="Flight#" />
+                            <TableColumn fx:id="columnDeparture" prefWidth="95.0" text="Departure" />
+                            <TableColumn fx:id="columnDestination" prefWidth="117.0" text="Destination" />
+                              <TableColumn fx:id="columnDate" prefWidth="61.0" text="Date" />
+                              <TableColumn fx:id="columnTime" prefWidth="51.0" text="Time" />
+                              <TableColumn fx:id="columnPassengerCount" prefWidth="119.0" text="Passengers" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <AnchorPane prefHeight="37.0" prefWidth="550.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" style="-fx-background-color: #607D8B;" text="Load" textFill="WHITE" />
+                  <Label layoutX="172.0" layoutY="18.0" text="Flight #:" textFill="WHITE" />
+                  <TextField fx:id="input" layoutX="243.0" layoutY="12.0" />
+                  <Label fx:id="result" layoutX="99.0" layoutY="18.0" text=" " textFill="WHITE" />
+                  <Button layoutX="476.0" layoutY="12.0" mnemonicParsing="false" onAction="#bookFlight" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

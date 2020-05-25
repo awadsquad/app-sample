@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfilePage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfilePage">
    <children>
       <VBox style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
          <children>
@@ -112,8 +112,8 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2196f3" height="4.0" stroke="#2196f3" strokeType="INSIDE" width="329.0" />
                               <AnchorPane prefHeight="87.0" prefWidth="329.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button layoutX="209.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="My Flights" textFill="WHITE" />
-                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setText" style="-fx-background-color: #607D8B;" text="Load Information" textFill="WHITE" />
+                                    <Button layoutX="209.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="My Flights" textFill="WHITE" />
+                                    <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#setText" style="-fx-background-color: #607D8B;" text="Load Information" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                            </children>

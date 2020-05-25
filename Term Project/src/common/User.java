@@ -77,6 +77,8 @@ public class User extends Node{
 		
 		flights = new ArrayList<>();
 	}
+	
+	
 
 	public String getFirstName() {
 		return firstName;

@@ -251,13 +251,12 @@ public static final String SELECT(String item, String tName, String columnName, 
 		PreparedStatement statement = con.prepareStatement(tempQuer);
 		ResultSet result = statement.executeQuery();
 		while (result.next()) {
-			returnValue = result.getString(columnName);
+			returnValue = result.getString(columnAnswerName);
 		}
 		con.close();
 		return returnValue;
 		} catch (Exception ex) {
 			System.out.println("Select 2 issue");
-			String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
 			System.out.println(ex);
 			
 		}
@@ -268,7 +267,7 @@ public static final String SELECT(String item, String tName, String columnName, 
 	public static final void INSERT(String fl_id, String cu_id) {
 		
 		try {
-			String tempQuer = "INSERT INTO `world`.`resevations`(`flight_id`,`cust_id`) "
+			String tempQuer = "INSERT INTO `world`.`reservations`(`flight_id`,`cust_id`) "
 					+ "VALUES (' "+ fl_id + "', '" + cu_id + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
@@ -284,9 +283,9 @@ public static final String SELECT(String item, String tName, String columnName, 
 		
 	}
 	
-	public static final void UPDATE(String tName, String cName, String value) {
+	public static final void UPDATE(String tName, String cName, String value, String constraint, String constraintCName) {
 		try {
-			String tempQuer = "UPDATE `world`.`flights`SET`passenger_count` = " + value;
+			String tempQuer = "UPDATE `world`.`flights`SET`passenger_count` = " + value + " WHERE " + constraintCName + " = " + constraint;
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement delete = con.prepareStatement(tempQuer);

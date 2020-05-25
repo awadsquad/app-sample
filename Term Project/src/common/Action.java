@@ -26,15 +26,14 @@ public class Action {
 	//Booking flight method
 	@SuppressWarnings("unused")
 	public static String bookFlight(String flightId, String customerId) {
-		String passCount;
+		int passCount;
 		
 		
 		//Checks to see if input is correct
 		if (correctFlightId(flightId)) {
 			//Gets flights number of passengers
 			try {
-				passCount = Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count");
-				System.out.println(passCount);
+				passCount = Integer.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
 			} catch (Exception ex) {
 				return "error";
 			}
@@ -42,13 +41,13 @@ public class Action {
 			//Checks to see if user already booked flight
 			if (alreadyBooked(flightId, customerId) == false) {
 				//Checks to see if passenger limit has been reached
-				if (true) {
+				if (passCount < 10) {
 					try {
 						//Inserts data into reservations table
 						Queries.INSERT(flightId, customerId);
-						//++passCount;
+						++passCount;
 						//adds passenger to flight
-						Queries.UPDATE("`world`.`flights`", "passenger_count", /*Integer.toString(*/passCount);
+						Queries.UPDATE("`world`.`flights`", "passenger_count", Integer.toString(passCount), flightId, "flight_number");
 						return "flight booked";
 					} catch (Exception ex) {
 						System.out.println(ex);
@@ -69,9 +68,16 @@ public class Action {
 	//Checks to see if user already booked flight
 	public static boolean alreadyBooked(String fId, String uId) {
 		try {
-
+			ArrayList<String> flightIds = Queries.GETCOLUMN("flight_id", "`world`.`reservations`");
+			ArrayList<String> userIds = Queries.GETCOLUMN("cust_id", "`world`.`reservations`");
+			for (int i = 0; i < flightIds.size(); i++) {
+				if (fId.equals(flightIds.get(i)) && uId.equals(userIds.get(i))) {
+					return true;
+				}
+			}
 			return false;
 		} catch (Exception ex) {
+			System.out.println("Already booked error");
 			System.out.println(ex);
 			return true;
 		}
