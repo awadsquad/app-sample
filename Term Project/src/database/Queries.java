@@ -17,16 +17,14 @@ public class Queries {
 	public static void main(String[] args) {
 
 		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
-		//  "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
+		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
 
-		//System.out.print(Arrays.toString(a));
+		// System.out.print(Arrays.toString(a));
 
-		
-		//try { INSERT();
-		 
-		 //} catch (Exception e) { // TODO Auto-generated catch block
-		 //e.printStackTrace(); }
-		 
+		// try { INSERT();
+
+		// } catch (Exception e) { // TODO Auto-generated catch block
+		// e.printStackTrace(); }
 
 	}
 
@@ -126,11 +124,13 @@ public class Queries {
 			return null;
 		}
 	}
-	
-	public static final ArrayList<String> GETCOLUMN(String cName, String tName, String constraint, String contraintCName) throws Exception {
+
+	public static final ArrayList<String> GETCOLUMN(String cName, String tName, String constraint,
+			String contraintCName) throws Exception {
 		try {
 			Connection con = getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT " + cName + " FROM " + tName + " WHERE " + contraintCName + " = " + constraint);
+			PreparedStatement statement = con.prepareStatement(
+					"SELECT " + cName + " FROM " + tName + " WHERE " + contraintCName + " = " + constraint);
 			ResultSet result = statement.executeQuery();
 			ArrayList<String> array = new ArrayList<String>();
 			while (result.next()) {
@@ -216,7 +216,7 @@ public class Queries {
 			System.out.println(ex);
 		}
 	}
-	
+
 	public static final void DELETE(String cu, String fl) throws Exception {
 		try {
 			String tempQuer = "DELETE FROM `world`.`reservations` WHERE flight_id = " + fl + " AND cust_id = " + cu;
@@ -249,57 +249,57 @@ public class Queries {
 		}
 
 	}
-	
+
 	public static final String SELECT(String item, String tName, String columnName) {
-		
+
 		try {
-		String returnValue = null;
-		String tempQuer = "SELECT " + columnName + " FROM " + tName + " WHERE " + columnName + " = " + item;
-		System.out.println(tempQuer);
-		Connection con = getConnection();
-		PreparedStatement statement = con.prepareStatement(tempQuer);
-		ResultSet result = statement.executeQuery();
-		while (result.next()) {
-			returnValue = result.getString(columnName);
-		}
-		con.close();
-		return returnValue;
+			String returnValue = null;
+			String tempQuer = "SELECT " + columnName + " FROM " + tName + " WHERE " + columnName + " = " + item;
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement statement = con.prepareStatement(tempQuer);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				returnValue = result.getString(columnName);
+			}
+			con.close();
+			return returnValue;
 		} catch (Exception ex) {
 			System.out.println("Select 1 issue");
 			System.out.println(ex);
 		}
 		return null;
-		
+
 	}
-	
-public static final String SELECT(String item, String tName, String columnName, String columnAnswerName) {
-		
+
+	public static final String SELECT(String item, String tName, String columnName, String columnAnswerName) {
+
 		try {
-		String returnValue = null;
-		String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
-		System.out.println(tempQuer);
-		Connection con = getConnection();
-		PreparedStatement statement = con.prepareStatement(tempQuer);
-		ResultSet result = statement.executeQuery();
-		while (result.next()) {
-			returnValue = result.getString(columnAnswerName);
-		}
-		con.close();
-		return returnValue;
+			String returnValue = null;
+			String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement statement = con.prepareStatement(tempQuer);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				returnValue = result.getString(columnAnswerName);
+			}
+			con.close();
+			return returnValue;
 		} catch (Exception ex) {
 			System.out.println("Select 2 issue");
 			System.out.println(ex);
-			
+
 		}
 		return null;
-		
+
 	}
-	
+
 	public static final void INSERT(String fl_id, String cu_id) {
-		
+
 		try {
-			String tempQuer = "INSERT INTO `world`.`reservations`(`flight_id`,`cust_id`) "
-					+ "VALUES (' "+ fl_id + "', '" + cu_id + "')";
+			String tempQuer = "INSERT INTO `world`.`reservations`(`flight_id`,`cust_id`) " + "VALUES (' " + fl_id
+					+ "', '" + cu_id + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement insert = con.prepareStatement(tempQuer);
@@ -311,12 +311,14 @@ public static final String SELECT(String item, String tName, String columnName, 
 			System.out.println("Insert issue");
 			System.out.println(ex);
 		}
-		
+
 	}
-	
-	public static final void UPDATE(String tName, String cName, String value, String constraint, String constraintCName) {
+
+	public static final void UPDATE(String tName, String cName, String value, String constraint,
+			String constraintCName) {
 		try {
-			String tempQuer = "UPDATE `world`.`flights`SET`passenger_count` = " + value + " WHERE " + constraintCName + " = " + constraint;
+			String tempQuer = "UPDATE `world`.`flights`SET`passenger_count` = " + value + " WHERE " + constraintCName
+					+ " = " + constraint;
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement delete = con.prepareStatement(tempQuer);

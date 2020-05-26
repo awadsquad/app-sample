@@ -56,9 +56,9 @@ public class UserFlights implements ControlledScreen {
 	}
 
 	//Takes user back to Login Page
-	public void Logout(ActionEvent event) {
+	public void back(ActionEvent event) {
 
-		myController.setScreen(Main.loginPageID);
+		myController.setScreen(Main.profilePageID);
 	}
 
 	// Takes user back to home page

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="350.0" prefWidth="550.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountPage">
+<AnchorPane prefHeight="380.0" prefWidth="550.0" style="-fx-background-color: #ffffff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountPage">
    <children>
       <BorderPane prefHeight="448.0" prefWidth="538.0" style="-fx-background-color: #2196F3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -39,7 +39,7 @@
             </VBox>
          </top>
          <center>
-            <ScrollPane style="-fx-background-color: #ffffff;">
+            <ScrollPane prefHeight="299.0" prefWidth="550.0" style="-fx-background-color: #ffffff;">
                <content>
                   <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="380.0" prefWidth="536.0" spacing="20.0" style="-fx-background-color: #ffffff;">
                      <children>
@@ -165,13 +165,6 @@
                   </HBox>
                </content>
             </ScrollPane>
-         </center>
-         <bottom>
-            <Region BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets top="50.0" />
-               </padding>
-            </Region>
-         </bottom></BorderPane>
+         </center></BorderPane>
    </children>
 </AnchorPane>
