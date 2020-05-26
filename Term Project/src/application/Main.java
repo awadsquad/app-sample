@@ -37,14 +37,14 @@ public class Main extends Application {
 		
 	
 			ScreensController mainContainer = new ScreensController();
-			mainContainer.loadScreen(Main.splashPageID, Main.splashScreenFile);
-			mainContainer.loadScreen(Main.loginPageID, loginPageFile);
-			mainContainer.loadScreen(Main.createAccountID, createAccountFile);
-			mainContainer.loadScreen(Main.homePageID, homePageFile);
-			mainContainer.loadScreen(Main.profilePageID, profilePageFile);
-			mainContainer.loadScreen(Main.flightListingsID, flightListingsFile);
+			mainContainer.loadScreen(splashPageID, splashScreenFile);
+			mainContainer.loadScreen(loginPageID, loginPageFile);
+			mainContainer.loadScreen(createAccountID, createAccountFile);
+			mainContainer.loadScreen(homePageID, homePageFile);
+			mainContainer.loadScreen(profilePageID, profilePageFile);
+			mainContainer.loadScreen(flightListingsID, flightListingsFile);
 			mainContainer.loadScreen(userFlightsID, userFlightsFile);
-			mainContainer.setScreen(Main.splashPageID);;
+			mainContainer.setScreen(splashPageID);;
 			
 			Group root = new Group();
 			root.getChildren().addAll(mainContainer);
