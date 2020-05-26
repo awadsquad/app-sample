@@ -18,12 +18,23 @@ public class Action {
 	final static String cTName = "`world`.`customer_info`";
 	
 	//Gets What flights user has reserved
-	public static ArrayList<String> getUserFlights(String userId) {
+	public static String removeUserFlight(String userId, String flightId) {
 		try {
-			Queries.GETCOLUMN("flight_id", "`world`.`reservations`", userId, "user_id");
+			
+			if (correctFlightId(flightId)) {
+				int passCount = Integer.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
+				--passCount;
+				Queries.DELETE(userId, flightId);
+				Queries.UPDATE("`world`.`reservations`", "passenger_count", Integer.toString(passCount), flightId, "flight_number");
+				return "Removed";
+			} else {
+				return "Not found";
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
+			return "Error";
 		}
 		
 	}
@@ -65,7 +76,7 @@ public class Action {
 				return "Already booked";
 			}
 		} else {
-			return "Incorrect flightId";
+			return "Not found";
 		}
 
 	}

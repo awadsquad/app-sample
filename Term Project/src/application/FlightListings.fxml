@@ -6,28 +6,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="380.0" prefWidth="550.0" style="-fx-background-color: #2196F3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AvailableFlights">
+<AnchorPane prefHeight="380.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AvailableFlights">
    <children>
       <VBox alignment="CENTER" prefHeight="380.0" prefWidth="550.0">
          <children>
-            <MenuBar prefHeight="39.0" prefWidth="926.0" style="-fx-background-color: #2196F3;">
+            <MenuBar prefHeight="34.0" prefWidth="550.0" style="-fx-background-color: #2196F3;">
               <menus>
                 <Menu mnemonicParsing="false" text="Menu">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Home" />
-                        <MenuItem mnemonicParsing="false" text="Logout" />
+                    <MenuItem mnemonicParsing="false" onAction="#home" text="Home" />
+                        <MenuItem mnemonicParsing="false" onAction="#Logout" text="Logout" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
-            <Label prefHeight="19.0" prefWidth="191.0" text="Available Flights" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="558.0" style="-fx-background-color: #2196F3;" text="Available Flights" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <ScrollPane prefHeight="247.0" prefWidth="550.0">
+            <ScrollPane prefHeight="257.0" prefWidth="550.0">
                <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="554.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="554.0">
                      <children>
                         <TableView fx:id="tableFlight" prefHeight="575.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
                           <columns>
@@ -43,12 +43,12 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <AnchorPane prefHeight="37.0" prefWidth="550.0">
+            <AnchorPane prefHeight="63.0" prefWidth="550.0">
                <children>
                   <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" style="-fx-background-color: #607D8B;" text="Load" textFill="WHITE" />
-                  <Label layoutX="172.0" layoutY="18.0" text="Flight #:" textFill="WHITE" />
+                  <Label layoutX="172.0" layoutY="18.0" text="Flight #:" />
                   <TextField fx:id="input" layoutX="243.0" layoutY="12.0" />
-                  <Label fx:id="result" layoutX="83.0" layoutY="18.0" text=" " textFill="WHITE" />
+                  <Label fx:id="result" layoutX="83.0" layoutY="18.0" text=" " />
                   <Button layoutX="476.0" layoutY="12.0" mnemonicParsing="false" onAction="#bookFlight" style="-fx-background-color: #607D8B;" text="Book" textFill="WHITE" />
                </children>
             </AnchorPane>

@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="380.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserFlights">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="550.0" style="-fx-background-color: ;">
+      <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="550.0">
          <children>
             <MenuBar prefHeight="39.0" prefWidth="972.0" style="-fx-background-color: #2196F3;">
               <menus>
@@ -45,11 +45,12 @@
             </ScrollPane>
             <AnchorPane prefHeight="109.0" prefWidth="550.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <TextField layoutX="275.0" layoutY="20.0" prefHeight="39.0" prefWidth="168.0" />
+                  <TextField fx:id="input" layoutX="275.0" layoutY="20.0" prefHeight="39.0" prefWidth="168.0" />
                   <Button fx:id="btnLoad" layoutX="8.0" layoutY="20.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" style="-fx-background-color: #607D8B;" text="Load" textFill="WHITE" />
                   <Label layoutX="150.0" layoutY="26.0" text="Flight Number:" />
-                  <Button layoutX="453.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="Remove" textFill="WHITE" />
+                  <Button layoutX="453.0" layoutY="20.0" mnemonicParsing="false" onAction="#removeFlight" style="-fx-background-color: #607D8B;" text="Remove" textFill="WHITE" />
                   <Label fx:id="result" layoutX="78.0" layoutY="26.0" text=" " />
+                  <Label fx:id="result" layoutX="81.0" layoutY="26.0" text=" " />
                </children>
             </AnchorPane>
          </children>

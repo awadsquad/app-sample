@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<StackPane prefHeight="380.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SplashScreen">
+<StackPane prefHeight="361.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SplashScreen">
    <children>
-      <ImageView fx:id="img" fitHeight="409.0" fitWidth="656.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img" fitHeight="369.0" fitWidth="582.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@download.jpg" />
          </image>
       </ImageView>
-      <AnchorPane onKeyPressed="#changeScreen" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane onKeyPressed="#changeScreen" prefHeight="380.0" prefWidth="550.0">
          <children>
             <Hyperlink fx:id="enter" layoutX="46.0" layoutY="252.0" onAction="#changeScreen" style="-fx-text-fill: #ffffff; -fx-border-color: transparent;" text="Husky Air">
                <font>

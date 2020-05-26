@@ -216,6 +216,21 @@ public class Queries {
 			System.out.println(ex);
 		}
 	}
+	
+	public static final void DELETE(String cu, String fl) throws Exception {
+		try {
+			String tempQuer = "DELETE FROM `world`.`reservations` WHERE flight_id = " + fl + " AND cust_id = " + cu;
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement delete = con.prepareStatement(tempQuer);
+			delete.executeUpdate();
+			con.close();
+			System.out.println("Column has been deleted!");
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
 
 	public static final void UPDATE(Flight fl) throws Exception {
 		try {
