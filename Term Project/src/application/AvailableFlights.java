@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -52,6 +53,8 @@ public class AvailableFlights implements ControlledScreen {
 	private TextField input;
 	@FXML
 	private Label result;
+	@FXML
+	private MenuItem admin;
 
 	ScreensController myController;
 	Customer currentUser;
@@ -75,6 +78,18 @@ public class AvailableFlights implements ControlledScreen {
 
 		myController.setScreen(Main.homePageID);
 
+	}
+	
+	//Takes admin to adminPage
+	public void adminPage(ActionEvent event) {
+		
+		currentUser = (Customer) (myController.getScreen("Customer"));
+		if(/*currentUser.getStatus().equals("true")*/ true) {
+			myController.setScreen(Main.adminPageId);
+		} else {
+			admin.setText("Denied");
+		}
+		
 	}
 
 	public void bookFlight(ActionEvent event) {

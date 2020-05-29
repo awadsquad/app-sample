@@ -2,12 +2,8 @@ package application;
 
 import javafx.event.ActionEvent;
 
-import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import common.Customer;
 import common.User;
@@ -74,7 +70,7 @@ public class ProfilePage implements ControlledScreen {
 
 	}
 
-	public void setText(ActionEvent event) {
+	public void setText(ActionEvent e) {
 
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		System.out.println(currentUser.getUserId());

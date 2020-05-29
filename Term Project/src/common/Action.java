@@ -123,16 +123,19 @@ public class Action {
 
 	}
 
-	public static Flight insertFlight(String dest, String date, String time) throws Exception {
-
-		try { // create database connection
-			Connection connect = Queries.getConnection();
-			Flight f1 = new Flight(departure, destination, flightNumber,);
+	public static String insertFlight(String dep, String dest, String date, String time, String pCount) throws Exception {
+		
+		if (dep.equals(null) || dest.equals(null) || date.equals(null) || time.equals(null) || pCount.equals(null)) {
+			return "Empty field";
+		}
+		
+		try {
+			Flight f1 = new Flight(dep, dest, Integer.parseInt(pCount), date, time);
 			Queries.INSERT(f1);
-			return f1;
+			return "added";
 		} catch (Exception o) {
-			System.out.print("eat a potato");
-			return null;
+			System.out.print("o");
+			return "Failed";
 		}
 	}
 
@@ -233,6 +236,20 @@ public class Action {
 		String password = Queries.SELECT("password", "`world`.`customer_info`", username);
 		return password;
 
+	}
+	
+	public static String deleteFlight(String flId) {
+		if (correctFlightId(flId)) {
+			try {
+				Queries.DELETE(flId);
+				return "Deleted";
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "Error";
+			}
+		} else {
+			return "Incorrect #";
+		}
 	}
 
 	// method to book a flight

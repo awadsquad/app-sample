@@ -51,7 +51,7 @@ public class Main extends Application {
 			
 			Group root = new Group();
 			root.getChildren().addAll(mainContainer);
-			Scene scene = new Scene(root, 550, 380);
+			Scene scene = new Scene(root, 550, 400);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			

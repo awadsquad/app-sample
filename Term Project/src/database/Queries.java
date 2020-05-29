@@ -189,7 +189,7 @@ public class Queries {
 		try {
 			String tempQuer = "INSERT INTO `world`.`flights`(`passenger_count`,`date`,`time`, `destination`) VALUES ( "
 					+ fl.getPassengerCount() + ", '" + fl.getDate() + "', '" + fl.getTime() + "', '"
-					+ fl.getDestination() + "')";
+					+ fl.getDeparture() + "', '" + fl.getDestination() + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement insert = con.prepareStatement(tempQuer);
@@ -202,9 +202,9 @@ public class Queries {
 		}
 	}
 
-	public static final void DELETE(Flight fl) throws Exception {
+	public static final void DELETE(String flId) throws Exception {
 		try {
-			String tempQuer = "DELETE FROM `world`.`flights` WHERE flight_number = " + fl.getFlightNumber() + ";";
+			String tempQuer = "DELETE FROM `world`.`flights` WHERE flight_number = " + flId + ";";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement delete = con.prepareStatement(tempQuer);
@@ -225,7 +225,7 @@ public class Queries {
 			PreparedStatement delete = con.prepareStatement(tempQuer);
 			delete.executeUpdate();
 			con.close();
-			System.out.println("Column has been deleted!");
+			System.out.println("Row has been deleted!");
 
 		} catch (Exception ex) {
 			System.out.println(ex);

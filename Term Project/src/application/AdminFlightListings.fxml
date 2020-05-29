@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="380.0" prefWidth="550.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="380.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminPage">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -16,8 +15,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Menu">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Home" />
-                        <MenuItem mnemonicParsing="false" text="Logout" />
+                    <MenuItem mnemonicParsing="false" onAction="#home" text="Home" />
+                        <MenuItem mnemonicParsing="false" onAction="#back" text="Back" />
                   </items>
                 </Menu>
               </menus>
@@ -31,14 +30,14 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="207.0" prefWidth="531.0">
+                        <TableView fx:id="tableFlight" prefHeight="207.0" prefWidth="531.0">
                           <columns>
-                            <TableColumn prefWidth="108.0" text="Flight#" />
-                            <TableColumn prefWidth="99.0" text="Departure" />
-                              <TableColumn prefWidth="107.0" text="Destination" />
-                              <TableColumn minWidth="4.0" prefWidth="49.0" text="Date" />
-                              <TableColumn prefWidth="56.0" text="Time" />
-                              <TableColumn prefWidth="110.0" text="Passengers" />
+                            <TableColumn fx:id="columnFlightNumber" prefWidth="108.0" text="Flight#" />
+                            <TableColumn fx:id="columnDeparture" prefWidth="99.0" text="Departure" />
+                              <TableColumn fx:id="columnDestination" prefWidth="107.0" text="Destination" />
+                              <TableColumn fx:id="columnDate" minWidth="4.0" prefWidth="49.0" text="Date" />
+                              <TableColumn fx:id="columnTime" prefWidth="56.0" text="Time" />
+                              <TableColumn fx:id="columnPassengerCount" prefWidth="110.0" text="Passengers" />
                           </columns>
                         </TableView>
                      </children>
@@ -47,10 +46,11 @@
             </ScrollPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button mnemonicParsing="false" text="Load" />
+                  <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#loadDataFromDatabase" style="-fx-background-color: #607D8B;" text="Load" textFill="WHITE" />
                   <Label text="Flight Number:" />
-                  <TextField />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <TextField fx:id="deleteNumber" />
+                  <Button mnemonicParsing="false" onAction="#deleteFlight" style="-fx-background-color: #607D8B;" text="Delete" textFill="WHITE" />
+                  <Label fx:id="deleteResult" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -73,57 +73,60 @@
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Label text="Flight Number:" />
-                                    <TextField />
+                                    <TextField fx:id="updateNumber" />
                                  </children>
                               </HBox>
+                              <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <ChoiceBox fx:id="flightAttributes" prefHeight="39.0" prefWidth="147.0" style="-fx-background-color: #607D8B;" />
+                                    <TextField fx:id="updateValue" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <Label fx:id="updateResult" text=" " />
                            </children>
                         </VBox>
-                        <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="37.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <ChoiceBox prefWidth="150.0" />
-                              <TextField />
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label text="Insert">
+                        <Label fx:id="result" text="Insert">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Label text="Passengers:" />
-                                    <TextField />
+                                    <TextField fx:id="passInput" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Label text="Date:" />
-                                    <TextField />
+                                    <TextField fx:id="dateInput" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Label text="Time:" />
-                                    <TextField />
+                                    <TextField fx:id="timeInput" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
                                     <Label text="Departure:" />
-                                    <TextField />
+                                    <TextField fx:id="departureInput" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
-                                    <Label text="Destination:" />
+                                    <Label fx:id="destinationInput" text="Destination:" />
                                     <TextField />
                                  </children>
                               </HBox>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="Insert" textFill="WHITE" />
+                              <Label fx:id="insertResult" text=" " />
                            </children>
                         </VBox>
                      </children>

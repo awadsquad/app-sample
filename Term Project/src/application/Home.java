@@ -3,6 +3,7 @@ package application;
 import common.Customer;
 import common.User;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -29,9 +30,9 @@ public class Home implements ControlledScreen {
 	}
 
 	// Opens profile page when Profile button is clicked
-	public void profileButtonPushed(ActionEvent event) {
+	@FXML
+	public void profileButtonPushed(ActionEvent event) throws Exception{
 		
-		currentUser = (Customer) (myController.getScreen("Customer"));
 		myController.setScreen(Main.profilePageID);
 		
 	}

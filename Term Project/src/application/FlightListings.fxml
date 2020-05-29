@@ -16,6 +16,7 @@
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#home" text="Home" />
                         <MenuItem mnemonicParsing="false" onAction="#Logout" text="Logout" />
+                        <MenuItem fx:id="admin" mnemonicParsing="false" onAction="#adminPage" text="Admin Priviledges" />
                   </items>
                 </Menu>
               </menus>

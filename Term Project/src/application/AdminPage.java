@@ -1,7 +1,9 @@
 package application;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
 import common.Action;
 import common.Admin;
@@ -11,17 +13,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminPage {
+public class AdminPage implements ControlledScreen, Initializable {
 
-	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Departure", "Destination", "Date",
-			"Time", "Passengers");
+	ObservableList<String> updateList = FXCollections.observableArrayList("Departure", "Destination", "Date", "Time",
+			"Passengers");
 
 	@FXML
 	private TableView<FlightDetails> tableFlight;
@@ -45,12 +50,45 @@ public class AdminPage {
 	private TextField input;
 	@FXML
 	private Label result;
+	@FXML
+	private ChoiceBox<String> flightAttributes;
+	@FXML
+	private TextField deleteNumber;
+	@FXML
+	private TextField updateValue;
+	@FXML
+	private TextField updateNumber;
+	@FXML
+	private Label updateResult;
+	
+	@FXML
+	private TextField passInput;
+	@FXML
+	private TextField timeInput;
+	@FXML
+	private TextField dateInput;
+	@FXML
+	private TextField departureInput;
+	@FXML
+	private Label destinationInput;
+	@FXML
+	private Label insertResult;
+
+	
 
 	ScreensController myController;
 	Customer currentUser;
 	Admin currentAdmin;
 
 	private ObservableList<FlightDetails> data;
+
+	/*
+	 * @Override public void initialize(URL location, ResourceBundle resources) {
+	 * 
+	 * //Fills in choicebox flightAttributes.setItems(updateList);
+	 * 
+	 * }
+	 */
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -71,11 +109,11 @@ public class AdminPage {
 	}
 
 	public void deleteFlight(ActionEvent e) {
-
+		result.setText(Action.deleteFlight(deleteNumber.getText()));
 	}
 
 	public void insertFlight(ActionEvent e) {
-
+		insertResult.setText(Action.insertFlight(departureInput.getText(), destinationInput.getText(), dateInput.getText(), timeInput.getText(), passInput.getText()));
 	}
 
 	public void updateFlight(ActionEvent e) {
@@ -105,6 +143,13 @@ public class AdminPage {
 
 		tableFlight.setItems(null);
 		tableFlight.setItems(data);
+
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		flightAttributes.setItems(updateList);
 
 	}
 
