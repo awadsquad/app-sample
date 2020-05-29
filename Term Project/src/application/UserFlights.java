@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class UserFlights implements ControlledScreen {
 
-	// Variables
+	//Variables
 	ScreensController myController;
 
 	@FXML
@@ -69,7 +69,7 @@ public class UserFlights implements ControlledScreen {
 	}
 
 	@FXML
-	//Loads user Flights
+	//Loads User Flights
 	private void loadDataFromDatabase(ActionEvent event) throws Exception {
 
 		currentUser = (Customer) (myController.getScreen("Customer"));

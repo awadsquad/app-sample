@@ -1,8 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<AnchorPane prefHeight="380.0" prefWidth="550.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar style="-fx-background-color: #2196F3;">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Home" />
+                        <MenuItem mnemonicParsing="false" text="Logout" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="550.0" style="-fx-background-color: #2196F3;" text="Admin Flights" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <ScrollPane prefHeight="146.0" prefWidth="550.0">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="207.0" prefWidth="531.0">
+                          <columns>
+                            <TableColumn prefWidth="108.0" text="Flight#" />
+                            <TableColumn prefWidth="99.0" text="Departure" />
+                              <TableColumn prefWidth="107.0" text="Destination" />
+                              <TableColumn minWidth="4.0" prefWidth="49.0" text="Date" />
+                              <TableColumn prefWidth="56.0" text="Time" />
+                              <TableColumn prefWidth="110.0" text="Passengers" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Load" />
+                  <Label text="Flight Number:" />
+                  <TextField />
+                  <Button mnemonicParsing="false" text="Delete" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="308.0" prefWidth="529.0" spacing="5.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="58.0" prefWidth="529.0" spacing="10.0">
+                           <children>
+                              <Label text="Update">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Flight Number:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="37.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <ChoiceBox prefWidth="150.0" />
+                              <TextField />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <Label text="Insert">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Passengers:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Date:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Time:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Departure:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Destination:" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

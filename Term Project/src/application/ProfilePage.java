@@ -2,7 +2,6 @@ package application;
 
 import javafx.event.ActionEvent;
 
-
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -41,20 +40,19 @@ public class ProfilePage implements ControlledScreen {
 
 	@FXML
 	private Label sSN;
-	
+
 	@FXML
 	private Label zipcode;
-	
-	@FXML 
+
+	@FXML
 	private Label address;
-	
+
 	public User currentUser;
-	
 
 	public void setScreenParent(ScreensController screenParent) {
-		
+
 		myController = screenParent;
-		
+
 	}
 
 	// Takes user back to Login Page
@@ -67,21 +65,20 @@ public class ProfilePage implements ControlledScreen {
 	public void home(ActionEvent event) {
 
 		myController.setScreen(Main.homePageID);
- 
+
 	}
-	
+
 	public void userFlights(ActionEvent event) {
 
 		myController.setScreen(Main.userFlightsID);
- 
-	}
-	
 
-	public void setText (ActionEvent event) {
-		
+	}
+
+	public void setText(ActionEvent event) {
+
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		System.out.println(currentUser.getUserId());
-		
+
 		try {
 			profileName.setText(currentUser.getUserName());
 			fName.setText(currentUser.getFirstName());
@@ -93,14 +90,11 @@ public class ProfilePage implements ControlledScreen {
 			sSN.setText(currentUser.getsSN());
 			address.setText(currentUser.getAddress());
 			phone.setText(currentUser.getPhone());
-			
+
 		} catch (Exception ex) {
 			System.out.println("Display issue");
 			System.out.println(ex);
 		}
-		
-		
-		
 
 	}
 

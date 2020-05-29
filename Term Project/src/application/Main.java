@@ -30,6 +30,8 @@ public class Main extends Application {
 	public static String splashPageID = "Splash Page";
 	public static String flightListingsFile = "FlightListings.fxml";
 	public static String flightListingsID = "Flight Listings";
+	public static String adminPageFile = "AdminFlightListings.fxml";
+	public static String adminPageId = "Admin Page";
 	public static User currentUser;
 	
 	@Override
@@ -44,6 +46,7 @@ public class Main extends Application {
 			mainContainer.loadScreen(profilePageID, profilePageFile);
 			mainContainer.loadScreen(flightListingsID, flightListingsFile);
 			mainContainer.loadScreen(userFlightsID, userFlightsFile);
+			mainContainer.loadScreen(adminPageId, adminPageFile);
 			mainContainer.setScreen(splashPageID);;
 			
 			Group root = new Group();

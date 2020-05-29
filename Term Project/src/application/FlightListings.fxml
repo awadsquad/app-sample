@@ -39,6 +39,20 @@
                               <TableColumn fx:id="columnPassengerCount" prefWidth="119.0" text="Passengers" />
                           </columns>
                         </TableView>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="554.0">
+                           <children>
+                              <TableView fx:id="tableFlight1" prefHeight="575.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="columnFlightNumber1" prefWidth="97.0" text="Flight#" />
+                                    <TableColumn fx:id="columnDeparture1" prefWidth="95.0" text="Departure" />
+                                    <TableColumn fx:id="columnDestination1" prefWidth="117.0" text="Destination" />
+                                    <TableColumn fx:id="columnDate1" prefWidth="61.0" text="Date" />
+                                    <TableColumn fx:id="columnTime1" prefWidth="51.0" text="Time" />
+                                    <TableColumn fx:id="columnPassengerCount1" prefWidth="119.0" text="Passengers" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </content>

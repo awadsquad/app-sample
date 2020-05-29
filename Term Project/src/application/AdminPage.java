@@ -1,26 +1,16 @@
 package application;
 
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-
-import com.sun.istack.internal.logging.Logger;
 
 import common.Action;
 import common.Admin;
 import common.Customer;
-import common.User;
 import database.Queries;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -28,7 +18,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AvailableFlights implements ControlledScreen {
+public class AdminPage {
+
+	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Departure", "Destination", "Date",
+			"Time", "Passengers");
 
 	@FXML
 	private TableView<FlightDetails> tableFlight;
@@ -64,10 +57,10 @@ public class AvailableFlights implements ControlledScreen {
 
 	}
 
-	// Takes user back to Login Page
-	public void Logout(ActionEvent event) {
+	// Takes user back to BookingPage Page
+	public void back(ActionEvent event) {
 
-		myController.setScreen(Main.loginPageID);
+		myController.setScreen(Main.userFlightsID);
 	}
 
 	// Takes user back to home page
@@ -77,20 +70,15 @@ public class AvailableFlights implements ControlledScreen {
 
 	}
 
-	public void bookFlight(ActionEvent event) {
+	public void deleteFlight(ActionEvent e) {
 
-		currentUser = (Customer) (myController.getScreen("Customer"));
-		String flightId = input.getText();
-		String custId = currentUser.getUserId();
-		System.out.println(custId);
-		String output;
-		try {
-			output = Action.bookFlight(flightId, custId);
-			result.setText(output);
-		} catch (Exception ex) {
-			System.out.println("Flight not booked");
-			System.out.println(ex);
-		}
+	}
+
+	public void insertFlight(ActionEvent e) {
+
+	}
+
+	public void updateFlight(ActionEvent e) {
 
 	}
 
