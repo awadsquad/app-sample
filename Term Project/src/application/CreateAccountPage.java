@@ -24,7 +24,7 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 	// All needed page elements
 	@FXML
 	private TextField sSNInput;
-	
+
 	@FXML
 	private TextField zipcodeInput;
 
@@ -45,7 +45,7 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	@FXML
 	private TextField fNameInput;
-	
+
 	@FXML
 	private TextField lNameInput;
 
@@ -57,18 +57,17 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	@FXML
 	private TextField stateInput;
-	
+
 	@FXML
 	private TextField addressInput;
-	
+
 	@FXML
 	private TextField adminInput;
-	
+
 	@FXML
 	private Label submission;
-	
+
 	private String question;
-	
 
 	ObservableList<String> securityQuestionsList = FXCollections.observableArrayList("Favorite color?",
 			"Favorite food?", "Favorite animal?");
@@ -83,64 +82,69 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		myController.setScreen(Main.loginPageID);
 	}
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		//Fills in choicebox
+
+		// Fills in choicebox
 		securityQuestions.setItems(securityQuestionsList);
-		
+
 	}
 
 	public void createAccount(ActionEvent event) {
-		
+
 		try {
-		//Stores account inputs in Customer Object
-		Customer newAccount = new Customer();
-		
-		newAccount.setFirstName(fNameInput.getText());
-		newAccount.setLastName(lNameInput.getText());
-		newAccount.setEmail(emailInput.getText());
-		newAccount.setPhone(phoneInput.getText());
-		newAccount.setsSN(sSNInput.getText());
-		newAccount.setUserName(userNameInput.getText());
-		newAccount.setPassword(passwordInput.getText());
-		newAccount.setSecurityQuestion(question);
-		newAccount.setSecurityAnswer(answerInput.getText());
-		newAccount.setState(stateInput.getText());
-		newAccount.setCity(cityInput.getText());
-		newAccount.setAddress(addressInput.getText());
-		newAccount.setZipcode(zipcodeInput.getText());
-		
-		
-		
-		//Verifies that user inputs correct admin code and inserts account
-		if (adminInput.getText().equals("admin1234")) {
-			newAccount.setStatus("true");
-			Action.createAccount(newAccount);
-			submission.setText("Admin Approved, Account Created");
-			submission.setTextFill(Paint.valueOf("00CC00"));
-		}
-		
-		else {
-			submission.setText("Admin Denied, Account Created");
-			Action.createAccount(newAccount);
-			submission.setTextFill(Paint.valueOf("00CC00"));
-		}
-		
-		
+			// Stores account inputs in Customer Object
+			Customer newAccount = new Customer();
+
+			newAccount.setFirstName(fNameInput.getText());
+			newAccount.setLastName(lNameInput.getText());
+			newAccount.setEmail(emailInput.getText());
+			newAccount.setPhone(phoneInput.getText());
+			newAccount.setsSN(sSNInput.getText());
+			newAccount.setUserName(userNameInput.getText());
+			newAccount.setPassword(passwordInput.getText());
+			newAccount.setSecurityQuestion(question);
+			newAccount.setSecurityAnswer(answerInput.getText());
+			newAccount.setState(stateInput.getText());
+			newAccount.setCity(cityInput.getText());
+			newAccount.setAddress(addressInput.getText());
+			newAccount.setZipcode(zipcodeInput.getText());
+
+			if (Action.usernameTaken(newAccount.getUserName()) == false) {
+
+				// Verifies that user inputs correct admin code and inserts account
+				if (adminInput.getText().equals("admin1234")) {
+					newAccount.setStatus("true");
+					Action.createAccount(newAccount);
+					submission.setText("Admin Approved, Account Created");
+					submission.setTextFill(Paint.valueOf("00CC00"));
+				}
+
+				else {
+					submission.setText("Admin Denied, Account Created");
+					Action.createAccount(newAccount);
+					submission.setTextFill(Paint.valueOf("00CC00"));
+				}
+
+			}
+			
+			else {
+				submission.setText("Username taken, try again");
+				submission.setTextFill(Paint.valueOf("#FF0000"));
+			}
+
 		} catch (Exception ex) {
 			submission.setText("One or more invalid entry");
 			submission.setTextFill(Paint.valueOf("#FF0000"));
 			System.out.println(ex);
 		}
-		
-		
-	 }
-	//Gets security Question
+
+	}
+
+	// Gets security Question
 	public void getChoice(ActionEvent event) {
 		question = securityQuestions.getValue();
-	
+
 	}
-	 
+
 }

@@ -13,57 +13,59 @@ import common.User;
 
 public class Action {
 
-
 	// Name of customer info table
 	final static String cTName = "`world`.`customer_info`";
-	
-	//Gets What flights user has reserved
+
+	// Gets What flights user has reserved
 	public static String removeUserFlight(String userId, String flightId) {
 		try {
-			
+
 			if (correctFlightId(flightId)) {
-				int passCount = Integer.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
+				int passCount = Integer
+						.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
 				--passCount;
 				Queries.DELETE(userId, flightId);
-				Queries.UPDATE("`world`.`reservations`", "passenger_count", Integer.toString(passCount), flightId, "flight_number");
+				Queries.UPDATE("`world`.`reservations`", "passenger_count", Integer.toString(passCount), flightId,
+						"flight_number");
 				return "Removed";
 			} else {
 				return "Not found";
 			}
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);
 			return "Error";
 		}
-		
+
 	}
 
-	//Booking flight method
+	// Booking flight method
 	@SuppressWarnings("unused")
 	public static String bookFlight(String flightId, String customerId) {
 		int passCount;
-		
-		
-		//Checks to see if input is correct
+
+		// Checks to see if input is correct
 		if (correctFlightId(flightId)) {
-			//Gets flights number of passengers
+			// Gets flights number of passengers
 			try {
-				passCount = Integer.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
+				passCount = Integer
+						.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
 			} catch (Exception ex) {
 				return "error";
 			}
-			
-			//Checks to see if user already booked flight
+
+			// Checks to see if user already booked flight
 			if (alreadyBooked(flightId, customerId) == false) {
-				//Checks to see if passenger limit has been reached
+				// Checks to see if passenger limit has been reached
 				if (passCount < 10) {
 					try {
-						//Inserts data into reservations table
+						// Inserts data into reservations table
 						Queries.INSERT(flightId, customerId);
 						++passCount;
-						//adds passenger to flight
-						Queries.UPDATE("`world`.`flights`", "passenger_count", Integer.toString(passCount), flightId, "flight_number");
+						// adds passenger to flight
+						Queries.UPDATE("`world`.`flights`", "passenger_count", Integer.toString(passCount), flightId,
+								"flight_number");
 						return "flight booked";
 					} catch (Exception ex) {
 						System.out.println(ex);
@@ -80,8 +82,8 @@ public class Action {
 		}
 
 	}
-	
-	//Checks to see if user already booked flight
+
+	// Checks to see if user already booked flight
 	public static boolean alreadyBooked(String fId, String uId) {
 		try {
 			ArrayList<String> flightIds = Queries.GETCOLUMN("flight_id", "`world`.`reservations`");
@@ -98,8 +100,25 @@ public class Action {
 			return true;
 		}
 	}
+	
+	//Checks to see if username already exists
+	public static boolean usernameTaken(String uName) {
+		try {
+			ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+			for(int i = 0; i < usernames.size(); i++) {
+				if (uName.equals(usernames.get(i))) {
+					return true;
+				} 
+			}
+			return false;
 
-	//Checks to see if input is correct
+		} catch (Exception ex) {
+			System.out.println(ex);
+			return true;
+		}
+	}
+
+	// Checks to see if input is correct
 	public static boolean correctFlightId(String id) {
 		try {
 			Queries.SELECT(id, "`world`.`flights`", "flight_number");
@@ -123,12 +142,13 @@ public class Action {
 
 	}
 
-	public static String insertFlight(String dep, String dest, String date, String time, String pCount) throws Exception {
-		
+	public static String insertFlight(String dep, String dest, String date, String time, String pCount)
+			throws Exception {
+
 		if (dep.equals(null) || dest.equals(null) || date.equals(null) || time.equals(null) || pCount.equals(null)) {
 			return "Empty field";
 		}
-		
+
 		try {
 			Flight f1 = new Flight(dep, dest, Integer.parseInt(pCount), date, time);
 			Queries.INSERT(f1);
@@ -173,6 +193,19 @@ public class Action {
 			return false;
 		}
 
+	}
+
+	public static String updateFlight(String value, String cName) {
+		try {
+
+			return "Updated";
+
+		} catch (Exception ex) {
+
+			System.out.println(ex);
+			return "Error";
+
+		}
 	}
 
 	public static User setUser(String username, String password) {
@@ -237,7 +270,7 @@ public class Action {
 		return password;
 
 	}
-	
+
 	public static String deleteFlight(String flId) {
 		if (correctFlightId(flId)) {
 			try {

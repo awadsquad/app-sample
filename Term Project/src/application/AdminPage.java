@@ -60,7 +60,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 	private TextField updateNumber;
 	@FXML
 	private Label updateResult;
-	
+
 	@FXML
 	private TextField passInput;
 	@FXML
@@ -73,8 +73,6 @@ public class AdminPage implements ControlledScreen, Initializable {
 	private Label destinationInput;
 	@FXML
 	private Label insertResult;
-
-	
 
 	ScreensController myController;
 	Customer currentUser;
@@ -113,10 +111,29 @@ public class AdminPage implements ControlledScreen, Initializable {
 	}
 
 	public void insertFlight(ActionEvent e) {
-		insertResult.setText(Action.insertFlight(departureInput.getText(), destinationInput.getText(), dateInput.getText(), timeInput.getText(), passInput.getText()));
+		try {
+			insertResult.setText(Action.insertFlight(departureInput.getText(), destinationInput.getText(),
+					dateInput.getText(), timeInput.getText(), passInput.getText()));
+		} catch (Exception ex) {
+			// TODO Auto-generated catch block
+			System.out.println(ex);
+		}
 	}
 
 	public void updateFlight(ActionEvent e) {
+
+		String choice = flightAttributes.getValue();
+		if (choice.equals("Departure")) {
+
+		} else if (choice.equals("Destination")) {
+
+		} else if (choice.equals("Date")) {
+
+		} else if (choice.equals("Time")) {
+
+		} else if (choice.equals("Passengers")) {
+
+		}
 
 	}
 
