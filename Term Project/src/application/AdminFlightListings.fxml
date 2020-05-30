@@ -125,7 +125,7 @@
                                     <TextField />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #607D8B;" text="Insert" textFill="WHITE" />
+                              <Button mnemonicParsing="false" onAction="#insertFlight" style="-fx-background-color: #607D8B;" text="Insert" textFill="WHITE" />
                               <Label fx:id="insertResult" text=" " />
                            </children>
                         </VBox>

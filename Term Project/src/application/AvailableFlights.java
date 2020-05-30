@@ -32,21 +32,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AvailableFlights implements ControlledScreen {
 
 	@FXML
-	private TableView<FlightDetails> tableFlight;
+	private TableView<FlightDetails> tableFlight1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnFlightNumber;
+	private TableColumn<FlightDetails, String> columnFlightNumber1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnDeparture;
+	private TableColumn<FlightDetails, String> columnDeparture1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnDestination;
+	private TableColumn<FlightDetails, String> columnDestination1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnDate;
+	private TableColumn<FlightDetails, String> columnDate1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnTime;
+	private TableColumn<FlightDetails, String> columnTime1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnPassengerCount;
+	private TableColumn<FlightDetails, String> columnPassengerCount1;
 	@FXML
-	private TableColumn<FlightDetails, String> columnBook;
+	private TableColumn<FlightDetails, String> columnBook1;
 	@FXML
 	private Button btnLoad;
 	@FXML
@@ -86,9 +86,8 @@ public class AvailableFlights implements ControlledScreen {
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		if(/*currentUser.getStatus().equals("true")*/ true) {
 			myController.setScreen(Main.adminPageId);
-		} else {
-			admin.setText("Denied");
 		}
+			admin.setText("Denied");
 		
 	}
 
@@ -108,7 +107,6 @@ public class AvailableFlights implements ControlledScreen {
 		}
 
 	}
-
 	@FXML
 	private void loadDataFromDatabase(ActionEvent event) throws Exception {
 		try {
@@ -123,15 +121,15 @@ public class AvailableFlights implements ControlledScreen {
 			System.out.println("Error" + ex);
 		}
 
-		columnFlightNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-		columnDeparture.setCellValueFactory(new PropertyValueFactory<>("departure"));
-		columnDestination.setCellValueFactory(new PropertyValueFactory<>("destination"));
-		columnDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-		columnTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-		columnPassengerCount.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
+		columnFlightNumber1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
+		columnDeparture1.setCellValueFactory(new PropertyValueFactory<>("departure"));
+		columnDestination1.setCellValueFactory(new PropertyValueFactory<>("destination"));
+		columnDate1.setCellValueFactory(new PropertyValueFactory<>("date"));
+		columnTime1.setCellValueFactory(new PropertyValueFactory<>("time"));
+		columnPassengerCount1.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
 
-		tableFlight.setItems(null);
-		tableFlight.setItems(data);
+		tableFlight1.setItems(null);
+		tableFlight1.setItems(data);
 
 	}
 
