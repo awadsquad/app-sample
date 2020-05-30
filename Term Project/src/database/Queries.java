@@ -330,4 +330,20 @@ public class Queries {
 			System.out.println(ex);
 		}
 	}
+	
+	public static final void UPDATE(String flightN, String cName, String value) {
+		try {
+			
+			String tempQuer = "UPDATE `world`.`flights`SET`"+ cName + "= `"   + value + "' WHERE flight_number = '" + flightN +"'";
+			System.out.println(tempQuer);
+			Connection con = getConnection();
+			PreparedStatement delete = con.prepareStatement(tempQuer);
+			delete.executeUpdate();
+			con.close();
+			System.out.println("Update has been completed!");
+		} catch (Exception ex) {
+			System.out.println("Update issue");
+			System.out.println(ex);
+		}
+	}
 }
