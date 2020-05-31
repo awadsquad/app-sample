@@ -84,10 +84,13 @@ public class AvailableFlights implements ControlledScreen {
 	public void adminPage(ActionEvent event) {
 		
 		currentUser = (Customer) (myController.getScreen("Customer"));
-		if(/*currentUser.getStatus().equals("true")*/ true) {
+		if(Action.isAdmin(currentUser)) {
 			myController.setScreen(Main.adminPageId);
-		}
+			admin.setText("Admin Flights");
+		} 
+		else {
 			admin.setText("Denied");
+		}
 		
 	}
 
@@ -117,6 +120,7 @@ public class AvailableFlights implements ControlledScreen {
 				data.add(new FlightDetails(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6)));
 			}
+			con.close();
 		} catch (Exception ex) {
 			System.out.println("Error" + ex);
 		}

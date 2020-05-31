@@ -49,7 +49,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 	@FXML
 	private TextField input;
 	@FXML
-	private Label result;
+	private Label deleteResult;
 	@FXML
 	private ChoiceBox<String> flightAttributes;
 	@FXML
@@ -70,7 +70,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 	@FXML
 	private TextField departureInput;
 	@FXML
-	private Label destinationInput;
+	private TextField destinationInput;
 	@FXML
 	private Label insertResult;
 
@@ -79,14 +79,6 @@ public class AdminPage implements ControlledScreen, Initializable {
 	Admin currentAdmin;
 
 	private ObservableList<FlightDetails> data;
-
-	/*
-	 * @Override public void initialize(URL location, ResourceBundle resources) {
-	 * 
-	 * //Fills in choicebox flightAttributes.setItems(updateList);
-	 * 
-	 * }
-	 */
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -107,7 +99,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 	}
 
 	public void deleteFlight(ActionEvent e) {
-		result.setText(Action.deleteFlight(deleteNumber.getText()));
+		Action.deleteFlight(deleteNumber.getText());
 	}
 
 	public void insertFlight(ActionEvent e) {
@@ -121,19 +113,11 @@ public class AdminPage implements ControlledScreen, Initializable {
 	}
 
 	public void updateFlight(ActionEvent e) {
-
+		
+		String fNumber = updateNumber.getText();
 		String choice = flightAttributes.getValue();
-		if (choice.equals("Departure")) {
-
-		} else if (choice.equals("Destination")) {
-
-		} else if (choice.equals("Date")) {
-
-		} else if (choice.equals("Time")) {
-
-		} else if (choice.equals("Passengers")) {
-
-		}
+		String value = updateValue.getText();
+		Action.updateFlight(choice, value, fNumber);
 
 	}
 
@@ -147,6 +131,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 				data.add(new FlightDetails(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6)));
 			}
+			con.close();
 		} catch (Exception ex) {
 			System.out.println("Error" + ex);
 		}

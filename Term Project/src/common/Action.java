@@ -41,8 +41,8 @@ public class Action {
 	}
 
 	// Booking flight method
-	@SuppressWarnings("unused")
 	public static String bookFlight(String flightId, String customerId) {
+
 		int passCount;
 
 		// Checks to see if input is correct
@@ -100,15 +100,15 @@ public class Action {
 			return true;
 		}
 	}
-	
-	//Checks to see if username already exists
+
+	// Checks to see if username already exists
 	public static boolean usernameTaken(String uName) {
 		try {
 			ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
-			for(int i = 0; i < usernames.size(); i++) {
+			for (int i = 0; i < usernames.size(); i++) {
 				if (uName.equals(usernames.get(i))) {
 					return true;
-				} 
+				}
 			}
 			return false;
 
@@ -195,9 +195,54 @@ public class Action {
 
 	}
 
-	public static String updateFlight(String value, String cName) {
+	public static boolean validUsername(String uName) {
 		try {
 
+			ArrayList<String> usernames = Queries.GETCOLUMN("username", "`world`.`customer_info`");
+			for (int i = 0; i < usernames.size(); i++) {
+				if (uName.equals(usernames.get(i))) {
+					return true;
+				}
+			}
+			return false;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
+	public static String getSQuestion(String uName) {
+		return Queries.SELECT(uName, "`world`.`customer_info`", "username", "securtity_question");
+	}
+	
+	public static String getSAnswer(String uName) {
+		return Queries.SELECT(uName, "`world`.`customer_info`", "username", "security_answer");
+	}
+	
+	public static String getPassword(String uName) {
+		return Queries.SELECT(uName, "`world`.`customer_info`", "username", "password");
+	}
+
+	public static String updateFlight(String choice, String value, String fNumber) {
+
+		String cName;
+
+		if (choice.equals("Destination")) {
+			cName = "destination";
+		} else if (choice.equals("Departure")) {
+			cName = "departure";
+		} else if (choice.equals("Date")) {
+			cName = "date";
+		} else if (choice.equals("Time")) {
+			cName = "time";
+		} else {
+			cName = "passenger_count";
+		}
+
+		try {
+
+			Queries.UPDATE(fNumber, cName, value);
 			return "Updated";
 
 		} catch (Exception ex) {
@@ -265,11 +310,6 @@ public class Action {
 		return output;
 	}
 
-	public static String getPassword(String username) {
-		String password = Queries.SELECT("password", "`world`.`customer_info`", username);
-		return password;
-
-	}
 
 	public static String deleteFlight(String flId) {
 		if (correctFlightId(flId)) {
@@ -283,6 +323,14 @@ public class Action {
 		} else {
 			return "Incorrect #";
 		}
+	}
+
+	public static boolean isAdmin(User currentUser) {
+		if (currentUser.getStatus().equals("admin")) {
+			return true;
+		}
+
+		return false;
 	}
 
 	// method to book a flight

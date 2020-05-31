@@ -55,7 +55,7 @@
                                                 <Hyperlink onAction="#forgotPasswordPushed" prefHeight="22.0" prefWidth="65.0" text="Forgot" />
                                              </children>
                                           </HBox>
-                                          <TextField fx:id="passInput" promptText="Password" />
+                                          <PasswordField fx:id="passInput" promptText="Password" />
                                        </children>
                                     </VBox>
                                     <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />

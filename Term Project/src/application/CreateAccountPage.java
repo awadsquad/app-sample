@@ -89,6 +89,12 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 		securityQuestions.setItems(securityQuestionsList);
 
 	}
+	
+	// Gets security Question
+	public String getChoice() {
+			return securityQuestions.getValue();
+
+	}
 
 	public void createAccount(ActionEvent event) {
 
@@ -103,18 +109,19 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 			newAccount.setsSN(sSNInput.getText());
 			newAccount.setUserName(userNameInput.getText());
 			newAccount.setPassword(passwordInput.getText());
-			newAccount.setSecurityQuestion(question);
+			newAccount.setSecurityQuestion(getChoice());
 			newAccount.setSecurityAnswer(answerInput.getText());
 			newAccount.setState(stateInput.getText());
 			newAccount.setCity(cityInput.getText());
 			newAccount.setAddress(addressInput.getText());
 			newAccount.setZipcode(zipcodeInput.getText());
+			
 
 			if (Action.usernameTaken(newAccount.getUserName()) == false) {
 
 				// Verifies that user inputs correct admin code and inserts account
 				if (adminInput.getText().equals("admin1234")) {
-					newAccount.setStatus("true");
+					newAccount.setStatus("admin");
 					Action.createAccount(newAccount);
 					submission.setText("Admin Approved, Account Created");
 					submission.setTextFill(Paint.valueOf("00CC00"));
@@ -141,10 +148,6 @@ public class CreateAccountPage implements ControlledScreen, Initializable {
 
 	}
 
-	// Gets security Question
-	public void getChoice(ActionEvent event) {
-		question = securityQuestions.getValue();
-
-	}
+	
 
 }

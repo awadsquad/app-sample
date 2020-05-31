@@ -86,9 +86,10 @@
                                  </VBox.margin>
                               </HBox>
                               <Label fx:id="updateResult" text=" " />
+                              <Button mnemonicParsing="false" onAction="#updateFlight" style="-fx-background-color: #607D8B;" text="Update" textFill="WHITE" />
                            </children>
                         </VBox>
-                        <Label fx:id="result" text="Insert">
+                        <Label text="Insert">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -121,8 +122,8 @@
                               </HBox>
                               <HBox alignment="TOP_CENTER" spacing="10.0">
                                  <children>
-                                    <Label fx:id="destinationInput" text="Destination:" />
-                                    <TextField />
+                                    <Label text="Destination:" />
+                                    <TextField fx:id="destinationInput" />
                                  </children>
                               </HBox>
                               <Button mnemonicParsing="false" onAction="#insertFlight" style="-fx-background-color: #607D8B;" text="Insert" textFill="WHITE" />

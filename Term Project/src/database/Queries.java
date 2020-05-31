@@ -1,4 +1,4 @@
-//I am bob
+
 package database;
 
 import common.Customer;
@@ -14,19 +14,6 @@ import common.Flight;
 
 public class Queries {
 
-	public static void main(String[] args) {
-
-		// Customer a = new Customer("he", "bds", "bhj", "cfsy@jnk", "5627", "vgha",
-		// "gshu", "bhds", "GA", "235678", "bsj", "63784", "true", "sbyhu");
-
-		// System.out.print(Arrays.toString(a));
-
-		// try { INSERT();
-
-		// } catch (Exception e) { // TODO Auto-generated catch block
-		// e.printStackTrace(); }
-
-	}
 
 	public static Connection getConnection() throws Exception {
 
@@ -59,7 +46,7 @@ public class Queries {
 					+ ",ssn" + ",securtity_question" + ",security_answer) VALUES ('" + cust.getFirstName() + "', '"
 					+ cust.getLastName() + "', '" + cust.getUserName() + "', '" + cust.getPassword() + "', '"
 					+ cust.getAddress() + "', " + cust.getZipcode() + ", '" + cust.getCity() + "', '" + cust.getState()
-					+ "', '" + cust.getPhone() + "', '" + cust.getEmail() + "', '" + cust.getState() + "', "
+					+ "', '" + cust.getPhone() + "', '" + cust.getEmail() + "', '" + cust.getStatus() + "', "
 					+ cust.getsSN() + ", '" + cust.getSecurityQuestion() + "', '" + cust.getSecurityAnswer() + "')";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
@@ -174,7 +161,7 @@ public class Queries {
 				array.add(result.getString(arr[14]));
 
 			}
-
+			con.close();
 			System.out.println("All done");
 			return array;
 
@@ -276,7 +263,7 @@ public class Queries {
 
 		try {
 			String returnValue = null;
-			String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = " + item;
+			String tempQuer = "SELECT " + columnAnswerName + " FROM " + tName + " WHERE " + columnName + " = '" + item + "'";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement statement = con.prepareStatement(tempQuer);
@@ -334,7 +321,7 @@ public class Queries {
 	public static final void UPDATE(String flightN, String cName, String value) {
 		try {
 			
-			String tempQuer = "UPDATE `world`.`flights`SET`"+ cName + "= `"   + value + "' WHERE flight_number = '" + flightN +"'";
+			String tempQuer = "UPDATE `world`.`flights` SET "+ cName + "= '"   + value + "' WHERE flight_number = '" + flightN +"'";
 			System.out.println(tempQuer);
 			Connection con = getConnection();
 			PreparedStatement delete = con.prepareStatement(tempQuer);

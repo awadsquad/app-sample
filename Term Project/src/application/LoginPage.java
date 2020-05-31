@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 import common.Action;
 
-public class LoginPage implements ControlledScreen{
+public class LoginPage implements ControlledScreen {
 
 	ScreensController myController;
 
@@ -33,17 +33,17 @@ public class LoginPage implements ControlledScreen{
 
 	@FXML
 	private TextField passInput;
-	
+
 	public static User currentUser;
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-	
+
 	public void setUser(User a) {
 		LoginPage.currentUser = a;
 	}
-	
+
 	public static User getUser() {
 		return currentUser;
 	}
@@ -57,7 +57,7 @@ public class LoginPage implements ControlledScreen{
 		try {
 			if (Action.validLogin(username, password)) {
 				currentUser = Action.setUser(username, password);
-		
+
 				myController.setScreen(Main.homePageID);
 				myController.addScreen("Customer", currentUser);
 
@@ -81,10 +81,12 @@ public class LoginPage implements ControlledScreen{
 
 	// Allows user to get password
 	public void forgotPasswordPushed(ActionEvent event) {
-		LoginPage.passwordForgotten();
+		String username = usernameInput.getText();
+		LoginPage.passwordForgotten(username);
 	}
 
-	public static void passwordForgotten() {
+	public static void passwordForgotten(String username) {
+
 		Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -93,14 +95,14 @@ public class LoginPage implements ControlledScreen{
 
 		Label label = new Label();
 		Label label1 = new Label();
-		label.setText("Favorite color?");
+		label.setText(Action.getSQuestion(username));
 		TextField input = new TextField();
-		String correct = "red";// Customer.answer;
+		String correct = Action.getSAnswer(username);
 		Button submitButton = new Button("Submit");
 		submitButton.setOnAction(e -> {
 			String answer = input.getText();
 			if (answer.equals(correct)) {
-				label1.setText(Action.getPassword(answer));
+				label1.setText(Action.getPassword(username));
 			} else {
 				label1.setText("Incorrect");
 			}
@@ -138,7 +140,5 @@ public class LoginPage implements ControlledScreen{
 		window.setScene(scene);
 		window.showAndWait();
 	}
-
-	
 
 }
