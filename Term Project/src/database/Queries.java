@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import common.Flight;
-//import exceptions.LoginException;
+
 
 public class Queries {
 
