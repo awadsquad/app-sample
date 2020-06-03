@@ -28,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 
 public class AvailableFlights implements ControlledScreen {
 
@@ -104,6 +105,12 @@ public class AvailableFlights implements ControlledScreen {
 		try {
 			output = Action.bookFlight(flightId, custId);
 			result.setText(output);
+			if (output.equals("flight booked")) {
+				result.setTextFill(Paint.valueOf("00CC00"));
+			}
+			else {
+				result.setTextFill(Paint.valueOf("#FF0000"));
+			}
 		} catch (Exception ex) {
 			System.out.println("Flight not booked");
 			System.out.println(ex);

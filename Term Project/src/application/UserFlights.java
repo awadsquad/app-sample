@@ -17,10 +17,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 
 public class UserFlights implements ControlledScreen {
 
-	//Variables
+	// Variables
 	ScreensController myController;
 
 	@FXML
@@ -49,13 +50,13 @@ public class UserFlights implements ControlledScreen {
 	public User currentUser;
 
 	private ObservableList<FlightDetails> data;
-	
-	//Set the screen
+
+	// Set the screen
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
 
-	//Takes user back to Login Page
+	// Takes user back to Login Page
 	public void back(ActionEvent event) {
 
 		myController.setScreen(Main.profilePageID);
@@ -69,7 +70,7 @@ public class UserFlights implements ControlledScreen {
 	}
 
 	@FXML
-	//Loads User Flights
+	// Loads User Flights
 	private void loadDataFromDatabase(ActionEvent event) throws Exception {
 
 		currentUser = (Customer) (myController.getScreen("Customer"));
@@ -100,12 +101,17 @@ public class UserFlights implements ControlledScreen {
 		tableFlight.setItems(data);
 
 	}
-	
-	//Removes User from Flight
+
+	// Removes User from Flight
 	public void removeFlight(ActionEvent e) {
 
 		currentUser = (Customer) (myController.getScreen("Customer"));
 		result.setText(Action.removeUserFlight(currentUser.getUserId(), input.getText()));
+		if (result.getText().equals("Removed")) {
+			result.setTextFill(Paint.valueOf("00CC00"));
+		} else {
+			result.setTextFill(Paint.valueOf("#FF0000"));
+		}
 
 	}
 

@@ -22,12 +22,21 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 
 public class AdminPage implements ControlledScreen, Initializable {
-
+	
+	
 	ObservableList<String> updateList = FXCollections.observableArrayList("Departure", "Destination", "Date", "Time",
 			"Passengers");
+	
+	ScreensController myController;
+	Customer currentUser;
+	Admin currentAdmin;
 
+	private ObservableList<FlightDetails> data;
+	
+	//Variables in UI
 	@FXML
 	private TableView<FlightDetails> tableFlight;
 	@FXML
@@ -74,11 +83,7 @@ public class AdminPage implements ControlledScreen, Initializable {
 	@FXML
 	private Label insertResult;
 
-	ScreensController myController;
-	Customer currentUser;
-	Admin currentAdmin;
-
-	private ObservableList<FlightDetails> data;
+	
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -97,30 +102,47 @@ public class AdminPage implements ControlledScreen, Initializable {
 		myController.setScreen(Main.homePageID);
 
 	}
-
+	
+	//Allows admin to remove a flight
 	public void deleteFlight(ActionEvent e) {
 		Action.deleteFlight(deleteNumber.getText());
 	}
-
+	
+	//Allows admin to make a new flight
 	public void insertFlight(ActionEvent e) {
 		try {
 			insertResult.setText(Action.insertFlight(departureInput.getText(), destinationInput.getText(),
 					dateInput.getText(), timeInput.getText(), passInput.getText()));
+			if(insertResult.getText().equals("Added")) {
+				insertResult.setTextFill(Paint.valueOf("#00CC00"));
+			}
+			else {
+				insertResult.setTextFill(Paint.valueOf("#FF0000"));
+			}
 		} catch (Exception ex) {
-			// TODO Auto-generated catch block
+			
 			System.out.println(ex);
 		}
 	}
-
+	
+	//Allows admin to access change different attributes of Flight
 	public void updateFlight(ActionEvent e) {
 		
 		String fNumber = updateNumber.getText();
 		String choice = flightAttributes.getValue();
 		String value = updateValue.getText();
-		Action.updateFlight(choice, value, fNumber);
+		updateResult.setText(Action.updateFlight(choice, value, fNumber));
+		if (updateResult.getText().equals("Updated")) {
+			updateResult.setTextFill(Paint.valueOf("#00CC00"));
+		}
+		else {
+			updateResult.setTextFill(Paint.valueOf("#FF0000"));
+		}
 
 	}
-
+	
+	
+	//Loads table showing flights in database
 	@FXML
 	private void loadDataFromDatabase(ActionEvent event) throws Exception {
 		try {
@@ -147,7 +169,8 @@ public class AdminPage implements ControlledScreen, Initializable {
 		tableFlight.setItems(data);
 
 	}
-
+	
+	//Sets up list of attributes that can be updated
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 

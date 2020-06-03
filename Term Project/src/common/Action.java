@@ -13,7 +13,7 @@ public class Action {
 	public static String removeUserFlight(String userId, String flightId) {
 		try {
 
-			if (correctFlightId(flightId)) {
+			if (alreadyBooked(flightId, userId)) {
 				int passCount = Integer
 						.parseInt(Queries.SELECT(flightId, "`world`.`flights`", "flight_number", "passenger_count"));
 				--passCount;
@@ -121,6 +121,8 @@ public class Action {
 			return false;
 		}
 	}
+	
+	
 
 	// Gets account info from window and stores in database
 	public static void createAccount(Customer cust) throws Exception {
@@ -134,6 +136,8 @@ public class Action {
 		}
 
 	}
+	
+	
 
 	public static String insertFlight(String dep, String dest, String date, String time, String pCount)
 			throws Exception {
@@ -145,7 +149,7 @@ public class Action {
 		try {
 			Flight f1 = new Flight(dep, dest, Integer.parseInt(pCount), date, time);
 			Queries.INSERT(f1);
-			return "added";
+			return "Added";
 		} catch (Exception o) {
 			System.out.print("o");
 			return "Failed";
